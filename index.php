@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Atlantis Lite - Bootstrap 4 Admin Dashboard</title>
+    <title>Community-Alert</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="View/View/assets/img/icon.ico" type="image/x-icon" />
 
@@ -74,86 +74,7 @@
                                 <i class="fa fa-search"></i>
                             </a>
                         </li>
-                        <li class="nav-item dropdown hidden-caret">
-                            <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-bell"></i>
-                                <span class="notification">4</span>
-                            </a>
-                            <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
-                                <li>
-                                    <div class="dropdown-title">Tus notificaciones</div>
-                                </li>
-                                <li>
-                                    <div class="notif-scroll scrollbar-outer">
-                                        <div class="notif-center">
-                                            <a href="#">
-                                                <div class="notif-icon notif-primary"> <i class="fa fa-user-plus"></i> </div>
-                                                <div class="notif-content">
-                                                    <span class="block">
-                                                        Notificación de Prueba
-                                                    </span>
-                                                    <span class="time">Hace 5 minutos</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown hidden-caret">
-                            <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-                                <i class="fas fa-layer-group"></i>
-                            </a>
-                            <div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
-                                <div class="quick-actions-header">
-                                    <span class="title mb-1">Quick Actions</span>
-                                    <span class="subtitle op-8">Shortcuts</span>
-                                </div>
-                                <div class="quick-actions-scroll scrollbar-outer">
-                                    <div class="quick-actions-items">
-                                        <div class="row m-0">
-                                            <a class="col-6 col-md-4 p-0" href="#">
-                                                <div class="quick-actions-item">
-                                                    <i class="flaticon-file-1"></i>
-                                                    <span class="text">Generated Report</span>
-                                                </div>
-                                            </a>
-                                            <a class="col-6 col-md-4 p-0" href="#">
-                                                <div class="quick-actions-item">
-                                                    <i class="flaticon-database"></i>
-                                                    <span class="text">Create New Database</span>
-                                                </div>
-                                            </a>
-                                            <a class="col-6 col-md-4 p-0" href="#">
-                                                <div class="quick-actions-item">
-                                                    <i class="flaticon-pen"></i>
-                                                    <span class="text">Create New Post</span>
-                                                </div>
-                                            </a>
-                                            <a class="col-6 col-md-4 p-0" href="#">
-                                                <div class="quick-actions-item">
-                                                    <i class="flaticon-interface-1"></i>
-                                                    <span class="text">Create New Task</span>
-                                                </div>
-                                            </a>
-                                            <a class="col-6 col-md-4 p-0" href="#">
-                                                <div class="quick-actions-item">
-                                                    <i class="flaticon-list"></i>
-                                                    <span class="text">Completed Tasks</span>
-                                                </div>
-                                            </a>
-                                            <a class="col-6 col-md-4 p-0" href="#">
-                                                <div class="quick-actions-item">
-                                                    <i class="flaticon-file"></i>
-                                                    <span class="text">Create New Invoice</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                    
                         <li class="nav-item dropdown hidden-caret">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <div class="avatar-sm">
@@ -234,32 +155,32 @@
                             <span class="sidebar-mini-icon">
                                 <i class="fa fa-ellipsis-h"></i>
                             </span>
-                            <h4 class="text-section">Components</h4>
+                            <h4 class="text-section">Noticias</h4>
                         </li>
                         
                         <li class="nav-item">
                             <a data-toggle="collapse" href="#submenu">
                                 <i class="fas fa-bars"></i>
-                                <p>Menu Levels</p>
+                                <p>Filtrar busqueda</p>
                                 <span class="caret"></span>
                             </a>
                             <div class="collapse" id="submenu">
                                 <ul class="nav nav-collapse">
                                     <li>
                                         <a data-toggle="collapse" href="#subnav1">
-                                            <span class="sub-item">Level 1</span>
+                                            <span class="sub-item">Choques</span>
                                             <span class="caret"></span>
                                         </a>
                                         <div class="collapse" id="subnav1">
                                             <ul class="nav nav-collapse subnav">
                                                 <li>
                                                     <a href="#">
-                                                        <span class="sub-item">Level 2</span>
+                                                        <span class="sub-item">Motocicletas</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
-                                                        <span class="sub-item">Level 2</span>
+                                                        <span class="sub-item">Colapso de carretera</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -267,14 +188,14 @@
                                     </li>
                                     <li>
                                         <a data-toggle="collapse" href="#subnav2">
-                                            <span class="sub-item">Level 1</span>
+                                            <span class="sub-item">Desastres Naturales</span>
                                             <span class="caret"></span>
                                         </a>
                                         <div class="collapse" id="subnav2">
                                             <ul class="nav nav-collapse subnav">
                                                 <li>
                                                     <a href="#">
-                                                        <span class="sub-item">Level 2</span>
+                                                        <span class="sub-item">Inundación</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -282,7 +203,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <span class="sub-item">Level 1</span>
+                                            <span class="sub-item">Desabastecimiento</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -306,9 +227,9 @@
                         <div class="col-md-4">
                             <div class="card card-dark bg-primary-gradient">
                                 <div class="card-body pb-0">
-                                    <div class="h1 fw-bold float-right">+5%</div>
-                                    <h2 class="mb-2">17</h2>
-                                    <p>Users online</p>
+                                    <div class="h1 fw-bold float-right">+</div>
+                                    <h2 class="mb-2">1</h2>
+                                    <p>Agregar Noticia</p>
                                     <div class="pull-in sparkline-fix chart-as-background">
                                         <div id="lineChart"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
                                     </div>
@@ -318,9 +239,9 @@
                         <div class="col-md-4">
                             <div class="card card-dark bg-secondary-gradient">
                                 <div class="card-body pb-0">
-                                    <div class="h1 fw-bold float-right">-3%</div>
-                                    <h2 class="mb-2">27</h2>
-                                    <p>New Users</p>
+                                    <div class="h1 fw-bold float-right">5%</div>
+                                    <h2 class="mb-2">Hoy</h2>
+                                    <p>Lluvias</p>
                                     <div class="pull-in sparkline-fix chart-as-background">
                                         <div id="lineChart2"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
                                     </div>
@@ -331,8 +252,8 @@
                             <div class="card card-dark bg-success2">
                                 <div class="card-body pb-0">
                                     <div class="h1 fw-bold float-right">+7%</div>
-                                    <h2 class="mb-2">213</h2>
-                                    <p>Transactions</p>
+                                    <h2 class="mb-2">Economia</h2>
+                                    <p>Gasolina</p>
                                     <div class="pull-in sparkline-fix chart-as-background">
                                         <div id="lineChart3"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
                                     </div>
@@ -345,19 +266,19 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-head-row">
-                                        <div class="card-title">User Statistics</div>
+                                        <div class="card-title">Aumento de Inundaciones</div>
                                         <div class="card-tools">
                                             <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
                                                 <span class="btn-label">
                                                     <i class="fa fa-pencil"></i>
                                                 </span>
-                                                Export
+                                                Exportar
                                             </a>
                                             <a href="#" class="btn btn-info btn-border btn-round btn-sm">
                                                 <span class="btn-label">
                                                     <i class="fa fa-print"></i>
                                                 </span>
-                                                Print
+                                                Imprimir
                                             </a>
                                         </div>
                                     </div>
@@ -376,7 +297,7 @@
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title">Top Products</div>
+                                    <div class="card-title">Noticias</div>
                                 </div>
                                 <div class="card-body pb-0">
                                     <div class="d-flex">
@@ -384,11 +305,9 @@
                                             <img src="View/assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
                                         </div>
                                         <div class="flex-1 pt-1 ml-2">
-                                            <h6 class="fw-bold mb-1">CSS</h6>
-                                            <small class="text-muted">Cascading Style Sheets</small>
+                                            <h6 class="fw-bold mb-1">Contaminación</h6>
                                         </div>
                                         <div class="d-flex ml-auto align-items-center">
-                                            <h3 class="text-info fw-bold">+$17</h3>
                                         </div>
                                     </div>
                                     <div class="separator-dashed"></div>
@@ -397,11 +316,7 @@
                                             <img src="View/assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
                                         </div>
                                         <div class="flex-1 pt-1 ml-2">
-                                            <h6 class="fw-bold mb-1">J.CO Donuts</h6>
-                                            <small class="text-muted">The Best Donuts</small>
-                                        </div>
-                                        <div class="d-flex ml-auto align-items-center">
-                                            <h3 class="text-info fw-bold">+$300</h3>
+                                            <h6 class="fw-bold mb-1">Accidente Sabana Sur</h6>
                                         </div>
                                     </div>
                                     <div class="separator-dashed"></div>
@@ -410,11 +325,7 @@
                                             <img src="View/assets/img/logoproduct3.svg" alt="..." class="avatar-img rounded-circle">
                                         </div>
                                         <div class="flex-1 pt-1 ml-2">
-                                            <h6 class="fw-bold mb-1">Ready Pro</h6>
-                                            <small class="text-muted">Bootstrap 4 Admin Dashboard</small>
-                                        </div>
-                                        <div class="d-flex ml-auto align-items-center">
-                                            <h3 class="text-info fw-bold">+$350</h3>
+                                            <h6 class="fw-bold mb-1">Corte de Agua</h6>
                                         </div>
                                     </div>
                                     <div class="separator-dashed"></div>
