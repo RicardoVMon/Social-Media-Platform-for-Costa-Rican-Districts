@@ -10,7 +10,7 @@
     
     <body class="d-flex flex-column min-vh-100">
 
-        <nav class="navbar bg-dark navbar-dark navbar-extend p-2">
+        <nav class="navbar navbar-dark navbar-extend p-2" style="background-color: #1A2035;">
             <div class="container-fluid">
                 <a class="navbar-brand fs-4 fw-bold" th:href="@{/}">
                     <i class="fa fa-bell mx-2"></i> Vecindario seguro, corazones unidos
@@ -25,8 +25,8 @@
             <div class="col d-flex align-items-center">
                 <div class="container-fluid d-flex flex-column">
                     <form class="pb-5 border-bottom px-5" th:action="@{/user/rutinas}" method="GET">
-                        <div class="text-center fw-bold" style="font-size: 10vh">Community Alert</div>
-                        <h2 class="mb-5 text-center" th:text="#{login.registrarse}">Registro de Usuario</h2>
+                        <div class="text-center fw-bold" style="font-size: 10vh; color: #1F283E;">Community Alert</div>
+                        <h2 class="mb-5 text-center" style="color: #1F283E;" th:text="#{login.registrarse}">Registro de Usuario</h2>
                         <div class="row mb-3">
                             <div class="col">
                                 <div class="form-group form-floating">
@@ -77,7 +77,7 @@
                             <label class="form-label" th:text="#{registro.password}">Contraseña</label>
                         </div>
                         <div class="form-group text-center">
-                            <a href="../index.php" class="btn btn-primary btn-lg" th:text="#{login.inicioSesion}">
+                            <a href="../index.php" class="btn btn-primary btn-lg" style="background-color:#1F283E; border-color: #1F283E;" th:text="#{login.inicioSesion}">
                                 Iniciar Sesión
                             </a>
                         </div>
