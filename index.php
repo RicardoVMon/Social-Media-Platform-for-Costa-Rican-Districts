@@ -70,12 +70,16 @@
                         </form>
                     </div>
                     <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                         <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa fa-plus"></i> 
+                            </a>
+                        </li>
                         <li class="nav-item toggle-nav-search hidden-caret">
                             <a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
                                 <i class="fa fa-search"></i>
                             </a>
                         </li>
-
                         <li class="nav-item dropdown hidden-caret">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <div class="avatar-sm">
@@ -97,15 +101,12 @@
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#">Mi Perfil</a>
                                         <a class="dropdown-item" href="#">Alertas</a>
-                                        <a class="dropdown-item" href="#">Inbox</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Ajustes</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#">Logout</a>
                                     </li>
                                 </div>
                             </ul>
-                        </li>
+                        </li> 
                     </ul>
                 </div>
             </nav>
