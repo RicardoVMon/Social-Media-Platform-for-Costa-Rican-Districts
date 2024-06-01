@@ -37,8 +37,10 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark2">
 
-                <a href="index.html" class="logo">
-                    <img src="View/assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
+                <a href="index.php" class="logo">
+                    <!-- <img src="View/assets/img/logo.svg" alt="navbar brand" class="navbar-brand"> -->
+                    <i class="fa fa-bell mx-1 text-white"></i>
+                    <span class="text-white pb-1" style="font-weight: bold; font-size: 18px;">Community Alert</span>
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon">
@@ -102,7 +104,7 @@
                                         <a class="dropdown-item" href="#">Mi Perfil</a>
                                         <a class="dropdown-item" href="#">Alertas</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Logout</a>
+                                        <a class="dropdown-item" href="View/login.php">Logout</a>
                                     </li>
                                 </div>
                             </ul>
