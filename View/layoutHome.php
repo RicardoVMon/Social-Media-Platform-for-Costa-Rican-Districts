@@ -306,7 +306,7 @@ function mostrarNavBar()
    echo '
    <div class="main-header">
       <div class="logo-header" data-background-color="dark2">
-            <a href="index.php" class="logo">
+            <a href="home.php" class="logo">
                <!-- <img src="assets/img/logo.svg" alt="navbar brand" class="navbar-brand"> -->
                <i class="fa fa-bell mx-1 text-white"></i>
                <span class="text-white pb-1" style="font-weight: bold; font-size: 18px;">Community Alert</span>
@@ -363,7 +363,7 @@ function mostrarNavBar()
                                        <div class="avatar-lg"><img src="assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
                                        <div class="u-text">
                                           <h4>Manuel Díaz</h4>
-                                          <p class="text-muted">mdiaz@ejemplo.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                          <p class="text-muted">mdiaz@ejemplo.com</p><a href="#" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                        </div>
                                     </div>
                               </li>
@@ -417,12 +417,12 @@ function mostrarSideBar()
                   <div class="collapse" id="dashboard">
                      <ul class="nav nav-collapse">
                         <li>
-                           <a href="../demo1/index.html">
+                           <a href="#">
                            <span class="sub-item">Todas Las Comunidades</span>
                            </a>
                         </li>
                         <li>
-                           <a href="../demo2/index.html">
+                           <a href="#">
                            <span class="sub-item">Mi Comunidad</span>
                            </a>
                         </li>
