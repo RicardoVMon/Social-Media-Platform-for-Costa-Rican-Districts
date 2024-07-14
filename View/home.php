@@ -4,7 +4,7 @@
 <html lang="en">
 <?php head(); ?>
 
-<body data-background-color="dark">
+<body data-background-color="light">
 
     <div class="wrapper">
         <!-- Nav Bar -->
