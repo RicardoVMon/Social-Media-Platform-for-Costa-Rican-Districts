@@ -36,7 +36,7 @@
                             <label class="form-label"th:text="#{login.password}">Contraseña</label>
                         </div>
                         <div class="form-group text-center">
-                            <a href="home.php" class="btn btn-primary btn-lg" style="background-color:#1F283E; border-color: #1F283E;" th:text="#{login.inicioSesion}">
+                            <a href="../User/Home/home.php" class="btn btn-primary btn-lg" style="background-color:#1F283E; border-color: #1F283E;" th:text="#{login.inicioSesion}">
                                 Iniciar Sesión
                             </a>
                         </div>

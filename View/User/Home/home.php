@@ -1,4 +1,4 @@
-<?php include_once 'layoutHome.php'; ?>
+<?php include_once '../Layout/layoutHome.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,46 +19,63 @@
                 <div class="page-inner">
                     <div class="page-inner-top">
                         <div class="mt-2 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fort%C3%ADn.JPG" width="100%" height="150px" style="object-fit: cover;">
-
-                            <div class="d-flex justify-content-between px-4 mt-3">
-                                <div class="d-flex justify-content-start">
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <img src="https://www.heredia.go.cr/sites/default/files/bandera-heredia_0.png" style="height: 10vw; width: 10vw; object-fit: cover; margin-top: -6vw;" class="rounded-circle img-fluid">
-                                    </div>
-                                    <div class="mx-3 d-flex flex-column justify-content-start">
-                                        <h1 class="font-weight-bold display-4 mb-0">
-                                            San José de La Montaña
-                                        </h1>
-                                        <h6 class="mb-0">
-                                            La mejor comunidad de Costa Rica!
-                                        </h6>
+                            <h2 class="pb-1">Bienvenido, Manuel!</h2>
+                            <h5 class="op-7 mb-4">Estas son algunas de las noticias que te perdiste mientras no estabas!</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card card-dark bg-primary-gradient">
+                                    <div class="card-body pb-0">
+                                        <div class="h1 fw-bold float-right">2%</div>
+                                        <h2 class="mb-2">PIB</h2>
+                                        <p>Costo de vida</p>
+                                        <div class="pull-in sparkline-fix chart-as-background">
+                                            <div id="lineChart">
+                                                <canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-middle">
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <button class="btn btn-primary btn-round" style="font-size: 1vw;">
-                                            <i class="fa-solid fa-plus mx-1"></i>
-                                            Crear Publicación
-                                        </button>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-dark bg-secondary-gradient">
+                                    <div class="card-body pb-0">
+                                        <div class="h1 fw-bold float-right">5%</div>
+                                        <h2 class="mb-2">Hoy</h2>
+                                        <p>Lluvias</p>
+                                        <div class="pull-in sparkline-fix chart-as-background">
+                                            <div id="lineChart2">
+                                                <canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-dark bg-success2">
+                                    <div class="card-body pb-0">
+                                        <div class="h1 fw-bold float-right">+7%</div>
+                                        <h2 class="mb-2">Economía</h2>
+                                        <p>Gasolina</p>
+                                        <div class="pull-in sparkline-fix chart-as-background">
+                                            <div id="lineChart3">
+                                                <canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Inicio de seccion de contenido -->
+                    <!-- Inicio de sección de contenido -->
                     <div class="row">
                         <!-- Columna de Posts -->
                         <div class="col-md-8">
-
                             <!-- Sección de filtros -->
                             <div class="row mb-3">
                                 <div class="col-3">
-
                                     <select class="custom-select">
-                                        <option selected>
-                                            Más Interactuados
+                                        <option selected>Más Interactuados
                                             <i class="fa-solid fa-filter"></i>
                                         </option>
                                         <option value="1">Reciente</option>
@@ -66,14 +83,13 @@
                                     </select>
                                 </div>
                             </div>
-
-                            <!-- Post -->
+                            <!-- Post 1 -->
                             <div class="col-md-12 px-0">
                                 <div class="card">
                                     <div class="card-header pb-1">
                                         <div class="d-flex">
-                                            <img src="assets/img/profile.jpg" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
-                                            <a href=" #" class="ml-1"><b>Manuel Díaz</b></a>
+                                            <img src="../../assets/img/profile.jpg" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
+                                            <a href="#" class="ml-1"><b>Manuel Díaz</b></a>
                                             <span class="ml-1">10/11/2022</span>
                                         </div>
                                         <div class="card-head-row">
@@ -115,12 +131,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Post 2 -->
                             <div class="col-md-12 px-0">
                                 <div class="card">
                                     <div class="card-header pb-1">
                                         <div class="d-flex">
                                             <img src="https://cdn-icons-png.freepik.com/512/146/146005.png" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
-                                            <a href=" #" class="ml-1"><b>Ana Díaz</b></a>
+                                            <a href="#" class="ml-1"><b>Ana Díaz</b></a>
                                             <span class="ml-1">10/12/2022</span>
                                         </div>
                                         <div class="card-head-row">
@@ -162,8 +179,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                         <!-- Columna de Noticias -->
                         <div class="col-md-4">
@@ -175,28 +190,30 @@
                                     </div>
                                 </div>
                                 <div class="card-body pb-0">
-                                    <!-- Noticia -->
+                                    <!-- Noticia 1 -->
                                     <a href="#" class="col-md-12 px-0 d-flex mb-4">
                                         <div class="avatar">
-                                            <img src="assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="../../assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
                                         </div>
                                         <div class="flex-1 pt-1 ml-2">
                                             <h4 class="fw-bold mb-0">Noticia 1</h4>
                                             <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quas.</small>
                                         </div>
                                     </a>
+                                    <!-- Noticia 2 -->
                                     <a href="#" class="col-md-12 px-0 d-flex mb-4">
                                         <div class="avatar">
-                                            <img src="assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="../../assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
                                         </div>
                                         <div class="flex-1 pt-1 ml-2">
                                             <h4 class="fw-bold mb-0">Noticia 2</h4>
                                             <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quas.</small>
                                         </div>
                                     </a>
+                                    <!-- Noticia 3 -->
                                     <a href="#" class="col-md-12 px-0 d-flex mb-4">
                                         <div class="avatar">
-                                            <img src="assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="../../assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
                                         </div>
                                         <div class="flex-1 pt-1 ml-2">
                                             <h4 class="fw-bold mb-0">Noticia 3</h4>
