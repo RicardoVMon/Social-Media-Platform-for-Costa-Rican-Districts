@@ -154,16 +154,6 @@
                                         <img class="rounded-top" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fort%C3%ADn.JPG" width="100%" height="50px" style="object-fit: cover;">
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="card">
-                                <div class="card-header p-1">
-                                    <div class="d-flex">
-                                        <img class="rounded-top" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fort%C3%ADn.JPG" width="100%" height="50px" style="object-fit: cover;">
-                                    </div>
-                                </div>
                                 <div class="card-body pt-3">
                                     <a href="#" style="text-decoration: none; color: inherit;">
                                         <div class="d-flex justify-content-between">
