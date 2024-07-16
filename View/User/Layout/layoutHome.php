@@ -1,5 +1,9 @@
 <?php
 
+if (session_status() === PHP_SESSION_NONE) {
+   session_start();
+}
+
 function head()
 {
    echo '
@@ -101,8 +105,8 @@ function mostrarNavBar()
                                     <div class="user-box">
                                        <div class="avatar-lg"><img src="../../assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
                                        <div class="u-text">
-                                          <h4>Manuel Díaz</h4>
-                                          <p class="text-muted">mdiaz@ejemplo.com</p><a href="#" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                          <h4>' . $_SESSION['nombreUsuario'] . '</h4>
+                                          <p class="text-muted">' . $_SESSION['email'] . '</p><a href="#" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                        </div>
                                     </div>
                               </li>
@@ -139,8 +143,8 @@ function mostrarSideBar()
                <div class="info">
                   <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                   <span>
-                  Manuel Díaz
-                  <span class="user-level">Heredia</span>
+                  ' . $_SESSION['primerNombre'] . '
+                  <span class="user-level">' . $_SESSION['nombreDistrito'] . '</span>
                   </span>
                   </a>
                   <div class="clearfix"></div>

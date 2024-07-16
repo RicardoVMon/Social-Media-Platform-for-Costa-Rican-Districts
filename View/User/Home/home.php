@@ -1,4 +1,10 @@
-<?php include_once '../Layout/layoutHome.php'; ?>
+<?php include_once '../Layout/layoutHome.php'; 
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +25,7 @@
                 <div class="page-inner">
                     <div class="page-inner-top">
                         <div class="mt-2 mb-4">
-                            <h2 class="pb-1">Bienvenido, Manuel!</h2>
+                            <h2 class="pb-1">Bienvenido, <?php echo $_SESSION['primerNombre']; ?>!</h2>
                             <h5 class="op-7 mb-4">Estas son algunas de las noticias que te perdiste mientras no estabas!</h5>
                         </div>
                         <div class="row">
