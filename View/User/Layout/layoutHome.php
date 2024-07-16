@@ -35,6 +35,7 @@ function head()
 
         <!-- CSS Files -->
         <link rel="stylesheet" href="../../assets/css/atlantis.min.css">
+        <link rel="stylesheet" href="../../assets/css/estilosPost.css">
     </head>
     ';
 }
@@ -79,7 +80,7 @@ function mostrarNavBar()
                </div>
                <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                   <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="../Post/crearNoticia.php">
                            <i class="fa fa-plus"></i>
                         </a>
                   </li>

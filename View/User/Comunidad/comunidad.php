@@ -37,10 +37,10 @@
                                 </div>
                                 <div class="d-flex align-items-middle">
                                     <div class="d-flex flex-column justify-content-center">
-                                        <button class="btn btn-primary btn-round" style="font-size: 1vw;">
+                                        <a href="../Post/crearNoticia.php" class="btn btn-primary btn-round" style="font-size: 1vw;">
                                             <i class="fa-solid fa-plus mx-1"></i>
                                             Crear Publicación
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
