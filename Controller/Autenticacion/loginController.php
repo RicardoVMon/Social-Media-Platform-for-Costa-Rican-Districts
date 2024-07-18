@@ -1,6 +1,10 @@
 <?php
 include_once "../../Model/Autenticacion/loginModel.php";
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (isset($_POST['btnLogin'])) {
 
     $cedula = $_POST['cedula'];
@@ -11,10 +15,6 @@ if (isset($_POST['btnLogin'])) {
     if ($resultadoLogin->num_rows > 0) {
         
         $datos = mysqli_fetch_array($resultadoLogin);
-
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
 
         $_SESSION['idUsuario'] = $datos['id_usuario'];
         $_SESSION['nombreUsuario'] = capitalizarNombre($datos['nombre_usuario']);
