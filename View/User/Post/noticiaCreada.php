@@ -1,5 +1,8 @@
-<?php include_once '../Layout/layoutHome.php';
+<?php 
+include_once '../Layout/layoutHome.php';
 include_once '../../../Controller/PostController/postController.php';
+
+$noticia = VisualizarNoticia();
 ?>
 
 <!DOCTYPE html>
@@ -37,11 +40,11 @@ include_once '../../../Controller/PostController/postController.php';
                                         <div class="card-header pb-1">
                                             <div class="d-flex">
                                                 <img src="assets/img/profile.jpg" class="rounded-circle" style="height: 50px; width: 50px; object-fit: cover;" id="img_usuario">
-                                                <a href="#" class="ml-2"><b id="nombre_usuario">Manuel Díaz</b></a>
-                                                <span class="ml-2" id="fecha-publicacion">10/11/2022</span>
+                                                <a href="#" class="ml-2"><b id="nombre_usuario"><?php echo $noticia['nombre_usuario']; ?></b></a> 
+                                                <span class="ml-2" id="fecha-publicacion"><?php echo $noticia['fecha']; ?></span>
                                             </div>
                                             <div class="card-head-row mt-2">
-                                                <a href="#" class="card-title" style="font-size: 28px;" id="titulo-publicacion">Choque en la Autopista</a>
+                                                <a href="#" class="card-title" style="font-size: 28px;" id="titulo-publicacion"><?php echo $noticia['titulo']; ?></a>
                                                 <div class="card-tools">
                                                     <a href="#" class="btn btn-danger btn-round btn-sm mr-2">
                                                         <span class="btn-label">
@@ -66,7 +69,7 @@ include_once '../../../Controller/PostController/postController.php';
                                         </div>
                                         <div class="card-body">
                                             <p class="mb-0" id="contenido-publicacion">
-                                                Un accidente grave ocurrió esta mañana en la autopista principal de nuestra ciudad, causando interrupciones significativas en el tráfico. Autoridades están en el lugar y se espera que el tráfico se normalice en las próximas horas. Eviten la zona si es posible y manténganse seguros.
+                                                <?php echo $noticia['contenido']; ?>
                                             </p>
                                         </div>
                                         <div class="card-footer">
@@ -112,22 +115,22 @@ include_once '../../../Controller/PostController/postController.php';
                                 <div class="card-body pb-0">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <p>dd/mm/yyyy</p>
-                                            <p>Fecha de Ingreso</p>
+                                        <p>dd/mm/yyyy</p>
+                                            <p>Fecha</p>
                                         </div>
                                         <div class="col-md-6">
                                             <p>#####</p>
-                                            <p># de Miembros</p>
+                                            <p>Número de seguidores</p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <p>#####</p>
-                                            <p># de Posts</p>
+                                            <p>Distrito</p>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>Nombre de Comunidad</p>
-                                            <p>Comunidad</p>
+                                            <p>####</p>
+                                            <p>Canton</p>
                                         </div>
                                     </div>
                                     <!-- links hacia otras vistas -->

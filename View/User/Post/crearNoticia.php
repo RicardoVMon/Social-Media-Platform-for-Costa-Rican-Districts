@@ -75,22 +75,22 @@ include_once '../../../Controller/PostController/postController.php';
                                 <div class="card-body pb-0">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <p>dd/mm/yyyy</p>
+                                        <p>dd/mm/yyyy</p>
                                             <p>Fecha</p>
                                         </div>
                                         <div class="col-md-6">
                                             <p>#####</p>
-                                            <p># de seguidores</p>
+                                            <p>Número de seguidores</p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <p>#####</p>
-                                            <p># de Posts</p>
+                                            <p>Distrito</p>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>Nombre de Comunidad</p>
-                                            <p>Comunidad</p>
+                                            <p>####</p>
+                                            <p>Canton</p>
                                         </div>
                                     </div>
                                     <!-- links hacia otras vistas -->

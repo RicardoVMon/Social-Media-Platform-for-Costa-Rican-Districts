@@ -11,6 +11,7 @@ include_once "../../../Model/Conexion/dbconnection.php";
         cerrarConexion($conexion);
         return $respuesta;
     }
+    
     function obtenerCategoriasBD()
     {
         $conexion = abrirConexion();
@@ -29,5 +30,15 @@ include_once "../../../Model/Conexion/dbconnection.php";
         cerrarConexion($conexion);
         return $respuesta;
     }
+
+
+    function ObtenerInformacionComunidad()
+{
+    $conexion = abrirConexion();
+    $sentencia = "CALL ObtenerInformacionComunidad()";
+    $respuesta = $conexion->query($sentencia);
+    cerrarConexion($conexion);
+    return $respuesta;
+}
 
 ?>
