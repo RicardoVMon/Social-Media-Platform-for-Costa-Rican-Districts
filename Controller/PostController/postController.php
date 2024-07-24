@@ -12,19 +12,16 @@ if (session_status() === PHP_SESSION_NONE) {
         $usuario = $_SESSION['idUsuario'];
         $categoria = $_POST["categoria"];
         
-    //fecha, id categoria (inventar) id persona
         $respuesta = PublicarNoticia($titulo, $noticia, $usuario, $categoria);
     
        if ($respuesta === true) {
-            header("location: ../View/User/Post/noticiaCreada.php");
+            header("location: ../../../View/User/Post/noticiaCreada.php");
         } else {
             $_POST["msj"] = "Error! La noticia no se publicado correctamente.";
         }
     }
 
-    //drop_down categorias
-
-    
+//drop_down categorias
 function obtenerCategorias()
 {
     $resultado = obtenerCategoriasBD();
@@ -40,20 +37,23 @@ function obtenerCategorias()
     }
 }
 
-   /*
+   
 //Se visualiza la noticia despues de crearla
     function VisualizarNoticia()
-    {
-        $respuesta = ObtenerNoticia();
-    
-        if($respuesta->num_rows > 0) {
-            while ($row = mysqli_fetch_array($respuesta)) {
-                echo "<h4>" . $row["Titulo"] . "</h4>";
-                echo "<p>Por: " . $row["id_usuario"] . " en " . $row["fecha"] . "</p>";
-                echo "<p>" . $row["Contenido"] . "</p>";
-                echo "</div>";
-            }
+{
+    $respuesta = ObtenerNoticia();
+
+    if ($respuesta->num_rows > 0) {
+        while ($row = mysqli_fetch_array($respuesta)) {
+            $noticia = [
+                'nombre_usuario' => $row["nombre_usuario"],
+                'fecha' => $row["fecha"],
+                'titulo' => $row["titulo"],
+                'contenido' => $row["contenido"],
+                'id_usuario' => $_SESSION['idUsuario']
+            ];
         }
     }
-    */
-    ?>
+
+    return $noticia;
+}
