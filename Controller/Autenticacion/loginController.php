@@ -23,6 +23,7 @@ if (isset($_POST['btnLogin'])) {
         $_SESSION['idDistrito'] = $datos['id_distrito'];
         $_SESSION['nombreDistrito'] = $datos['nombre_distrito'];
         $_SESSION['rolUsuario'] = $datos['id_role'];
+        $_SESSION['iconoUsuario'] = $datos['icono'];
 
         header("Location: ../../View/User/Home/home.php");
     } else {

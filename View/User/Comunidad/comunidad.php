@@ -1,7 +1,7 @@
-<?php include_once '../Layout/layoutHome.php';
-
-
-
+<?php
+include_once '../Layout/layoutHome.php';
+include_once '../../../Controller/Comunidad/comunidadController.php';
+$datosComunidad = obtenerInformacionComunidad($_GET['q']);
 ?>
 
 <!DOCTYPE html>
@@ -32,10 +32,10 @@
                                     </div>
                                     <div class="mx-3 d-flex flex-column justify-content-start">
                                         <h1 class="font-weight-bold display-4 mb-0">
-                                            San José de La Montaña
+                                            <?php echo $datosComunidad['nombre_distrito']; ?>
                                         </h1>
                                         <h6 class="mb-0">
-                                            La mejor comunidad de Costa Rica!
+                                            <?php echo $datosComunidad['descripcion']; ?>
                                         </h6>
                                     </div>
                                 </div>
@@ -46,13 +46,24 @@
                                             Crear Publicación
                                         </a>
                                     </div>
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <a href="../Post/crearNoticia.php" class="btn btn-primary btn-round" style="font-size: 1vw;">
-                                            <i class="fa-solid fa-plus mx-1"></i>
-                                            <!-- Esto se va a validar segun ya este siguido o se ocupe seguir -->
-                                            Seguir
-                                        </a>
-                                    </div>
+
+                                    <?php 
+                                    
+                                    if ($_SESSION['idDistrito'] != $_GET['q'])
+                                    {
+                                        echo '
+
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <a href="../Post/crearNoticia.php" class="btn btn-primary btn-round" style="font-size: 1vw;">
+                                                <i class="fa-solid fa-plus mx-1"></i>
+                                                <!-- Esto se va a validar segun ya este siguido o se ocupe seguir -->
+                                                Seguir
+                                            </a>
+                                        </div>';
+                                    }
+                                    
+                                     ?>
+
                                 </div>
                             </div>
                         </div>
@@ -79,7 +90,7 @@
                             </div>
 
                             <!-- Post -->
-                            <div class="col-md-12 px-0">
+                            <!-- <div class="col-md-12 px-0">
                                 <div class="card">
                                     <div class="card-header pb-1">
                                         <div class="d-flex">
@@ -172,7 +183,8 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+                            <?php obtenerPosts($_GET['q']); ?>
 
 
                         </div>
@@ -183,6 +195,7 @@
                                     <div class="card-title text-center" style="font-size: 1.5vw;">
                                         <i class="fa-solid fa-newspaper"></i>
                                         Noticias
+
                                     </div>
                                 </div>
                                 <div class="card-body pb-0">

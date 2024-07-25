@@ -1,4 +1,5 @@
-<?php include_once '../Layout/layoutHome.php'; ?>
+<?php include_once '../Layout/layoutHome.php'; 
+include_once '../../../Controller/Comunidad/explorarController.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +43,7 @@
                     <div class="row">
 
                         <!-- Post -->
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <div class="card">
                                 <div class="card-header p-1">
                                     <div class="d-flex">
@@ -278,7 +279,10 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+
+                        <?php obtenerProvincias(); ?>
+
                     </div>
                 </div>
                 <footer class="footer">
