@@ -1,15 +1,23 @@
 <?php
 include_once "../../Model/Conexion/dbconnection.php";
 
-function obtenerProvinciasBD()
+/* function obtenerProvinciasBD()
 {
     $conexion = abrirConexion();
     $query = "CALL obtenerProvincias()";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;
-}
+} */
 
+function obtenerIdDistrito($nombreProvincia, $nombreCanton, $nombreDistrito)
+{
+    $conexion = abrirConexion();
+    $query = "CALL obtenerIdDistrito('$nombreProvincia', '$nombreCanton', '$nombreDistrito')";
+    $resultado = $conexion->query($query);
+    cerrarConexion($conexion);
+    return $resultado;
+}
 function registrarUsuario($cedula, $nombre, $apellidos, $correo, $genero, $contrasennia, $distrito)
 {
     $conexion = abrirConexion();
@@ -19,14 +27,6 @@ function registrarUsuario($cedula, $nombre, $apellidos, $correo, $genero, $contr
     return $resultado;
 }
 
-function obtenerIdDistrito($nombreDistrito)
-{
-    $conexion = abrirConexion();
-    $query = "CALL obtenerIdDistrito('$nombreDistrito')";
-    $resultado = $conexion->query($query);
-    cerrarConexion($conexion);
-    return $resultado;
-}
 
 function obtenerCedula($cedula)
 {

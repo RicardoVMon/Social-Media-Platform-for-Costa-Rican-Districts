@@ -1,7 +1,7 @@
 <?php
 include_once "../../Model/Autenticacion/registroModel.php";
 
-function obtenerProvincias()
+/* function obtenerProvincias()
 {
     $provincias = obtenerProvinciasBD();
 
@@ -13,7 +13,7 @@ function obtenerProvincias()
     }
 
     return $provinciasArray;
-}
+} */
 
 
 if (isset($_POST['btnRegistrar'])) {
@@ -23,7 +23,9 @@ if (isset($_POST['btnRegistrar'])) {
     $apellidos = $_POST['apellidos'];
     $correo = $_POST['correo'];
     $genero = $_POST['genero'];
-    $distrito = $_POST['distrito'];
+    $provincia = $_POST['nombreProvincia'];
+    $canton = $_POST['nombreCanton'];
+    $distrito = $_POST['nombreDistrito'];
     $contrasennia = $_POST['contrasennia'];
 
     $resultadoCedula = obtenerCedula($cedula);
@@ -35,7 +37,7 @@ if (isset($_POST['btnRegistrar'])) {
         return;
     } else {
 
-        $resultadoDistrito = obtenerIdDistrito($distrito);
+        $resultadoDistrito = obtenerIdDistrito($provincia, $canton, $distrito);
 
         if ($resultadoDistrito->num_rows > 0) {
 

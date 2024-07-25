@@ -1,4 +1,8 @@
-<?php include_once '../Layout/layoutHome.php'; ?>
+<?php include_once '../Layout/layoutHome.php';
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,10 +40,17 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-middle">
-                                    <div class="d-flex flex-column justify-content-center">
+                                    <div class="d-flex flex-column justify-content-center mr-3">
                                         <a href="../Post/crearNoticia.php" class="btn btn-primary btn-round" style="font-size: 1vw;">
                                             <i class="fa-solid fa-plus mx-1"></i>
                                             Crear Publicación
+                                        </a>
+                                    </div>
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <a href="../Post/crearNoticia.php" class="btn btn-primary btn-round" style="font-size: 1vw;">
+                                            <i class="fa-solid fa-plus mx-1"></i>
+                                            <!-- Esto se va a validar segun ya este siguido o se ocupe seguir -->
+                                            Seguir
                                         </a>
                                     </div>
                                 </div>

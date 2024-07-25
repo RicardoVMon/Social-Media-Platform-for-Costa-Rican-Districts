@@ -13,7 +13,7 @@ if (isset($_POST['btnLogin'])) {
     $resultadoLogin = loginUsuario($cedula, $contrasennia);
 
     if ($resultadoLogin->num_rows > 0) {
-        
+
         $datos = mysqli_fetch_array($resultadoLogin);
 
         $_SESSION['idUsuario'] = $datos['id_usuario'];
@@ -22,15 +22,20 @@ if (isset($_POST['btnLogin'])) {
         $_SESSION['email'] = $datos['email'];
         $_SESSION['idDistrito'] = $datos['id_distrito'];
         $_SESSION['nombreDistrito'] = $datos['nombre_distrito'];
+        $_SESSION['rolUsuario'] = $datos['id_role'];
 
         header("Location: ../../View/User/Home/home.php");
-
     } else {
 
         $_POST['mensaje'] = "Usuario o contraseña incorrectos";
-
     }
 }
+
+if (isset($_POST["btnCerrarSesion"])) {
+    session_destroy();
+    header("Location: ../../View/Autenticacion/login.php");
+}
+
 
 function capitalizarNombre($nombre)
 {
