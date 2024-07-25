@@ -90,6 +90,7 @@ include_once "../../Controller/Autenticacion/registroController.php";
                                     <option value="" selected disabled>Seleccione la provincia</option>
                                 </select>
                                 <label for="provincia" class="form-label">Provincia</label>
+                                <input type="hidden" name="nombreProvincia" id="nombreProvincia" value="">
                             </div>
                         </div>
                         <div class="col-4">
@@ -98,14 +99,16 @@ include_once "../../Controller/Autenticacion/registroController.php";
                                     <option value="" selected disabled>Seleccione el cantón</option>
                                 </select>
                                 <label for="canton" class="form-label">Cantón</label>
+                                <input type="hidden" name="nombreCanton" id="nombreCanton" value="">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group form-floating">
-                                <select class="form-control" name="distrito" id="distrito" disabled required>
+                                <select class="form-control" name="distrito" id="distrito" disabled required onchange="establecerNombres();">
                                     <option value="" selected disabled>Seleccione el distrito</option>
                                 </select>
                                 <label for="distrito" class="form-label">Distrito</label>
+                                <input type="hidden" name="nombreDistrito" id="nombreDistrito" value="">
                             </div>
                         </div>
                     </div>
@@ -128,6 +131,7 @@ include_once "../../Controller/Autenticacion/registroController.php";
     <script src="../assets/js/provincias.js"></script>
     <script src="../assets/js/cantones.js"></script>
     <script src="../assets/js/distritos.js"></script>
+    <script src="../assets/js/nombre.js"></script>
     <script>
         $(document).ready(function() {
             obtenerProvincias();

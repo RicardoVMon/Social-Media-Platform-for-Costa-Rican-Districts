@@ -115,7 +115,10 @@ function mostrarNavBar()
                                     <a class="dropdown-item" href="#">Mi Perfil</a>
                                     <a class="dropdown-item" href="#">Alertas</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="login.php">Logout</a>
+
+                                    <form method="POST" action="../../../Controller/Autenticacion/loginController.php">
+                                       <button type="submit" class="dropdown-item" name="btnCerrarSesion" id="btnCerrarSesion">Logout</button>
+                                    </form>
                               </li>
                            </div>
                         </ul>
@@ -171,7 +174,7 @@ function mostrarSideBar()
                            </a>
                         </li>
                         <li>
-                           <a href="../Comunidad/comunidad.php">
+                           <a href="../Comunidad/comunidad.php?q=' . $_SESSION['idDistrito'] . '">
                            <span class="sub-item">Mi Comunidad</span>
                            </a>
                         </li>
