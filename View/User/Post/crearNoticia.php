@@ -73,7 +73,7 @@ include_once '../../../Controller/PostController/postController.php';
                                     </div>
                                 </div>
                                 <div class="card-body pb-0">
-                                    <?php VisualizarInformacionComunidad($_GET['r']); ?>
+                                    <?php VisualizarInformacionComunidad($_GET['q']); ?>
                                     <!-- links hacia otras vistas -->
                                     <div class="row">
                                         <div class="col-12 mb-4">
