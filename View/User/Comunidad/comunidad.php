@@ -43,12 +43,19 @@ $datosComunidad = obtenerInformacionComunidad($_GET['q']);
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-middle">
-                                    <div class="d-flex flex-column justify-content-center mr-3">
-                                    <a href="../Post/crearNoticia.php?q=<?php echo $_GET['q'] ?>" class="btn btn-primary btn-round" style="font-size: 1vw;">
-                                            <i class="fa-solid fa-plus mx-1"></i>
-                                            Crear Publicación
-                                        </a>
-                                    </div>
+                                    
+                                    <?php
+
+                                    if($_GET['q'] == $_SESSION['idDistrito'])
+                                    {
+                                        echo '<div class="d-flex flex-column justify-content-center mr-3">
+                                        <a href="../Post/crearNoticia.php?q=' . $_GET['q'] .'  ?>" class="btn btn-primary btn-round" style="font-size: 1vw;">
+                                                <i class="fa-solid fa-plus mx-1"></i>
+                                                Crear Publicación
+                                            </a>
+                                        </div>';
+                                    }
+                                    ?>
 
                                     <?php 
                                     

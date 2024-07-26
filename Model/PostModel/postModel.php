@@ -48,3 +48,21 @@ function obtenerNoticiaIdSegunContenidoBD($contenido, $titulo, $usuario, $catego
     cerrarConexion($conexion);
     return $resultado;
 }
+
+function obtenerNombreProvinciaCanton($id_distrito)
+{
+    $conexion = abrirConexion();
+    $sentencia = "CALL obtenerNombreProvinciaCanton($id_distrito)";
+    $respuesta = $conexion->query($sentencia);
+    cerrarConexion($conexion);
+    return $respuesta;
+}
+
+function obtenerSeguidoresYFecha($id_distrito)
+{
+    $conexion = abrirConexion();
+    $sentencia = "CALL obtenerSeguidoresYFecha($id_distrito)";
+    $respuesta = $conexion->query($sentencia);
+    cerrarConexion($conexion);
+    return $respuesta;
+}

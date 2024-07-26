@@ -50,7 +50,7 @@ $noticia = VisualizarNoticia($_GET['q']);
                                                         <span class="btn-label">
                                                             <i class="fa-solid fa-circle-exclamation"></i>
                                                         </span>
-                                                        Incidente
+                                                        <?php echo $noticia['nombre_categoria_publicacion']; ?>
                                                     </a>
                                                     <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
                                                         <span class="btn-label">
@@ -113,26 +113,7 @@ $noticia = VisualizarNoticia($_GET['q']);
                                     </div>
                                 </div>
                                 <div class="card-body pb-0">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                        <p>dd/mm/yyyy</p>
-                                            <p>Fecha</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>#####</p>
-                                            <p>Número de seguidores</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p>#####</p>
-                                            <p>Distrito</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>####</p>
-                                            <p>Canton</p>
-                                        </div>
-                                    </div>
+                                    <?php VisualizarInformacionComunidad($_GET['r']); ?>
                                     <!-- links hacia otras vistas -->
                                     <div class="row mt-4">
                                         <div class="col-12">

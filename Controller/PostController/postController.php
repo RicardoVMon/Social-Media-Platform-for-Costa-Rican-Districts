@@ -59,3 +59,41 @@ function obtenerIdNoticiaSegunContenido($titulo, $contenido, $usuario, $categori
         return $id_publicacion;
     }
 }
+
+function VisualizarInformacionComunidad($id_distrito)
+{
+
+    $respuestaSeguidoresFecha = obtenerSeguidoresYFecha($id_distrito);
+    $respuestaProvinciaCanton = obtenerNombreProvinciaCanton($id_distrito);
+
+    if ($respuestaSeguidoresFecha->num_rows > 0 && $respuestaProvinciaCanton->num_rows > 0) {
+
+        $rowSeguidoresFecha = mysqli_fetch_array($respuestaSeguidoresFecha);
+        $rowProvinciaCanton = mysqli_fetch_array($respuestaProvinciaCanton);
+
+        echo '<div class="row">
+                <div class="col-md-6">
+                    <p>' . $rowSeguidoresFecha['fecha'] . '</p>
+                    <p>Fecha</p>
+                </div>
+                <div class="col-md-6">
+                    <p>' . $rowSeguidoresFecha['seguidores'] . '</p>
+                    <p>Número de seguidores</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>' . $rowProvinciaCanton['nombre_canton'] . '</p>
+                    <p>Canton</p>
+                </div>
+                <div class="col-md-6">
+                    <p>' . $rowProvinciaCanton['nombre_provincia'] . '</p>
+                    <p>Provincia</p>
+                </div>
+            </div>';
+    }
+
+
+
+    //<a href="actualizarUsuario.php?q=' . $row["Consecutivo"] . '
+}
