@@ -84,7 +84,7 @@ function mostrarNavBar()
                </div>
                <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                   <li class="nav-item">
-                        <a class="nav-link" href="../Post/crearNoticia.php">
+                        <a class="nav-link" href="../Post/crearNoticia.php?q='. $_SESSION['idDistrito'] .'">
                            <i class="fa fa-plus"></i>
                         </a>
                   </li>
