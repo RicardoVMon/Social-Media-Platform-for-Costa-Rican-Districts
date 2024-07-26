@@ -2,7 +2,7 @@
 include_once '../Layout/layoutHome.php';
 include_once '../../../Controller/PostController/postController.php';
 
-$noticia = VisualizarNoticia();
+$noticia = VisualizarNoticia($_GET['q']);
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ $noticia = VisualizarNoticia();
                                     <div class="card">
                                         <div class="card-header pb-1">
                                             <div class="d-flex">
-                                                <img src="assets/img/profile.jpg" class="rounded-circle" style="height: 50px; width: 50px; object-fit: cover;" id="img_usuario">
+                                                <img src="<?php echo $noticia['icono']; ?>" class="rounded-circle" style="height: 20px; width: 20px; object-fit: cover;" id="img_usuario">
                                                 <a href="#" class="ml-2"><b id="nombre_usuario"><?php echo $noticia['nombre_usuario']; ?></b></a> 
                                                 <span class="ml-2" id="fecha-publicacion"><?php echo $noticia['fecha']; ?></span>
                                             </div>
