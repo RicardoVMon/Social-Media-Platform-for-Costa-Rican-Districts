@@ -136,7 +136,7 @@ $noticia = VisualizarNoticia();
                                     <!-- links hacia otras vistas -->
                                     <div class="row mt-4">
                                         <div class="col-12">
-                                            <a href="../Comunidad/comunidad.php" class="text-white">
+                                            <a href="../Comunidad/comunidad.php?q=<?php echo $_SESSION['idDistrito']; ?>" class="text-white">
                                                 <div class="card bg-primary">
                                                     <div class="card-body">Mi Comunidad</div>
                                                 </div>

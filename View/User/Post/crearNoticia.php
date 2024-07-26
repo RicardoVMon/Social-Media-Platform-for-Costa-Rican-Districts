@@ -38,7 +38,7 @@ include_once '../../../Controller/PostController/postController.php';
                                     <!-- Formulario de publicación -->
                                     <form action="" method="post">
                                         <!-- drop-down -->
-                                        <div class="row mb-1">
+                                        <div class="row pl-2 mb-1">
                                             <div class="col-4">
                                                 <select name="categoria" id="categoria" class="custom-select" required>
                                                     <?php obtenerCategorias(); ?>
@@ -96,7 +96,7 @@ include_once '../../../Controller/PostController/postController.php';
                                     <!-- links hacia otras vistas -->
                                     <div class="row">
                                         <div class="col-12 mb-4">
-                                            <a href="../Comunidad/comunidad.php" class="text-white">
+                                            <a href="../Comunidad/comunidad.php?q=<?php echo $_SESSION['idDistrito']; ?>" class="text-white">
                                                 <div class="card bg-primary">
                                                     <div class="card-body">Mi Comunidad</div>
                                                 </div>
