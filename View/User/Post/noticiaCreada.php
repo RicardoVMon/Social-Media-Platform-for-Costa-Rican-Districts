@@ -2,7 +2,7 @@
 include_once '../Layout/layoutHome.php';
 include_once '../../../Controller/PostController/postController.php';
 
-$noticia = VisualizarNoticia();
+$noticia = VisualizarNoticia($_GET['q']);
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ $noticia = VisualizarNoticia();
                                     <div class="card">
                                         <div class="card-header pb-1">
                                             <div class="d-flex">
-                                                <img src="assets/img/profile.jpg" class="rounded-circle" style="height: 50px; width: 50px; object-fit: cover;" id="img_usuario">
+                                                <img src="<?php echo $noticia['icono']; ?>" class="rounded-circle" style="height: 20px; width: 20px; object-fit: cover;" id="img_usuario">
                                                 <a href="#" class="ml-2"><b id="nombre_usuario"><?php echo $noticia['nombre_usuario']; ?></b></a> 
                                                 <span class="ml-2" id="fecha-publicacion"><?php echo $noticia['fecha']; ?></span>
                                             </div>
@@ -50,7 +50,7 @@ $noticia = VisualizarNoticia();
                                                         <span class="btn-label">
                                                             <i class="fa-solid fa-circle-exclamation"></i>
                                                         </span>
-                                                        Incidente
+                                                        <?php echo $noticia['nombre_categoria_publicacion']; ?>
                                                     </a>
                                                     <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
                                                         <span class="btn-label">
@@ -113,26 +113,7 @@ $noticia = VisualizarNoticia();
                                     </div>
                                 </div>
                                 <div class="card-body pb-0">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                        <p>dd/mm/yyyy</p>
-                                            <p>Fecha</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>#####</p>
-                                            <p>Número de seguidores</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p>#####</p>
-                                            <p>Distrito</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>####</p>
-                                            <p>Canton</p>
-                                        </div>
-                                    </div>
+                                    <?php VisualizarInformacionComunidad($_GET['r']); ?>
                                     <!-- links hacia otras vistas -->
                                     <div class="row mt-4">
                                         <div class="col-12">
