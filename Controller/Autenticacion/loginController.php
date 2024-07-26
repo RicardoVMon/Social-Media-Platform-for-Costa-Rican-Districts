@@ -24,7 +24,11 @@ if (isset($_POST['btnLogin'])) {
         $_SESSION['nombreDistrito'] = $datos['nombre_distrito'];
         $_SESSION['rolUsuario'] = $datos['id_role'];
 
-        header("Location: ../../View/User/Home/home.php");
+        if ($_SESSION['rolUsuario'] = 1) {
+            header("Location: ../../View/Admin/Dashboard/dashboard.php");
+        } else {
+            header("Location: ../../View/User/Home/home.php");
+        }
     } else {
 
         $_POST['mensaje'] = "Usuario o contraseña incorrectos";

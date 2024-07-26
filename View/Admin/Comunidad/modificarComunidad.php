@@ -1,4 +1,11 @@
-<?php include_once '../Layout/layoutAdmin.php'; ?>
+<?php include_once '../Layout/layoutAdmin.php';
+include_once '../../../Controller/Admin/comunidadControllerAdmin.php';
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+$datosComunidad = ObtenerComunidad($id);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,12 +14,13 @@
 <body data-background-color="light">
 
     <div class="wrapper">
+        
         <!-- Nav Bar -->
         <?php mostrarNavBar(); ?>
 
         <!-- Sidebar -->
         <?php mostrarSideBar(); ?>
-
+        
         <!-- Contenido -->
         <div class="main-panel">
             <div class="content">
@@ -35,19 +43,19 @@
                                 <div class="card-body">
 
                                     <div class="">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fort%C3%ADn.JPG" width="100%" height="150px" style="object-fit: cover;">
+                                        <img src="<?php echo $datosComunidad['banner'];?>" width="100%" height="150px" style="object-fit: cover;">
 
                                         <div class="d-flex justify-content-between px-4 mt-3">
                                             <div class="d-flex justify-content-start">
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <img src="https://www.heredia.go.cr/sites/default/files/bandera-heredia_0.png" style="height: 7vw; width: 7vw; object-fit: cover; margin-top: -4vw;" class="rounded-circle img-fluid">
+                                                    <img src="<?php echo $datosComunidad['icono'];?>" style="height: 7vw; width: 7vw; object-fit: cover; margin-top: -4vw;" class="rounded-circle img-fluid">
                                                 </div>
                                                 <div class="mx-3 d-flex flex-column justify-content-start">
                                                     <h1 class="font-weight-bold mb-0">
-                                                        San José de La Montaña
+                                                        <?php echo $datosComunidad['nombre_distrito'];?>
                                                     </h1>
                                                     <h6 class="mb-0">
-                                                        La mejor comunidad de Costa Rica!
+                                                        <?php echo $datosComunidad['descripcion'];?>
                                                     </h6>
                                                 </div>
                                             </div>
@@ -133,21 +141,22 @@
                                     <div class="card-title">Modificar Comunidad</div>
                                 </div>
                                 <div class="card-body">
-                                    <form id="communityForm">
+                                    <form id="communityForm" action="../../../Controller/Admin/comunidadControllerAdmin.php" method="post">
+                                        <input type="hidden" id="id" name="id" value="<?php echo $datosComunidad['id_distrito'];?>">
                                         <div class="form-group">
                                             <label for="banner">Imagen de Banner</label>
-                                            <input type="file" class="form-control-file" id="banner">
+                                            <input type="file" class="form-control-file" id="banner" name="banner">
                                         </div>
                                         <div class="form-group">
                                             <label for="profile">Imagen de Perfil de Comunidad</label>
-                                            <input type="file" class="form-control-file" id="profile">
+                                            <input type="file" class="form-control-file" id="icono" name="icono">
                                         </div>
                                         <div class="form-group">
                                             <label for="description">Descripción de la Comunidad</label>
-                                            <textarea class="form-control" id="description" rows="3" placeholder="Descripción de la Comunidad"></textarea>
+                                            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="<?php echo $datosComunidad['descripcion'];?>"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                                            <button type="submit" id="btnModificarComunidad" name="btnModificarComunidad" class="btn btn-success">Guardar Cambios</button>
                                         </div>
                                     </form>
                                 </div>

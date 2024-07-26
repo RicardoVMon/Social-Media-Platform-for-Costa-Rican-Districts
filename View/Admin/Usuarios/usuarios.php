@@ -1,4 +1,5 @@
-<?php include_once '../Layout/layoutAdmin.php'; ?>
+<?php include_once '../Layout/layoutAdmin.php'; 
+include_once '../../../Controller/Admin/userControllerAdmin.php'?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +37,7 @@
                                     <table id="userTable" class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Estado</th>
+                                                <!-- <th>Estado</th> Necesita cambios en la BD, revisar despues --> 
                                                 <th>Cédula</th>
                                                 <th>Nombre</th>
                                                 <th>Comunidad</th>
@@ -46,31 +47,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th>Activo</th>
-                                                <td>123456789</td>
-                                                <td>John Doe</td>
-                                                <td>San Isidro</td>
-                                                <td>12</td>
-                                                <td>5</td>
-                                                <td>
-                                                    <button class="btn btn-primary mr-2">Cambiar Estado</button>
-                                                    <button class="btn btn-secondary">Ver Perfil</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Activo</th>
-                                                <td>987654321</td>
-                                                <td>Jane Smith</td>
-                                                <td>San José de la Montaña</td>
-                                                <td>15</td>
-                                                <td>1</td>
-                                                <td>
-                                                    <button class="btn btn-primary mr-2">Cambiar Estado</button>
-                                                    <button class="btn btn-secondary">Ver Perfil</button>
-                                                </td>
-                                            </tr>
-                                            <!-- Add more rows for each user -->
+                                            <?php ObtenerUsuarios(); ?>
                                         </tbody>
                                     </table>
                                 </div>
