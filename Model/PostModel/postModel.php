@@ -40,10 +40,10 @@ function ObtenerInformacionComunidad()
     return $respuesta;
 }
 
-function obtenerNoticiaIdSegunContenidoBD($contenido, $titulo, $usuario, $categoria)
+function obtenerNoticiaIdSegunContenidoBD($titulo, $contenido, $usuario, $categoria)
 {
     $conexion = abrirConexion();
-    $query = "CALL obtenerNoticiaSegunContenido('$contenido', '$titulo', '$usuario', '$categoria')";
+    $query = "CALL obtenerNoticiaSegunContenido('$titulo', '$contenido', '$usuario', '$categoria')";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;
