@@ -11,7 +11,7 @@ function ObtenerComunidadesBD()
     $respuesta = $conexion->query($procedimiento);
     cerrarConexion($conexion);
     return $respuesta;
-} 
+}
 
 function ObtenerComunidadBD($id)
 {
@@ -19,7 +19,7 @@ function ObtenerComunidadBD($id)
     $procedimiento = "CALL ObtenerComunidadAdmin('$id')";
     $respuesta = $conexion->query($procedimiento);
     cerrarConexion($conexion);
-    return $respuesta;   
+    return $respuesta;
 }
 
 function ActualizarComunidadBD($id, $descripcion, $banner, $icono)

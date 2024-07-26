@@ -10,12 +10,12 @@ if (isset($_POST['btnModificarComunidad'])) {
     $descripcion = $_POST['descripcion'];
     $banner = $_POST['banner'];
     $icono = $_POST['icono'];
-    
+
     $resultadoActualizar = ActualizarComunidadBD($id, $descripcion, $banner, $icono);
 
     if ($resultadoActualizar) {
 
-        header("Location: ../../View/Admin/Comunidad/modificarComunidad.php?id=". $id);
+        header("Location: ../../View/Admin/Comunidad/modificarComunidad.php?idComunidad=" . $id);
     }
 }
 
@@ -32,7 +32,7 @@ function ObtenerComunidades()
             echo '<td>' . $row["cantidadUsuarios"] . '</td>';
             echo '<td>
                 <form method="get" action="modificarComunidad.php" style="display:inline;">
-                    <input type="hidden" name="id" value="' . $row["id_distrito"] . '">
+                    <input type="hidden" name="idComunidad" value="' . $row["id_distrito"] . '">
                     <button type="submit" class="btn btn-primary w-100">Modificar</button>
                 </form>
             </td>';
@@ -41,9 +41,10 @@ function ObtenerComunidades()
     }
 }
 
+// Para recibir una comunidad específica
 function ObtenerComunidad($id)
 {
     $resultado = ObtenerComunidadBD($id);
 
-    return $resultado->fetch_assoc();
+    return mysqli_fetch_array($resultado);
 }

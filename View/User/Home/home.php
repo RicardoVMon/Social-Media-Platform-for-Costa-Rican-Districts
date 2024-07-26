@@ -1,10 +1,8 @@
-<?php include_once '../Layout/layoutHome.php'; 
+<?php include_once '../Layout/layoutHome.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
-}
-
-?>
+} ?>
 
 <!DOCTYPE html>
 <html lang="en">

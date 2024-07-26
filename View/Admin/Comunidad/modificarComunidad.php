@@ -1,11 +1,11 @@
 <?php include_once '../Layout/layoutAdmin.php';
 include_once '../../../Controller/Admin/comunidadControllerAdmin.php';
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if (isset($_GET['idComunidad'])) {
+    $id = $_GET['idComunidad'];
 }
-$datosComunidad = ObtenerComunidad($id);
-?>
+
+$datosComunidad = ObtenerComunidad($id); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,13 +14,13 @@ $datosComunidad = ObtenerComunidad($id);
 <body data-background-color="light">
 
     <div class="wrapper">
-        
+
         <!-- Nav Bar -->
         <?php mostrarNavBar(); ?>
 
         <!-- Sidebar -->
         <?php mostrarSideBar(); ?>
-        
+
         <!-- Contenido -->
         <div class="main-panel">
             <div class="content">
@@ -43,19 +43,19 @@ $datosComunidad = ObtenerComunidad($id);
                                 <div class="card-body">
 
                                     <div class="">
-                                        <img src="<?php echo $datosComunidad['banner'];?>" width="100%" height="150px" style="object-fit: cover;">
+                                        <img src="<?php echo $datosComunidad['banner']; ?>" width="100%" height="150px" style="object-fit: cover;">
 
                                         <div class="d-flex justify-content-between px-4 mt-3">
                                             <div class="d-flex justify-content-start">
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <img src="<?php echo $datosComunidad['icono'];?>" style="height: 7vw; width: 7vw; object-fit: cover; margin-top: -4vw;" class="rounded-circle img-fluid">
+                                                    <img src="<?php echo $datosComunidad['icono']; ?>" style="height: 7vw; width: 7vw; object-fit: cover; margin-top: -4vw;" class="rounded-circle img-fluid">
                                                 </div>
                                                 <div class="mx-3 d-flex flex-column justify-content-start">
                                                     <h1 class="font-weight-bold mb-0">
-                                                        <?php echo $datosComunidad['nombre_distrito'];?>
+                                                        <?php echo $datosComunidad['nombre_distrito']; ?>
                                                     </h1>
                                                     <h6 class="mb-0">
-                                                        <?php echo $datosComunidad['descripcion'];?>
+                                                        <?php echo $datosComunidad['descripcion']; ?>
                                                     </h6>
                                                 </div>
                                             </div>
@@ -142,7 +142,7 @@ $datosComunidad = ObtenerComunidad($id);
                                 </div>
                                 <div class="card-body">
                                     <form id="communityForm" action="../../../Controller/Admin/comunidadControllerAdmin.php" method="post">
-                                        <input type="hidden" id="id" name="id" value="<?php echo $datosComunidad['id_distrito'];?>">
+                                        <input type="hidden" id="id" name="id" value="<?php echo $datosComunidad['id_distrito']; ?>">
                                         <div class="form-group">
                                             <label for="banner">Imagen de Banner</label>
                                             <input type="file" class="form-control-file" id="banner" name="banner">
@@ -153,7 +153,7 @@ $datosComunidad = ObtenerComunidad($id);
                                         </div>
                                         <div class="form-group">
                                             <label for="description">Descripción de la Comunidad</label>
-                                            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="<?php echo $datosComunidad['descripcion'];?>"></textarea>
+                                            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="<?php echo $datosComunidad['descripcion']; ?>"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" id="btnModificarComunidad" name="btnModificarComunidad" class="btn btn-success">Guardar Cambios</button>
@@ -163,8 +163,7 @@ $datosComunidad = ObtenerComunidad($id);
                             </div>
                         </div>
                     </div>
-                </div> <!-- Add this closing div tag -->
-
+                </div>
                 <footer class="footer">
                     <div class="container-fluid">
                         <nav class="pull-left">
@@ -191,7 +190,7 @@ $datosComunidad = ObtenerComunidad($id);
                         </div>
                     </div>
                 </footer>
-            </div> <!-- Add this closing div tag -->
+            </div>
         </div>
 
         <?php scripts(); ?>

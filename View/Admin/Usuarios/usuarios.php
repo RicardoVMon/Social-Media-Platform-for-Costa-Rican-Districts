@@ -1,5 +1,5 @@
-<?php include_once '../Layout/layoutAdmin.php'; 
-include_once '../../../Controller/Admin/userControllerAdmin.php'?>
+<?php include_once '../Layout/layoutAdmin.php';
+include_once '../../../Controller/Admin/userControllerAdmin.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,7 @@ include_once '../../../Controller/Admin/userControllerAdmin.php'?>
                                     <table id="userTable" class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <!-- <th>Estado</th> Necesita cambios en la BD, revisar despues --> 
+                                                <th>Estado</th>
                                                 <th>Cédula</th>
                                                 <th>Nombre</th>
                                                 <th>Comunidad</th>

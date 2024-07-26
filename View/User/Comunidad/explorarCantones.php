@@ -18,7 +18,7 @@
             <div class="content">
                 <div class="page-inner">
                     <div class="page-inner-top">
-                    <span class="pl-2">
+                        <span class="pl-2">
                             <a href="#">Heredia</a>
                         </span>
                         <div class="mb-4 d-flex flex-column">

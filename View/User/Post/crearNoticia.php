@@ -1,6 +1,4 @@
-<?php
-
-include_once '../Layout/layoutHome.php';
+<?php include_once '../Layout/layoutHome.php';
 include_once '../../../Controller/PostController/postController.php';
 ?>
 
@@ -26,7 +24,7 @@ include_once '../../../Controller/PostController/postController.php';
                             <i class="fa fa-newspaper" style="margin-right: 10px;"></i>
                             Comparte una noticia con la comunidad!!
                         </h1>
-                    </div> <!-- page-inner-top -->
+                    </div>
                     <div class=" mb-3 row">
                         <!-- Columna de Crear Publicación -->
                         <div class="col-md-6">
@@ -75,7 +73,7 @@ include_once '../../../Controller/PostController/postController.php';
                                 <div class="card-body pb-0">
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <p>dd/mm/yyyy</p>
+                                            <p>dd/mm/yyyy</p>
                                             <p>Fecha</p>
                                         </div>
                                         <div class="col-md-6">
@@ -113,11 +111,11 @@ include_once '../../../Controller/PostController/postController.php';
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- page-inner -->
-                </div> <!-- mt-2 mb-4 row -->
+                    </div>
+                </div>
 
 
-            </div> <!-- content -->
+            </div>
 
             <footer class="footer">
                 <div class="container-fluid">
@@ -145,8 +143,8 @@ include_once '../../../Controller/PostController/postController.php';
                     </div>
                 </div>
             </footer>
-        </div> <!-- main-panel -->
-    </div> <!-- wrapper -->
+        </div>
+    </div>
 
     <?php scripts(); ?>
 </body>

@@ -11,4 +11,13 @@ function ObtenerUsuariosBD()
     $respuesta = $conexion->query($procedimiento);
     cerrarConexion($conexion);
     return $respuesta;
-} 
+}
+
+function CambiarEstadoUsuarioBD($id)
+{
+    $conexion = abrirConexion();
+    $procedimiento = "CALL CambiarEstadoUsuarioAdmin('$id')";
+    $respuesta = $conexion->query($procedimiento);
+    cerrarConexion($conexion);
+    return $respuesta;
+}

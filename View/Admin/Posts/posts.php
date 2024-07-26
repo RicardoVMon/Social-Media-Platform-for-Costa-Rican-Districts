@@ -41,6 +41,7 @@ include_once '../../../Controller/Admin/postControllerAdmin.php'; ?>
                                                 <th>Resumen</th>
                                                 <th>Cantidad de Comentarios</th>
                                                 <!-- <th>Cantidad de Reportes</th> Necesita cambios en la BD, revisar despues -->
+                                                <th>Categoria</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>

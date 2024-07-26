@@ -1,8 +1,4 @@
-<?php include_once '../Layout/layoutHome.php';
-
-
-
-?>
+<?php include_once '../Layout/layoutHome.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

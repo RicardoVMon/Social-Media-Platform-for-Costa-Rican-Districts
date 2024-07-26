@@ -1,5 +1,4 @@
-<?php
-include_once "../../Model/Autenticacion/loginModel.php";
+<?php include_once "../../Model/Autenticacion/loginModel.php";
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -24,7 +23,7 @@ if (isset($_POST['btnLogin'])) {
         $_SESSION['nombreDistrito'] = $datos['nombre_distrito'];
         $_SESSION['rolUsuario'] = $datos['id_role'];
 
-        if ($_SESSION['rolUsuario'] = 1) {
+        if ($_SESSION['rolUsuario'] == 1) {
             header("Location: ../../View/Admin/Dashboard/dashboard.php");
         } else {
             header("Location: ../../View/User/Home/home.php");

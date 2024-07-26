@@ -1,5 +1,4 @@
-<?php 
-include_once '../Layout/layoutHome.php';
+<?php include_once '../Layout/layoutHome.php';
 include_once '../../../Controller/PostController/postController.php';
 
 $noticia = VisualizarNoticia();
@@ -40,7 +39,7 @@ $noticia = VisualizarNoticia();
                                         <div class="card-header pb-1">
                                             <div class="d-flex">
                                                 <img src="assets/img/profile.jpg" class="rounded-circle" style="height: 50px; width: 50px; object-fit: cover;" id="img_usuario">
-                                                <a href="#" class="ml-2"><b id="nombre_usuario"><?php echo $noticia['nombre_usuario']; ?></b></a> 
+                                                <a href="#" class="ml-2"><b id="nombre_usuario"><?php echo $noticia['nombre_usuario']; ?></b></a>
                                                 <span class="ml-2" id="fecha-publicacion"><?php echo $noticia['fecha']; ?></span>
                                             </div>
                                             <div class="card-head-row mt-2">
@@ -115,7 +114,7 @@ $noticia = VisualizarNoticia();
                                 <div class="card-body pb-0">
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <p>dd/mm/yyyy</p>
+                                            <p>dd/mm/yyyy</p>
                                             <p>Fecha</p>
                                         </div>
                                         <div class="col-md-6">
@@ -155,34 +154,34 @@ $noticia = VisualizarNoticia();
                         </div>
                     </div>
                 </div>
-                </div>
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <nav class="pull-left">
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        Sobre Nosotros
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        Soporte
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        Licencias
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <div class="copyright ml-auto">
-                            2024, Umbrella
-                        </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav class="pull-left">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Sobre Nosotros
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Soporte
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Licencias
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright ml-auto">
+                        2024, Umbrella
                     </div>
-                </footer>
-            
+                </div>
+            </footer>
+
         </div>
 
         <?php scripts(); ?>
