@@ -16,7 +16,7 @@ if (isset($_POST["btnPublicarNoticia"])) {
 
     if ($respuesta === true) {
         $idNoticia = obtenerIdNoticiaSegunContenido($titulo, $noticia, $usuario, $categoria);
-        header("location: ../../../View/User/Post/noticiaCreada.php?q=" . $idNoticia);
+        header("location: ../../../View/User/Post/noticiaCreada.php?q=" . $_GET['q'] . "&r=" . $idNoticia);
     } else {
         $_POST["msj"] = "Error! La noticia no se publicado correctamente.";
     }
@@ -51,7 +51,7 @@ function VisualizarNoticia($idNoticia)
 
 function obtenerIdNoticiaSegunContenido($titulo, $contenido, $usuario, $categoria)
 {
-    $respuesta = obtenerNoticiaIdSegunContenidoBD($contenido, $titulo, $usuario, $categoria);
+    $respuesta = obtenerNoticiaIdSegunContenidoBD($titulo, $contenido, $usuario, $categoria);
 
     if ($respuesta->num_rows > 0) {
         $row = mysqli_fetch_array($respuesta);

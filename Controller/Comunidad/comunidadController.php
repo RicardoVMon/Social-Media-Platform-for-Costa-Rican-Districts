@@ -27,7 +27,7 @@ function obtenerPosts($idComunidad)
                             <span class="ml-1">' . $row['fecha'] . '</span>
                         </div>
                         <div class="card-head-row">
-                            <a href="../../../View/User/Post/noticiaCreada.php?q=' . $row['id_publicacion'] . '&r=' . $idComunidad . '" class="card-title mb-0" style="font-size: 2vw;">' . $row['titulo'] . '</a>
+                            <a href="../../../View/User/Post/noticiaCreada.php?q=' .  $idComunidad . '&r=' . $row['id_publicacion'] . '" class="card-title mb-0" style="font-size: 2vw;">' . $row['titulo'] . '</a>
                             <div class="card-tools">
                                 <a href="#" class="btn btn-warning btn-round btn-sm mr-2">
                                     <span class="btn-label">
@@ -88,7 +88,7 @@ function obtenerPostsComunidadesSeguidas($idUsuario)
                             <span class="ml-1">' . $row['fecha'] . '</span>
                         </div>
                         <div class="card-head-row">
-                            <a href="../../../View/User/Post/noticiaCreada.php?q=' . $row['id_publicacion'] . '&r=' . $row['id_distrito'] . '" class="card-title mb-0" style="font-size: 2vw;">' . $row['titulo'] . '</a>
+                            <a href="../../../View/User/Post/noticiaCreada.php?q=' . $row['id_distrito'] . '&r=' .  $row['id_publicacion'] . '" class="card-title mb-0" style="font-size: 2vw;">' . $row['titulo'] . '</a>
                             <div class="card-tools">
                                 <a href="#" class="btn btn-warning btn-round btn-sm mr-2">
                                     <span class="btn-label">

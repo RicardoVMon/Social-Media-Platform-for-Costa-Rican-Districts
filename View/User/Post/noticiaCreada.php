@@ -2,7 +2,7 @@
 include_once '../Layout/layoutHome.php';
 include_once '../../../Controller/PostController/postController.php';
 
-$noticia = VisualizarNoticia($_GET['q']);
+$noticia = VisualizarNoticia($_GET['r']);
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +113,7 @@ $noticia = VisualizarNoticia($_GET['q']);
                                     </div>
                                 </div>
                                 <div class="card-body pb-0">
-                                    <?php VisualizarInformacionComunidad($_GET['r']); ?>
+                                    <?php VisualizarInformacionComunidad($_GET['q']); ?>
                                     <!-- links hacia otras vistas -->
                                     <div class="row mt-4">
                                         <div class="col-12">
