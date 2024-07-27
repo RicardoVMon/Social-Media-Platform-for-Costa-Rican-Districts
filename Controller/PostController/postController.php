@@ -27,7 +27,7 @@ function obtenerCategorias()
 {
     $resultado = obtenerCategoriasBD();
 
-    echo '<option value="" selected>Seleccione...</option>';
+    echo '<option value="" selected>Categoria</option>';
 
     if ($resultado->num_rows > 0) {
         while ($row = mysqli_fetch_array($resultado)) {
@@ -72,28 +72,24 @@ function VisualizarInformacionComunidad($id_distrito)
         $rowProvinciaCanton = mysqli_fetch_array($respuestaProvinciaCanton);
 
         echo '<div class="row">
-                <div class="col-md-6">
-                    <p>' . $rowSeguidoresFecha['fecha'] . '</p>
-                    <p>Fecha</p>
-                </div>
-                <div class="col-md-6">
-                    <p>' . $rowSeguidoresFecha['seguidores'] . '</p>
-                    <p>Número de seguidores</p>
-                </div>
-            </div>
+                    <div class="col-md-6">
+                        <p><b>Fecha</b></p>
+                        <p><b>Número de seguidores</b></p>
+                    </div>
+                    <div class="col-md-6">
+                         <p>' . $rowSeguidoresFecha['fecha'] . '</p>
+                         <p>' . $rowSeguidoresFecha['seguidores'] . '</p>
+                    </div>
+                 </div>
             <div class="row">
-                <div class="col-md-6">
-                    <p>' . $rowProvinciaCanton['nombre_canton'] . '</p>
-                    <p>Canton</p>
-                </div>
-                <div class="col-md-6">
-                    <p>' . $rowProvinciaCanton['nombre_provincia'] . '</p>
-                    <p>Provincia</p>
-                </div>
+                    <div class="col-md-6">
+                        <p><b>Provincia</b></p>
+                        <p><b>Cantón</b></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>' . $rowProvinciaCanton['nombre_provincia'] . '</p>
+                        <p>' . $rowProvinciaCanton['nombre_canton'] . '</p> 
+                    </div>
             </div>';
     }
-
-
-
-    //<a href="actualizarUsuario.php?q=' . $row["Consecutivo"] . '
 }
