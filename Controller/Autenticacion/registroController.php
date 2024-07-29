@@ -1,6 +1,7 @@
 <?php
 include_once "../../Model/Autenticacion/registroModel.php";
 
+
 /* function obtenerProvincias()
 {
     $provincias = obtenerProvinciasBD();
@@ -44,11 +45,13 @@ if (isset($_POST['btnRegistrar'])) {
             $datos = mysqli_fetch_array($resultadoDistrito);
             $distrito = $datos['id_distrito'];
             $resultadoRegistro = registrarUsuario($cedula, $nombre, $apellidos, $correo, $genero, $contrasennia, $distrito);
+
         }
     }
 
     if ($resultadoRegistro) {
         header("Location: ../../View/Autenticacion/login.php");
+
         $_POST['mensaje'] = "Usuario fue registrado con éxito";
     } else {
         $_POST['mensaje'] = "Error al registrar el usuario";
