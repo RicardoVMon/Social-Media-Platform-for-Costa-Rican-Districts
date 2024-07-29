@@ -1,4 +1,15 @@
-<?php include_once '../Layout/layoutHome.php'; ?>
+<?php include_once '../Layout/layoutHome.php'; 
+      include_once '../../../Controller/PerfilController/perfilController.php';
+
+        if(session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $posts = mysqli_fetch_array(ConsultarUsuarioPosts($_SESSION["idUsuario"]));
+        $comentarios = mysqli_fetch_array(ConsultarUsuarioComentarios($_SESSION["idUsuario"]));
+        $datos = ConsultarUsuario($_SESSION["idUsuario"]);
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +44,7 @@
                                                     <?php echo $_SESSION['nombreUsuario']; ?>
                                                 </h1>
                                                 <h6 class="mb-0">
-                                                    <?php echo $_SESSION['descripcion']; ?>
+                                                    <?php echo $datos["descripcion"]; ?>
                                                 </h6>
                                             </div>
                                         </div>
@@ -120,21 +131,21 @@
                                     <div class="card-body pb-0">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h4 class="fw-bold mb-0"><?php echo $_SESSION['descripcion']; ?></h4>
+                                                <h4 class="fw-bold mb-0"><?php echo $_SESSION['fechaIngreso']; ?></h4>
                                                 <p>Fecha de ingreso</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <h4 class="fw-bold mb-0">#####</h4>
+                                                <h4 class="fw-bold mb-0"><?php echo $posts['cantidad']; ?></h4>
                                                 <p># de Posts</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h4 class="fw-bold mb-0">#####</h4>
+                                                <h4 class="fw-bold mb-0"><?php echo $comentarios['cantidad']; ?></h4>
                                                 <p># de Comentarios</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <h4 class="fw-bold mb-0"><?php echo $_SESSION['nombreDistrito']; ?></h4>
+                                                <h4 class="fw-bold mb-0"><?php echo $datos['nombre_distrito']; ?></h4>
                                                 <p>Nombre de Comunidad</p>
                                             </div>
                                         </div>

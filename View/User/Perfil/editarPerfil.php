@@ -54,7 +54,7 @@
                                                         <?php echo $_SESSION['nombreUsuario']; ?>
                                                     </h1>
                                                     <h6 class="mb-0">
-                                                        <?php echo $_SESSION['descripcion']; ?>
+                                                        <?php echo $datos["descripcion"]; ?>
                                                     </h6>
                                                 </div>
                                             </div>
