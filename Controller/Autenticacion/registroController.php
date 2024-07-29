@@ -54,3 +54,16 @@ if (isset($_POST['btnRegistrar'])) {
         $_POST['mensaje'] = "Error al registrar el usuario";
     }
 }
+
+function ConsultarIdGenero()
+{
+    $respuesta = ConsultarIdGeneroBD();
+
+    if($respuesta -> num_rows > 0)
+    {
+        while ($row = mysqli_fetch_array($respuesta)) 
+        { 
+            echo "<option value=" . $row["id_genero"] . ">" . $row["nombre_genero"] . "</option>";
+        }
+    }
+}

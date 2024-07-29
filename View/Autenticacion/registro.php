@@ -71,11 +71,7 @@ include_once "../../Controller/Autenticacion/registroController.php";
                         <div class="col-5">
                             <div class="form-group form-floating">
                                 <select name="genero" id="genero" class="form-control" required>
-                                    <option value="" selected disabled>Seleccione su género</option>
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Femenino">Femenino</option>
-                                    <option value="Otro">Otro</option>
-                                    <option value="Prefiero no decir">Prefiero no decir</option>
+                                <?php ConsultarIdGenero(); ?>
                                 </select>
                                 <label for="gender" class="form-label">Género</label>
                             </div>
