@@ -20,6 +20,9 @@ if (isset($_POST['btnLogin'])) {
         $_SESSION['nombreUsuario'] = capitalizarNombre($datos['nombre_usuario']);
         $_SESSION['primerNombre'] = obtenerPrimerNombre($datos['nombre_usuario']);
         $_SESSION['email'] = $datos['email'];
+        $_SESSION['descripcion'] = $datos['descripcion'];
+        $_SESSION['icono'] = $datos['icono'];
+        $_SESSION['fechaIngreso'] = $datos['fecha_ingreso'];
         $_SESSION['idDistrito'] = $datos['id_distrito'];
         $_SESSION['nombreDistrito'] = $datos['nombre_distrito'];
         $_SESSION['rolUsuario'] = $datos['id_role'];

@@ -18,6 +18,15 @@ function obtenerIdDistrito($nombreProvincia, $nombreCanton, $nombreDistrito)
     cerrarConexion($conexion);
     return $resultado;
 }
+
+function ConsultarIdGeneroBD()
+{
+    $conexion = abrirConexion();
+    $sentencia = "CALL ConsultarIdGenero()";
+    $respuesta = $conexion -> query($sentencia);
+    cerrarConexion($conexion);
+    return $respuesta;
+}
 function registrarUsuario($cedula, $nombre, $apellidos, $correo, $genero, $contrasennia, $distrito)
 {
     $conexion = abrirConexion();

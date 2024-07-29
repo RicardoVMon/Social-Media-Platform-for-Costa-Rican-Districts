@@ -106,13 +106,13 @@ function mostrarNavBar()
                                        <div class="avatar-lg"><img src="'. $_SESSION['iconoUsuario'] .'" alt="image profile" class="avatar-img rounded"></div>
                                        <div class="u-text">
                                           <h4>' . $_SESSION['nombreUsuario'] . '</h4>
-                                          <p class="text-muted">' . $_SESSION['email'] . '</p><a href="#" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                          <p class="text-muted">' . $_SESSION['email'] . '</p><a href="../Perfil/perfilPosts.php" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                        </div>
                                     </div>
                               </li>
                               <li>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Mi Perfil</a>
+                                    <a class="dropdown-item" href="../Perfil/perfilPosts.php">Mi Perfil</a>
                                     <a class="dropdown-item" href="#">Alertas</a>
                                     <div class="dropdown-divider"></div>
 
