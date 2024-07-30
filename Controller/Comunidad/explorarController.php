@@ -1,5 +1,4 @@
-<?php
-include_once "../../../Model/Comunidad/explorarModel.php";
+<?php include_once __DIR__ . "/../../Model/Comunidad/explorarModel.php";
 
 function obtenerProvincias()
 {

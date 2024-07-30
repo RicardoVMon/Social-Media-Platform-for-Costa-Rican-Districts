@@ -1,11 +1,11 @@
-<?php include_once '../Layout/layoutHome.php'; 
-      include_once '../../../Controller/PerfilController/perfilController.php'; 
-  
-      if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
+<?php include_once __DIR__ . '/../Layout/layoutHome.php';
+include_once __DIR__ . '/../../../Controller/PerfilController/perfilController.php';
 
-      $datos = ConsultarUsuario($_SESSION["idUsuario"]);
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$datos = ConsultarUsuario($_SESSION["idUsuario"]);
 
 ?>
 
@@ -45,9 +45,7 @@
                                         <div class="d-flex justify-content-between px-4 mt-3">
                                             <div class="d-flex justify-content-start">
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <img src="<?php echo $_SESSION['icono']; ?>"
-                                                        style="height: 7vw; width: 7vw; object-fit: cover;"
-                                                        class="rounded-circle img-fluid">
+                                                    <img src="<?php echo $_SESSION['icono']; ?>" style="height: 7vw; width: 7vw; object-fit: cover;" class="rounded-circle img-fluid">
                                                 </div>
                                                 <div class="mx-3 d-flex flex-column justify-content-center">
                                                     <h1 class="font-weight-bold mb-0">
@@ -66,12 +64,10 @@
                                 <!-- Sección de filtros -->
                                 <div class="row mb-3">
                                     <div class="col-md-12 d-flex justify-content-start">
-                                        <a href="perfilPosts.php" class="btn btn-primary btn-round btn-sm mr-2"
-                                            style="width: 150px">
+                                        <a href="perfilPosts.php" class="btn btn-primary btn-round btn-sm mr-2" style="width: 150px">
                                             Posts
                                         </a>
-                                        <a href="perfilComentarios.php" class="btn btn-primary btn-round btn-sm mr-2"
-                                            style="width: 150px">
+                                        <a href="perfilComentarios.php" class="btn btn-primary btn-round btn-sm mr-2" style="width: 150px">
                                             Comentarios
                                         </a>
                                     </div>
@@ -82,8 +78,7 @@
                                     <div class="card">
                                         <div class="card-header pb-1">
                                             <div class="d-flex">
-                                                <img src="../../assets/img/profile.jpg" class="rounded-circle"
-                                                    style="height: 1vw; width: 1vw; object-fit: cover;">
+                                                <img src="../../assets/img/profile.jpg" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
                                                 <div class="ml-1"><b><?php echo $_SESSION['nombreUsuario']; ?></b></div>
                                                 <span class="ml-1">dd/mm/yyyy</span>
                                             </div>
@@ -124,20 +119,17 @@
                                 <div class="card-body">
 
                                     <?php
-                                        if(isset($_POST["msj"]))
-                                        {
-                                            echo '<div class="alert alert-info TextoCentrado">' . $_POST["msj"] . '</div>';
-                                        }
+                                    if (isset($_POST["msj"])) {
+                                        echo '<div class="alert alert-info TextoCentrado">' . $_POST["msj"] . '</div>';
+                                    }
                                     ?>
 
                                     <form action="" method="post">
-                                        <input id="txtIdUsuario" name="txtIdUsuario" type="hidden"
-                                            value="<?php echo $datos["id_usuario"]; ?>">
+                                        <input id="txtIdUsuario" name="txtIdUsuario" type="hidden" value="<?php echo $datos["id_usuario"]; ?>">
 
                                         <label for="txtCedula">Identificación</label>
                                         <div class="input-group mb-3">
-                                            <input id="txtCedula" name="txtCedula" type="text" class="form-control"
-                                                placeholder="Cedula" readonly value="<?php echo $datos["cedula"]; ?>">
+                                            <input id="txtCedula" name="txtCedula" type="text" class="form-control" placeholder="Cedula" readonly value="<?php echo $datos["cedula"]; ?>">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-user"></span>
@@ -147,9 +139,7 @@
 
                                         <label for="txtNombreUsuario">Nombre</label>
                                         <div class="input-group mb-3">
-                                            <input id="txtNombreUsuario" name="txtNombreUsuario" type="text"
-                                                class="form-control" placeholder="Nombre" readonly
-                                                value="<?php echo $datos["nombre_usuario"]; ?>">
+                                            <input id="txtNombreUsuario" name="txtNombreUsuario" type="text" class="form-control" placeholder="Nombre" readonly value="<?php echo $datos["nombre_usuario"]; ?>">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-user"></span>
@@ -159,9 +149,7 @@
 
                                         <label for="txtEmail">Correo Electrónico</label>
                                         <div class="input-group mb-3">
-                                            <input type="email" id="txtEmail" name="txtEmail" class="form-control"
-                                                placeholder="Correo Electrónico" required
-                                                value="<?php echo $datos["email"]; ?>">
+                                            <input type="email" id="txtEmail" name="txtEmail" class="form-control" placeholder="Correo Electrónico" required value="<?php echo $datos["email"]; ?>">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-envelope"></span>
@@ -172,22 +160,19 @@
                                         <!-- ****************** modificar en bd para que no sea codigo quemado ******************** -->
                                         <label for="selectGenero">Género</label>
                                         <div class="input-group mb-3">
-                                            <select id="selectGenero" name="selectGenero" class="form-control" 
-                                                required>
+                                            <select id="selectGenero" name="selectGenero" class="form-control" required>
                                                 <?php ConsultarIdGenero($datos["id_genero"]); ?>
                                             </select>
                                         </div>
 
                                         <label for="description">Descripción</label>
                                         <div class="form-group">
-                                            <textarea class="form-control" id="description" name="description" rows="3"
-                                                placeholder="Descripción"><?php echo $datos["descripcion"]; ?></textarea>
+                                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Descripción"><?php echo $datos["descripcion"]; ?></textarea>
                                         </div>
 
                                         <label for="selectDistrito">Distrito</label>
                                         <div class="input-group mb-3">
-                                            <select id="selectDistrito" name="selectDistrito" class="form-control"
-                                                required>
+                                            <select id="selectDistrito" name="selectDistrito" class="form-control" required>
                                                 <?php ConsultarIdDistrito($datos["id_distrito"]); ?>
                                             </select>
                                         </div>
@@ -195,8 +180,7 @@
                                         <div class="row">
                                             <div class="col-9"></div>
                                             <div class="col-lg-3 col-md-6 col-sm-6">
-                                                <button type="submit" id="btnEditarPerfil" name="btnEditarPerfil"
-                                                    class="btn btn-primary btn-block">Procesar</button>
+                                                <button type="submit" id="btnEditarPerfil" name="btnEditarPerfil" class="btn btn-primary btn-block">Procesar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -237,9 +221,9 @@
 
     <?php scripts(); ?>
     <script>
-    $(document).ready(function() {
-        $('#userTable').DataTable();
-    });
+        $(document).ready(function() {
+            $('#userTable').DataTable();
+        });
     </script>
 
 </body>

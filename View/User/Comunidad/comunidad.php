@@ -1,6 +1,6 @@
-<?php
-include_once '../Layout/layoutHome.php';
-include_once '../../../Controller/Comunidad/comunidadController.php';
+<?php include_once __DIR__ . '/../Layout/layoutHome.php';
+include_once __DIR__ . '/../../../Controller/Comunidad/comunidadController.php';
+
 $datosComunidad = obtenerInformacionComunidad($_GET['q']);
 ?>
 

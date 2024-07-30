@@ -1,7 +1,5 @@
-<?php
-
-include_once '../Layout/layoutHome.php';
-include_once '../../../Controller/PostController/postController.php';
+<?php include_once __DIR__ . '/../Layout/layoutHome.php';
+include_once __DIR__ . '/../../../Controller/PostController/postController.php';
 ?>
 
 <!DOCTYPE html>
@@ -105,11 +103,11 @@ include_once '../../../Controller/PostController/postController.php';
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- page-inner -->
-                </div> <!-- mt-2 mb-4 row -->
+                    </div>
+                </div>
 
 
-            </div> <!-- content -->
+            </div>
 
             <footer class="footer">
                 <div class="container-fluid">
@@ -137,8 +135,8 @@ include_once '../../../Controller/PostController/postController.php';
                     </div>
                 </div>
             </footer>
-        </div> <!-- main-panel -->
-    </div> <!-- wrapper -->
+        </div>
+    </div>
 
     <?php scripts(); ?>
 </body>

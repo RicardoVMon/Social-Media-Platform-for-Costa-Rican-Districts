@@ -1,4 +1,5 @@
-<?php include_once '../Layout/layoutAdmin.php'; ?>
+<?php include_once __DIR__ . '/../Layout/layoutAdmin.php';
+include_once __DIR__ . '/../../../Controller/Admin/comunidadControllerAdmin.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,24 +45,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th>Heredia</th>
-                                                <td>Barva</td>
-                                                <td>San José de la Montaña</td>
-                                                <td>12</td>
-                                                <td>
-                                                    <a href="modificarComunidad.php" class="btn btn-primary w-100">Modificar</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Heredia</th>
-                                                <td>San Isidro</td>
-                                                <td>Centro</td>
-                                                <td>11</td>
-                                                <td>
-                                                    <a href="modificarComunidad.php" class="btn btn-primary w-100">Modificar</a>
-                                                </td>
-                                            </tr>
+                                            <?php ObtenerComunidades() ?>
                                         </tbody>
                                     </table>
                                 </div>

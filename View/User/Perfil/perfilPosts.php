@@ -1,13 +1,13 @@
-<?php include_once '../Layout/layoutHome.php'; 
-      include_once '../../../Controller/PerfilController/perfilController.php';
+<?php include_once __DIR__ . '/../Layout/layoutHome.php';
+include_once __DIR__ . '/../../../Controller/PerfilController/perfilController.php';
 
-        if(session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-        $posts = mysqli_fetch_array(ConsultarUsuarioPosts($_SESSION["idUsuario"]));
-        $comentarios = mysqli_fetch_array(ConsultarUsuarioComentarios($_SESSION["idUsuario"]));
-        $datos = ConsultarUsuario($_SESSION["idUsuario"]);
+$posts = mysqli_fetch_array(ConsultarUsuarioPosts($_SESSION["idUsuario"]));
+$comentarios = mysqli_fetch_array(ConsultarUsuarioComentarios($_SESSION["idUsuario"]));
+$datos = ConsultarUsuario($_SESSION["idUsuario"]);
 
 ?>
 
@@ -33,7 +33,7 @@
 
                             <!-- info usuario -->
                             <div class="col-md-8">
-                                <div class="mt-2 mb-4"> 
+                                <div class="mt-2 mb-4">
                                     <div class="d-flex justify-content-between px-4 mt-3">
                                         <div class="d-flex justify-content-start">
                                             <div class="d-flex flex-column justify-content-center">
@@ -126,7 +126,7 @@
                                         </div>
                                         <div class="card-body">
                                             <p class="mb-0">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                             </p>
                                         </div>
                                         <div class="card-footer">
@@ -211,42 +211,42 @@
 
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
 
             <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Sobre Nosotros
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Soporte
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Licencias
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="copyright ml-auto">
+                <div class="container-fluid">
+                    <nav class="pull-left">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Sobre Nosotros
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Soporte
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Licencias
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright ml-auto">
                         2024, Umbrella
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
 
 
         </div>
 
-        
+
     </div>
 
     <?php scripts(); ?>

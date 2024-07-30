@@ -1,5 +1,4 @@
-<?php
-include_once "../../Model/Autenticacion/registroModel.php";
+<?php include_once __DIR__ . "/../../Model/Autenticacion/registroModel.php";
 
 
 /* function obtenerProvincias()

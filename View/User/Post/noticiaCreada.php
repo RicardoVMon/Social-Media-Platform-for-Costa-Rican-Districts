@@ -1,6 +1,5 @@
-<?php 
-include_once '../Layout/layoutHome.php';
-include_once '../../../Controller/PostController/postController.php';
+<?php include_once __DIR__ . '/../Layout/layoutHome.php';
+include_once __DIR__ . '/../../../Controller/PostController/postController.php';
 
 $noticia = VisualizarNoticia($_GET['r']);
 ?>
@@ -130,34 +129,34 @@ $noticia = VisualizarNoticia($_GET['r']);
                         </div>
                     </div>
                 </div>
-                </div>
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <nav class="pull-left">
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        Sobre Nosotros
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        Soporte
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        Licencias
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <div class="copyright ml-auto">
-                            2024, Umbrella
-                        </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav class="pull-left">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Sobre Nosotros
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Soporte
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Licencias
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright ml-auto">
+                        2024, Umbrella
                     </div>
-                </footer>
-            
+                </div>
+            </footer>
+
         </div>
 
         <?php scripts(); ?>

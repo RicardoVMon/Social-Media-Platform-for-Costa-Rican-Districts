@@ -1,5 +1,4 @@
-<?php
-include_once "../../../Model/Comunidad/comunidadModel.php";
+<?php include_once __DIR__ . "/../../Model/Comunidad/comunidadModel.php";
 
 function obtenerInformacionComunidad($idComunidad)
 {
