@@ -1,5 +1,5 @@
-<?php include_once '../Layout/layoutAdmin.php';
-include_once '../../../Controller/Admin/comunidadControllerAdmin.php';
+<?php include_once __DIR__ . '/../Layout/layoutAdmin.php';
+include_once __DIR__ . '/../../../Controller/Admin/comunidadControllerAdmin.php';
 
 if (isset($_GET['idComunidad'])) {
     $id = $_GET['idComunidad'];

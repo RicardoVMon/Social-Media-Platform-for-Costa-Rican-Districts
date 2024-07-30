@@ -1,8 +1,4 @@
-<?php include_once '../../Model/Admin/comunidadModelAdmin.php';
-
-// File path temporal para mi computadora, el path relativo no me reconoce el archivo. - Daniel.
-$filePath = realpath('/Applications/XAMPP/xamppfiles/htdocs/Proyecto/Model/Admin/comunidadModelAdmin.php');
-include_once $filePath;
+<?php include_once __DIR__ . '/../../Model/Admin/comunidadModelAdmin.php';
 
 if (isset($_POST['btnModificarComunidad'])) {
 

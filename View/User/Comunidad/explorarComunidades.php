@@ -1,4 +1,5 @@
-<?php include_once '../Layout/layoutHome.php'; ?>
+<?php include_once __DIR__ . '/../Layout/layoutHome.php'; 
+include_once __DIR__ . '/../../../Controller/Comunidad/explorarController.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +20,7 @@
                 <div class="page-inner">
                     <div class="page-inner-top">
                         <span class="pl-2">
-                            <a href="#">Heredia</a>
-                            >
-                            <a href="#">Barva</a>
+                            <a href="explorarProvincias.php"><?php echo $_GET['r'];?></a>
                         </span>
                         <div class="mb-4 d-flex flex-column">
                             <span class="display-1">Explorar Comunidades</span>
@@ -47,7 +46,7 @@
                     <div class="row">
 
                         <!-- Post -->
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <div class="card">
                                 <div class="card-header p-1">
                                     <div class="d-flex">
@@ -113,7 +112,10 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+
+                        <?php obtenerDistritos($_GET['q']); ?>
+
                     </div>
                 </div>
                 <footer class="footer">

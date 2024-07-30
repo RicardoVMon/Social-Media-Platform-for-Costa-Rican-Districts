@@ -1,5 +1,5 @@
-<?php
-include_once "../../Model/Autenticacion/registroModel.php";
+<?php include_once __DIR__ . "/../../Model/Autenticacion/registroModel.php";
+
 
 /* function obtenerProvincias()
 {
@@ -44,13 +44,28 @@ if (isset($_POST['btnRegistrar'])) {
             $datos = mysqli_fetch_array($resultadoDistrito);
             $distrito = $datos['id_distrito'];
             $resultadoRegistro = registrarUsuario($cedula, $nombre, $apellidos, $correo, $genero, $contrasennia, $distrito);
+
         }
     }
 
     if ($resultadoRegistro) {
         header("Location: ../../View/Autenticacion/login.php");
+
         $_POST['mensaje'] = "Usuario fue registrado con éxito";
     } else {
         $_POST['mensaje'] = "Error al registrar el usuario";
+    }
+}
+
+function ConsultarIdGenero()
+{
+    $respuesta = ConsultarIdGeneroBD();
+
+    if($respuesta -> num_rows > 0)
+    {
+        while ($row = mysqli_fetch_array($respuesta)) 
+        { 
+            echo "<option value=" . $row["id_genero"] . ">" . $row["nombre_genero"] . "</option>";
+        }
     }
 }

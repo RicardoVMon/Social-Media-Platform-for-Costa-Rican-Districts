@@ -1,5 +1,5 @@
-<?php include_once '../Layout/layoutAdmin.php';
-include_once '../../../Controller/Admin/postControllerAdmin.php'; ?>
+<?php include_once __DIR__ . '/../Layout/layoutAdmin.php';
+include_once __DIR__ . '/../../../Controller/Admin/postControllerAdmin.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

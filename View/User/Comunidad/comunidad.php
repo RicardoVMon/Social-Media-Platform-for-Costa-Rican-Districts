@@ -1,4 +1,8 @@
-<?php include_once '../Layout/layoutHome.php'; ?>
+<?php include_once __DIR__ . '/../Layout/layoutHome.php';
+include_once __DIR__ . '/../../../Controller/Comunidad/comunidadController.php';
+
+$datosComunidad = obtenerInformacionComunidad($_GET['q']);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,36 +23,71 @@
                 <div class="page-inner">
                     <div class="page-inner-top">
                         <div class="mt-2 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fort%C3%ADn.JPG" width="100%" height="150px" style="object-fit: cover;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fort%C3%ADn.JPG" width="100%"
+                                height="150px" style="object-fit: cover;">
 
                             <div class="d-flex justify-content-between px-4 mt-3">
                                 <div class="d-flex justify-content-start">
                                     <div class="d-flex flex-column justify-content-center">
-                                        <img src="https://www.heredia.go.cr/sites/default/files/bandera-heredia_0.png" style="height: 10vw; width: 10vw; object-fit: cover; margin-top: -6vw;" class="rounded-circle img-fluid">
+                                        <img src="https://www.heredia.go.cr/sites/default/files/bandera-heredia_0.png"
+                                            style="height: 10vw; width: 10vw; object-fit: cover; margin-top: -6vw;"
+                                            class="rounded-circle img-fluid">
                                     </div>
                                     <div class="mx-3 d-flex flex-column justify-content-start">
                                         <h1 class="font-weight-bold display-4 mb-0">
-                                            San José de La Montaña
+                                            <?php echo $datosComunidad['nombre_distrito']; ?>
                                         </h1>
                                         <h6 class="mb-0">
-                                            La mejor comunidad de Costa Rica!
+                                            <?php echo $datosComunidad['descripcion']; ?>
                                         </h6>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-middle">
-                                    <div class="d-flex flex-column justify-content-center mr-3">
-                                        <a href="../Post/crearNoticia.php" class="btn btn-primary btn-round" style="font-size: 1vw;">
-                                            <i class="fa-solid fa-plus mx-1"></i>
-                                            Crear Publicación
-                                        </a>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <a href="../Post/crearNoticia.php" class="btn btn-primary btn-round" style="font-size: 1vw;">
-                                            <i class="fa-solid fa-plus mx-1"></i>
-                                            <!-- Esto se va a validar segun ya este siguido o se ocupe seguir -->
-                                            Seguir
-                                        </a>
-                                    </div>
+                                    
+                                    <?php
+
+                                    if($_GET['q'] == $_SESSION['idDistrito'])
+                                    {
+                                        echo '<div class="d-flex flex-column justify-content-center mr-3">
+                                        <a href="../Post/crearNoticia.php?q=' . $_GET['q'] .'" class="btn btn-primary btn-round" style="font-size: 1vw;">
+                                                <i class="fa-solid fa-plus mx-1"></i>
+                                                Crear Publicación
+                                            </a>
+                                        </div>';
+                                    }
+                                    ?>
+
+                                    <?php 
+                                    
+                                    if (obtenerComunidadesSeguidas($_SESSION['idUsuario'], $_GET['q']))
+                                    {
+                                        echo '                                        
+                                        <form action="" method="POST" class="d-flex flex-column justify-content-center">
+                                            <div>
+                                                <input type="hidden" name="idUsuario" value="'. $_SESSION['idUsuario'] . '">
+                                                <input type="hidden" name="idComunidad" value="' . $_GET['q'] . '">
+                                                <button type="submit" class="btn btn-success btn-round" style="font-size: 1vw; id="btnDejarSeguir" name="btnDejarSeguir"">
+                                                    <i class="fa-solid fa-check mr-1"></i>
+                                                    Seguido
+                                                </button>
+                                            </div>
+                                        </form>';
+                                    } else {
+                                        echo '                                        
+                                        <form action="" method="POST" class="d-flex flex-column justify-content-center">
+                                            <input type="hidden" name="idUsuario" value="'. $_SESSION['idUsuario'] . '">
+                                            <input type="hidden" name="idComunidad" value="' . $_GET['q'] . '">
+                                            <div>
+                                                <button type="submit" class="btn btn-primary btn-round" style="font-size: 1vw; id="btnSeguir" name="btnSeguir"">
+                                                    <i class="fa-solid fa-plus mx-1"></i>
+                                                    Seguir
+                                                </button>
+                                            </div>
+                                        </form>';
+                                    }
+                                    
+                                     ?>
+
                                 </div>
                             </div>
                         </div>
@@ -75,7 +114,7 @@
                             </div>
 
                             <!-- Post -->
-                            <div class="col-md-12 px-0">
+                            <!-- <div class="col-md-12 px-0">
                                 <div class="card">
                                     <div class="card-header pb-1">
                                         <div class="d-flex">
@@ -168,7 +207,8 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+                            <?php obtenerPosts($_GET['q']); ?>
 
 
                         </div>
@@ -179,35 +219,42 @@
                                     <div class="card-title text-center" style="font-size: 1.5vw;">
                                         <i class="fa-solid fa-newspaper"></i>
                                         Noticias
+
                                     </div>
                                 </div>
                                 <div class="card-body pb-0">
                                     <!-- Noticia -->
                                     <a href="#" class="col-md-12 px-0 d-flex mb-4">
                                         <div class="avatar">
-                                            <img src="assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="assets/img/logoproduct.svg" alt="..."
+                                                class="avatar-img rounded-circle">
                                         </div>
                                         <div class="flex-1 pt-1 ml-2">
                                             <h4 class="fw-bold mb-0">Noticia 1</h4>
-                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quas.</small>
+                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Pariatur, quas.</small>
                                         </div>
                                     </a>
                                     <a href="#" class="col-md-12 px-0 d-flex mb-4">
                                         <div class="avatar">
-                                            <img src="assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="assets/img/logoproduct.svg" alt="..."
+                                                class="avatar-img rounded-circle">
                                         </div>
                                         <div class="flex-1 pt-1 ml-2">
                                             <h4 class="fw-bold mb-0">Noticia 2</h4>
-                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quas.</small>
+                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Pariatur, quas.</small>
                                         </div>
                                     </a>
                                     <a href="#" class="col-md-12 px-0 d-flex mb-4">
                                         <div class="avatar">
-                                            <img src="assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="assets/img/logoproduct.svg" alt="..."
+                                                class="avatar-img rounded-circle">
                                         </div>
                                         <div class="flex-1 pt-1 ml-2">
                                             <h4 class="fw-bold mb-0">Noticia 3</h4>
-                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quas.</small>
+                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Pariatur, quas.</small>
                                         </div>
                                     </a>
                                 </div>

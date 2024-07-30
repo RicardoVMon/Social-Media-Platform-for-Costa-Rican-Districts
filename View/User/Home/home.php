@@ -1,4 +1,5 @@
-<?php include_once '../Layout/layoutHome.php';
+<?php include_once __DIR__ . '/../Layout/layoutHome.php';
+include_once __DIR__ . '/../../../Controller/Comunidad/comunidadController.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -88,101 +89,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                 </div>
                             </div>
                             <!-- Post 1 -->
-                            <div class="col-md-12 px-0">
-                                <div class="card">
-                                    <div class="card-header pb-1">
-                                        <div class="d-flex">
-                                            <img src="../../assets/img/profile.jpg" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
-                                            <a href="#" class="ml-1"><b>Manuel Díaz</b></a>
-                                            <span class="ml-1">10/11/2022</span>
-                                        </div>
-                                        <div class="card-head-row">
-                                            <a href="#" class="card-title" style="font-size: 2vw;">Aumento de Inundaciones</a>
-                                            <div class="card-tools">
-                                                <a href="#" class="btn btn-danger btn-round btn-sm mr-2">
-                                                    <span class="btn-label">
-                                                        <i class="fa-solid fa-circle-exclamation"></i>
-                                                    </span>
-                                                    Incidente
-                                                </a>
-                                                <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
-                                                    <span class="btn-label">
-                                                        <i class="fa-solid fa-share"></i>
-                                                    </span>
-                                                    Compartir
-                                                </a>
-                                                <a href="#" class="btn btn-info btn-border btn-round btn-sm">
-                                                    <span class="btn-label">
-                                                        <i class="fa fa-print"></i>
-                                                    </span>
-                                                    Imprimir
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="mb-0">
-                                            ¡Hola a todos! Quería compartir con ustedes una noticia importante sobre el aumento de inundaciones en nuestra comunidad. En los últimos meses, hemos experimentado un incremento significativo en los niveles de agua, lo que ha causado daños en varias áreas. Es crucial que estemos preparados y tomemos medidas para proteger nuestras propiedades y garantizar la seguridad de nuestras familias. Si tienes alguna información adicional o consejos sobre cómo lidiar con las inundaciones, por favor compártelos en los comentarios. ¡Gracias!
-                                        </p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary mr-2">
-                                            <i class="fa fa-thumbs-up"></i> Me gusta
-                                        </a>
-                                        <a href="#" class="btn btn-secondary">
-                                            <i class="fa fa-comment"></i> Comentar
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Post 2 -->
-                            <div class="col-md-12 px-0">
-                                <div class="card">
-                                    <div class="card-header pb-1">
-                                        <div class="d-flex">
-                                            <img src="https://cdn-icons-png.freepik.com/512/146/146005.png" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
-                                            <a href="#" class="ml-1"><b>Ana Díaz</b></a>
-                                            <span class="ml-1">10/12/2022</span>
-                                        </div>
-                                        <div class="card-head-row">
-                                            <a href="#" class="card-title" style="font-size: 2vw;">Cambio Climático</a>
-                                            <div class="card-tools">
-                                                <a href="#" class="btn btn-warning btn-round btn-sm mr-2">
-                                                    <span class="btn-label">
-                                                        <i class="fa-solid fa-circle-exclamation"></i>
-                                                    </span>
-                                                    Seguridad
-                                                </a>
-                                                <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
-                                                    <span class="btn-label">
-                                                        <i class="fa-solid fa-share"></i>
-                                                    </span>
-                                                    Compartir
-                                                </a>
-                                                <a href="#" class="btn btn-info btn-border btn-round btn-sm">
-                                                    <span class="btn-label">
-                                                        <i class="fa fa-print"></i>
-                                                    </span>
-                                                    Imprimir
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="mb-0">
-                                            ¡Hola a todos! Hoy quiero hablar sobre el impacto del cambio climático en nuestra región. Las temperaturas han aumentado considerablemente, afectando a la flora y fauna local. Es crucial que tomemos medidas para reducir nuestra huella de carbono. ¿Tienes ideas sobre cómo podemos contribuir? ¡Déjalas en los comentarios!
-                                        </p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary mr-2">
-                                            <i class="fa fa-thumbs-up"></i> Me gusta
-                                        </a>
-                                        <a href="#" class="btn btn-secondary">
-                                            <i class="fa fa-comment"></i> Comentar
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php obtenerPostsComunidadesSeguidas($_SESSION['idUsuario']); ?>
                         </div>
                         <!-- Columna de Noticias -->
                         <div class="col-md-4">

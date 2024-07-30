@@ -1,5 +1,5 @@
 <?php
-include_once "../../Controller/Autenticacion/loginController.php";
+include_once '../../Controller/Autenticacion/loginController.php';
 ?>
 
 <!DOCTYPE html>

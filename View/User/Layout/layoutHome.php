@@ -84,7 +84,7 @@ function mostrarNavBar()
                </div>
                <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                   <li class="nav-item">
-                        <a class="nav-link" href="../Post/crearNoticia.php">
+                        <a class="nav-link" href="../Post/crearNoticia.php?q='. $_SESSION['idDistrito'] .'">
                            <i class="fa fa-plus"></i>
                         </a>
                   </li>
@@ -96,23 +96,23 @@ function mostrarNavBar()
                   <li class="nav-item dropdown hidden-caret">
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                            <div class="avatar-sm">
-                              <img src="../../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                              <img src="'. $_SESSION['iconoUsuario'] .'" alt="..." class="avatar-img rounded-circle">
                            </div>
                         </a>
                         <ul class="dropdown-menu dropdown-user animated fadeIn">
                            <div class="dropdown-user-scroll scrollbar-outer">
                               <li>
                                     <div class="user-box">
-                                       <div class="avatar-lg"><img src="../../assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+                                       <div class="avatar-lg"><img src="'. $_SESSION['iconoUsuario'] .'" alt="image profile" class="avatar-img rounded"></div>
                                        <div class="u-text">
                                           <h4>' . $_SESSION['nombreUsuario'] . '</h4>
-                                          <p class="text-muted">' . $_SESSION['email'] . '</p><a href="#" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                          <p class="text-muted">' . $_SESSION['email'] . '</p><a href="../Perfil/perfilPosts.php" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                        </div>
                                     </div>
                               </li>
                               <li>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Mi Perfil</a>
+                                    <a class="dropdown-item" href="../Perfil/perfilPosts.php">Mi Perfil</a>
                                     <a class="dropdown-item" href="#">Alertas</a>
                                     <div class="dropdown-divider"></div>
 
@@ -141,7 +141,7 @@ function mostrarSideBar()
          <div class="sidebar-content">
             <div class="user">
                <div class="avatar-sm float-left mr-2">
-                  <img src="../../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                  <img src="'. $_SESSION['iconoUsuario'] .'" alt="..." class="avatar-img rounded-circle">
                </div>
                <div class="info">
                   <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
