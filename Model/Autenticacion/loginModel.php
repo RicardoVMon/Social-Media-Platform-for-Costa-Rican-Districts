@@ -1,5 +1,5 @@
-<?php
-include_once "../../Model/Conexion/dbconnection.php";
+<?php include_once '../../Model/Conexion/dbconnection.php';
+
 
 function loginUsuario($cedula, $contrasennia)
 {

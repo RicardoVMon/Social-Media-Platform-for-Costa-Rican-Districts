@@ -1,5 +1,4 @@
-<?php
-include_once "../../../Model/PostModel/postModel.php";
+<?php include_once __DIR__ . "/../../Model/PostModel/postModel.php";
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

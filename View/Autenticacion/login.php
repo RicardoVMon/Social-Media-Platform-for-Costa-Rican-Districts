@@ -1,5 +1,5 @@
 <?php
-include_once "../../Controller/Autenticacion/loginController.php";
+include_once '../../Controller/Autenticacion/loginController.php';
 ?>
 
 <!DOCTYPE html>
@@ -40,11 +40,11 @@ include_once "../../Controller/Autenticacion/loginController.php";
                     ?>
 
                     <div class="form-group form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Cédula" name="cedula" id="cedula" required/>
+                        <input type="text" class="form-control" placeholder="Cédula" name="cedula" id="cedula" required />
                         <label class="form-label">Cédula</label>
                     </div>
                     <div class="form-group form-floating mb-4">
-                        <input type="password" class="form-control" placeholder="Contraseña" name="contrasennia" id="contrasennia" required/>
+                        <input type="password" class="form-control" placeholder="Contraseña" name="contrasennia" id="contrasennia" required />
                         <label class="form-label">Contraseña</label>
                     </div>
                     <div class="form-group text-center">

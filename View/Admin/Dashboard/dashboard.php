@@ -224,7 +224,7 @@
 
 
     <?php scripts(); ?>
-    
+
     <script>
         $(document).ready(function() {
             $('#userTable').DataTable();

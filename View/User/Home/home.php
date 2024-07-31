@@ -1,11 +1,9 @@
-<?php include_once '../Layout/layoutHome.php';
-include_once '../../../Controller/Comunidad/comunidadController.php';
+<?php include_once __DIR__ . '/../Layout/layoutHome.php';
+include_once __DIR__ . '/../../../Controller/Comunidad/comunidadController.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
-}
-
-?>
+} ?>
 
 <!DOCTYPE html>
 <html lang="en">

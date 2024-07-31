@@ -1,4 +1,5 @@
-<?php include_once '../Layout/layoutAdmin.php'; ?>
+<?php include_once __DIR__ . '/../Layout/layoutAdmin.php';
+include_once __DIR__ . '/../../../Controller/Admin/postControllerAdmin.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title">Tabla de Posts Reportados</div>
+                                    <div class="card-title">Tabla de Posts</div>
                                 </div>
                                 <div class="card-body">
                                     <table id="userTable" class="table table-striped">
@@ -38,32 +39,14 @@
                                             <tr>
                                                 <th>Nombre de Post</th>
                                                 <th>Resumen</th>
-                                                <th>Cantidad de Reportes</th>
                                                 <th>Cantidad de Comentarios</th>
+                                                <!-- <th>Cantidad de Reportes</th> Necesita cambios en la BD, revisar despues -->
+                                                <th>Categoria</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th>Lorem, ipsum dolor.</th>
-                                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sed.</td>
-                                                <td>5</td>
-                                                <td>12</td>
-                                                <td>
-                                                    <button class="btn btn-primary mr-2">Ver Completo</button>
-                                                    <button class="btn btn-danger">Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Lorem, ipsum dolor.</th>
-                                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, sed.</td>
-                                                <td>7</td>
-                                                <td>10</td>
-                                                <td>
-                                                    <button class="btn btn-primary mr-2">Ver Completo</button>
-                                                    <button class="btn btn-danger">Eliminar</button>
-                                                </td>
-                                            </tr>
+                                            <?php ObtenerPublicaciones() ?>
                                         </tbody>
                                     </table>
                                 </div>

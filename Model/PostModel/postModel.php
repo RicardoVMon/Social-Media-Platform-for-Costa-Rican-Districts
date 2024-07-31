@@ -1,6 +1,4 @@
-<?php
-
-include_once "../../../Model/Conexion/dbconnection.php";
+<?php include_once __DIR__ . "/../Conexion/dbconnection.php";
 
 
 function PublicarNoticia($titulo, $noticia, $usuario, $categoria)

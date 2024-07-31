@@ -1,5 +1,5 @@
-<?php include_once '../Layout/layoutHome.php'; 
-include_once '../../../Controller/Comunidad/explorarController.php';?>
+<?php include_once __DIR__ . '/../Layout/layoutHome.php'; 
+include_once __DIR__ . '/../../../Controller/Comunidad/explorarController.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
