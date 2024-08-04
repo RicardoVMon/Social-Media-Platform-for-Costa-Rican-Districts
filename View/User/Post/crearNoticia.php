@@ -19,83 +19,64 @@ include_once __DIR__ . '/../../../Controller/PostController/postController.php';
         <div class="main-panel">
             <div class="content">
                 <div class="page-inner">
-                    <div class="page-inner-top">
-                        <div class="mt-2 mb-4">
-                            <h2 class="pb-1"> <?php echo $_SESSION['primerNombre']; ?>!</h2>
-                            <h5 class="op-7 mb-4">Comparte una noticia con la comunidad!</h5>
-                        </div>
-                    </div> <!-- page-inner-top -->
-                    <div class=" mb-3 row">
-                        <!-- Columna de Crear Publicación -->
-                        <div class="col-md-6">
-                            <div class="card" id="crearPublicacionCard" style="margin-top:30px">
-                                <div class="card-body" style="color: #4c4c4c">
-                                    <div align-items-center>
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <header class="card-title">
-                                                    <i class=""></i> Crear Publicación
-                                                </header>
-                                            </div>
-                                            <div class="col">
-                                                <form action="" method="post">
-                                                    <!-- drop-down -->
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                                            <select name="categoria" id="categoria" class="custom-select" required>
-                                                                <?php obtenerCategorias(); ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </div>
-                                        <!-- Formulario de publicación -->
+                    <div class="mb-3 row">
+                        <div class="col-8">
+                            <form action="" method="post">
+                                <div class="row">
+                                    <div class="col-7 mb-0 pr-0 mr-0">
+                                        <h1 class="p-0 m-0 display-3"> <b>Crear publicación</b> </h1>
                                     </div>
-                                    <?php
-                                    if (isset($_POST["msj"])) {
-                                        echo $_POST["msj"];
-                                    }
-                                    ?>
-                                    <div class="form-group">
-                                        <textarea id="titulo" name="titulo" placeholder="Título" class="titulo" style="border-radius: 15px; padding:15px; width: 60%; height: 70px;" required></textarea>
+                                    <div class="col-3 pl-0 pt-4 ml-0 d-flex flex-column justify-content-center">
+                                        <select name="categoria" id="categoria" class="custom-select" required>
+                                            <?php obtenerCategorias(); ?>
+                                        </select>
                                     </div>
-                                    <div class="form-group">
-                                        <textarea id="noticia" name="noticia" placeholder="Contenido de publicación..." class="contenidoPublicacion" spellcheck="false" style="border-radius: 10px; padding: 10px;" required></textarea>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <div class="col-2">
-                                            <button type="submit" id="btnPublicarNoticia" name="btnPublicarNoticia" class="btnPublicarNoticia">Publicar</button>
-                                        </div>
-                                    </div>
-                                    </form>
                                 </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="text" id="titulo" name="titulo" placeholder="Título" class="h2 border w-75 p-3 mt-3 rounded" required></input>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <textarea id="noticia" name="noticia" placeholder="Contenido de publicación..." class="h3 border w-100 p-3 mt-3 rounded" spellcheck="false" style="height: 30vh" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <div class="col-4 px-0 mx-0">
+                                        <button type="submit" id="btnPublicarNoticia" name="btnPublicarNoticia" class="btn btn-primary btn-lg w-100">Publicar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <!-- Columna de info sobre la comunidad -->
-                        <div class="col-md-3" style="margin-left:315px">
-                            <div class="card" style="margin-top:30px">
+
+                        <div class="col-md-4">
+                            <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title text-center" style="font-size: 1.4vw;">
-                                        <i class="fa-solid fa fa-home"></i>
+                                    <div class="text-center" style="font-size: 1.5vw;">
+                                        <i class="fa-solid fa-home"></i>
                                         <?php echo $_SESSION['nombreDistrito']; ?>
                                     </div>
                                 </div>
+
                                 <div class="card-body pb-0">
-                                    <!-- Esta info esta en el postController -->
                                     <?php VisualizarInformacionComunidad($_GET['q']); ?>
-                                    <!-- links hacia otras vistas -->
+                                </div>
+
+                                <!-- links home, comunidad -->
+                                <div class="card-footer">
                                     <div class="row">
-                                        <div class="col-12 mb-4">
-                                            <a href="../Comunidad/comunidad.php?q=<?php echo $_SESSION['idDistrito']; ?>" class="text-white">
-                                                <div class="card bg-info">
-                                                    <div class="card-body">Mi Comunidad</div>
+                                        <div class="col-12">
+                                            <a href="../Home/home.php" class="text-white">
+                                                <div class="card bg-primary">
+                                                    <div class="card-body">Inicio</div>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="col-12 mb-4">
-                                            <a href="#" class="text-white">
-                                                <div class="card bg-info">
-                                                    <div class="card-body">Mi perfil</div>
+                                        <div class="col-12">
+                                            <a href="../Comunidad/comunidad.php" class="text-white">
+                                                <div class="card bg-primary">
+                                                    <div class="card-body">Mi Comunidad</div>
                                                 </div>
                                             </a>
                                         </div>

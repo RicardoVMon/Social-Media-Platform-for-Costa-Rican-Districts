@@ -26,7 +26,7 @@ function obtenerCategorias()
 {
     $resultado = obtenerCategoriasBD();
 
-    echo '<option value="" selected>Categoria</option>';
+    echo '<option value="" selected disabled>Seleccione una categoría</option>';
 
     if ($resultado->num_rows > 0) {
         while ($row = mysqli_fetch_array($resultado)) {
@@ -71,24 +71,24 @@ function VisualizarInformacionComunidad($id_distrito)
         $rowProvinciaCanton = mysqli_fetch_array($respuestaProvinciaCanton);
 
         echo '<div class="row">
-                    <div class="col-md-6">
-                        <p><b>Fecha</b></p>
-                        <p><b>Número de seguidores</b></p>
-                    </div>
-                    <div class="col-md-6">
-                         <p>' . $rowSeguidoresFecha['fecha'] . '</p>
-                         <p>' . $rowSeguidoresFecha['seguidores'] . '</p>
-                    </div>
-                 </div>
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-0">' . $rowSeguidoresFecha['fecha'] . '</h4>
+                    <p>Fecha de ingreso</p>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-0">' . $rowSeguidoresFecha['seguidores'] . '</h4>
+                    <p>Número de Seguidores</p>
+                </div>
+              </div>
             <div class="row">
-                    <div class="col-md-6">
-                        <p><b>Provincia</b></p>
-                        <p><b>Cantón</b></p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>' . $rowProvinciaCanton['nombre_provincia'] . '</p>
-                        <p>' . $rowProvinciaCanton['nombre_canton'] . '</p> 
-                    </div>
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-0">' . $rowProvinciaCanton['nombre_provincia'] . '</h4>
+                    <p>Provincia</p>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-0">' . $rowProvinciaCanton['nombre_canton'] . '</h4>
+                    <p>Canton</p>
+                </div>
             </div>';
     }
 }

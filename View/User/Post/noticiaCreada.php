@@ -21,105 +21,113 @@ $noticia = VisualizarNoticia($_GET['r']);
         <div class="main-panel">
             <div class="content">
                 <div class="page-inner">
-                    <div class="page-inner-top">
-                    </div>
-                    <div class="mt-2 mb-4 row">
-                        <!-- Columna de contenido de la noticia y comentarios -->
-                        <div class="col-md-8">
-                            <div id="content" class="content content-full-width">
-                                <!-- Inicio noticia -->
-                                <?php
-                                if (isset($_POST["msj"])) {
-                                    echo '<div class="alert alert-info TextoCentrado">' . $_POST["msj"] . '</div>';
-                                }
-                                ?>
-                                <!-- Post -->
-                                <div class="col-md-12 px-1" style="margin-top:100px">
-                                    <div class="card" style="border: none; box-shadow: none; background: transparent;">
-                                        <div class="card-header pb-1" style="border: none; background: transparent;">
-                                            <div class="d-flex">
-                                                <img src="<?php echo $noticia['icono']; ?>" class="rounded-circle" style="height: 45px; width: 45px; object-fit: cover;" id="img_usuario">
-                                                <a href="#" class="ml-2"><b id="nombre_usuario"><?php echo $noticia['nombre_usuario']; ?></b></a> 
-                                                <span class="ml-2" id="fecha-publicacion"><?php echo $noticia['fecha']; ?></span>
-                                            </div>
-                                            <div class="card-head-row mt-2">
-                                                <a href="#" class="card-title" style="font-size: 28px;" id="titulo-publicacion"><?php echo $noticia['titulo']; ?></a>
-                                                <div class="card-tools">
-                                                    <a href="#" class="btn btn-danger btn-round btn-sm mr-2">
-                                                        <span class="btn-label">
-                                                            <i class="fa-solid fa-circle-exclamation"></i>
-                                                        </span>
-                                                        <?php echo $noticia['nombre_categoria_publicacion']; ?>
-                                                    </a>
-                                                    <a href="#" class="btn btn-info btn-round btn-sm mr-2 ">
-                                                        <span class="btn-label">
-                                                            <i class="fa-solid fa-house"></i>
-                                                        </span>
-                                                        <?php echo $_SESSION['nombreDistrito']; ?>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body" style="border: none; background: transparent;">
-                                            <p class="mb-0" id="contenido-publicacion">
-                                                <?php echo $noticia['contenido']; ?>
-                                            </p>
-                                        </div>
-                                        <div class="card-footer" style="border: none; background: transparent;">
-                                            <a href="#" class="btn btn-success mr-2">
-                                                <i class="fa fa-thumbs-up"></i> Me gusta
-                                            </a>
-                                            <a href="#" class="btn btn-primary">
-                                                <i class="fa fa-comment"></i> Comentar
-                                            </a>
+                    <div class="mb-3 row">
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-1 pr-1">
+                                    <img src="<?php echo $noticia['icono']; ?>" class="rounded-circle ml-2" style="height: 45px; width: 45px; object-fit: cover;" id="img_usuario">
+                                </div>
+                                <div class="col-3 pl-0">
+                                    <div class="d-flex flex-column">
+                                        <a href="../../../View/User/Perfil/perfil.php?s=<?php echo $noticia['id_usuario'].'&t=posts'; ?>">
+                                            <b><?php echo $noticia['nombre_usuario']; ?></b>
+                                        </a>
+                                        <div>
+                                            <?php echo $noticia['fecha']; ?>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Fin noticia -->
+                                <div>
+                                    <a href="#" class="btn btn-danger btn-round btn-sm mr-2">
+                                        <span class="btn-label">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                        </span>
+                                        <?php echo $noticia['nombre_categoria_publicacion']; ?>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col-10 mb-0 pr-0 mr-0">
+                                    <h1 class="p-0 m-0 display-4"> <b><?php echo $noticia['titulo']; ?></b> </h1>
+                                </div>
+                            </div>
+                            <div class="row py-3 pb-4">
+                                <div class="col-10 mb-0 pr-0 mr-0">
+                                    <p class="p-0 m-0"><?php echo $noticia['contenido']; ?></p>
+                                </div>
+                            </div>
+                            <div class="row pb-4">
+                                <div class="col-6 mb-0 pr-0 mr-0">
+                                    <a href="#" class="btn btn-success mr-2">
+                                        <i class="fa fa-thumbs-up"></i> Me gusta
+                                    </a>
+                                    <a href="#" class="btn btn-primary">
+                                        <i class="fa fa-comment"></i> Comentar
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <form action="">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control rounded-corner btn-round" placeholder="Comenta algo!">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr class="mt-4">
 
-                                <!-- Parte de comentarios -->
-                                <div class="profile-content mt-1">
-                                    <div class="timeline-comment-box">
-                                        <div class="input">
-                                            <form action="">
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control rounded-corner btn-round" placeholder="Comenta algo!">
-                                                    <span class="input-group-btn p-l-10">
-                                                        
-                                                    </span>
-                                                </div>
-                                            </form>
+                            <div>
+                                <div class="mb-4">
+                                    <h1 class="p-0 m-0 h2"> <b>Comentarios</b> </h1>
+                                </div>
+                                <!-- Seccion de Comentarios -->
+                                <div class="row">
+                                    <div class="col-1">
+                                        <img src="https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg" class="rounded-circle ml-2" style="height: 70px; width: 70px; object-fit: cover;" id="img_usuario">
+                                    </div>
+                                    <div class="col-10">
+                                        <!-- Comentario -->
+                                        <div class="d-flex flex-column mb-3">
+                                            <div>
+                                                <b>Nombre Usuario</b>
+                                            </div>
+                                            <div>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et nihil dolore fuga expedita aliquid laborum, rem, quas sapiente voluptates consectetur atque dolor sed, eaque sunt quod quibusdam quis quidem odio eveniet praesentium ducimus? Nostrum excepturi optio in blanditiis possimus dolorem quos, et, alias aspernatur cumque nisi mollitia fugiat commodi labore!
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Fin de los comentarios -->
                             </div>
                         </div>
 
-                        <!-- Columna de información de la comunidad -->
-                        <div class="col-md-3" style="margin-left:40px">
-                            <div class="card" style="margin-top:50px; border: none; box-shadow: none; background: transparent;">
-                                <div class="card-header" style="border: none; background: transparent;">
-                                    <div class="card-title text-center" style="font-size: 1.5vw;">
-                                        <i class="fa-solid fa fa-home"></i>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="text-center" style="font-size: 1.5vw;">
+                                        <i class="fa-solid fa-home"></i>
                                         <?php echo $_SESSION['nombreDistrito']; ?>
                                     </div>
                                 </div>
-                                <div class="card-body pb-0" style="border: none; background: transparent;">
+
+                                <div class="card-body pb-0">
                                     <?php VisualizarInformacionComunidad($_GET['q']); ?>
-                                    <!-- links hacia otras vistas -->
-                                    <div class="row mt-4">
+                                </div>
+
+                                <!-- links home, comunidad -->
+                                <div class="card-footer">
+                                    <div class="row">
                                         <div class="col-12">
-                                            <a href="../Comunidad/comunidad.php?q=<?php echo $_SESSION['idDistrito']; ?>" class="text-white">
-                                                <div class="card bg-info" style="border: none; box-shadow: none; background: transparent;">
-                                                    <div class="card-body">Mi Comunidad</div>
+                                            <a href="../Home/home.php" class="text-white">
+                                                <div class="card bg-primary">
+                                                    <div class="card-body">Inicio</div>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="col-12 mt-4">
-                                            <a href="#" class="text-white">
-                                                <div class="card bg-info" style="border: none; box-shadow: none; background: transparent;">
-                                                    <div class="card-body">Mi perfil</div>
+                                        <div class="col-12">
+                                            <a href="../Comunidad/comunidad.php" class="text-white">
+                                                <div class="card bg-primary">
+                                                    <div class="card-body">Mi Comunidad</div>
                                                 </div>
                                             </a>
                                         </div>
@@ -130,6 +138,7 @@ $noticia = VisualizarNoticia($_GET['r']);
                     </div>
                 </div>
             </div>
+
             <footer class="footer">
                 <div class="container-fluid">
                     <nav class="pull-left">

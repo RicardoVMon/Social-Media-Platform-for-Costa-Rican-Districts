@@ -1,19 +1,5 @@
 <?php include_once __DIR__ . "/../../Model/Autenticacion/registroModel.php";
-
-
-/* function obtenerProvincias()
-{
-    $provincias = obtenerProvinciasBD();
-
-    if ($provincias->num_rows > 0) {
-        $provinciasArray = array();
-        while ($provincia = mysqli_fetch_array($provincias)) {
-            echo "<option value='" . $provincia['idProvincia'] . "'>" . $provincia['nombre_provincia'] . "</option>";
-        }
-    }
-
-    return $provinciasArray;
-} */
+include_once __DIR__ . "/../../Controller/Comunidad/comunidadController.php";
 
 
 if (isset($_POST['btnRegistrar'])) {
@@ -30,6 +16,7 @@ if (isset($_POST['btnRegistrar'])) {
 
     $resultadoCedula = obtenerCedula($cedula);
     $resultadoRegistro;
+    $distrito;
 
     if ($resultadoCedula->num_rows > 0) {
 
@@ -49,6 +36,12 @@ if (isset($_POST['btnRegistrar'])) {
     }
 
     if ($resultadoRegistro) {
+
+        $resultadoIdUsuario = obtenerIdUsuario($cedula);
+        $datosUsuario = mysqli_fetch_array($resultadoIdUsuario);
+        $idUsuario = $datosUsuario['id_usuario'];
+        seguirComunidad($idUsuario, $distrito);
+
         header("Location: ../../View/Autenticacion/login.php");
 
         $_POST['mensaje'] = "Usuario fue registrado con éxito";
@@ -63,6 +56,9 @@ function ConsultarIdGenero()
 
     if($respuesta -> num_rows > 0)
     {
+
+        echo '<option value="" selected disabled>Seleccione una opción</option>';
+
         while ($row = mysqli_fetch_array($respuesta)) 
         { 
             echo "<option value=" . $row["id_genero"] . ">" . $row["nombre_genero"] . "</option>";

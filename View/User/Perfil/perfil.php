@@ -5,9 +5,9 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$posts = mysqli_fetch_array(ConsultarUsuarioPosts($_SESSION["idUsuario"]));
-$comentarios = mysqli_fetch_array(ConsultarUsuarioComentarios($_SESSION["idUsuario"]));
-$datos = ConsultarUsuario($_SESSION["idUsuario"]);
+$posts = mysqli_fetch_array(ConsultarUsuarioPosts($_GET['s']));
+$comentarios = mysqli_fetch_array(ConsultarUsuarioComentarios($_GET['s']));
+$datos = ConsultarUsuario($_GET['s']);
 
 ?>
 
@@ -37,11 +37,11 @@ $datos = ConsultarUsuario($_SESSION["idUsuario"]);
                                     <div class="d-flex justify-content-between px-4 mt-3">
                                         <div class="d-flex justify-content-start">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <img src="<?php echo $_SESSION['icono']; ?>" style="height: 10vw; width: 10vw; object-fit: cover;" class="rounded-circle img-fluid">
+                                                <img src="<?php echo $datos['icono'] ?>" style="height: 10vw; width: 10vw; object-fit: cover;" class="rounded-circle img-fluid">
                                             </div>
                                             <div class="mx-3 d-flex flex-column justify-content-center">
                                                 <h1 class="font-weight-bold display-4 mb-0">
-                                                    <?php echo $_SESSION['nombreUsuario']; ?>
+                                                    <?php echo $datos['nombre_usuario']; ?>
                                                 </h1>
                                                 <h6 class="mb-0">
                                                     <?php echo $datos["descripcion"]; ?>
@@ -55,64 +55,104 @@ $datos = ConsultarUsuario($_SESSION["idUsuario"]);
                                 <!-- Sección de filtros -->
                                 <div class="row mb-3">
                                     <div class="col-md-12 d-flex justify-content-start">
-                                        <a href="perfilPosts.php" class="btn btn-primary btn-round btn-sm mr-2" style="width: 150px">
+                                        <a href="perfil.php?s=<?php echo $_GET['s']; ?>&t=posts" class="btn btn-primary btn-round btn-sm mr-2" style="width: 150px">
                                             Posts
                                         </a>
-                                        <a href="perfilComentarios.php" class="btn btn-primary btn-round btn-sm mr-2" style="width: 150px">
+                                        <a href="perfil.php?s=<?php echo $_GET['s']; ?>&t=comentarios" class="btn btn-primary btn-round btn-sm mr-2" style="width: 150px">
                                             Comentarios
                                         </a>
                                     </div>
                                 </div>
 
-                                <!-- Comentarios hechos por el usuario -->
+                                <?php
+                                
+                                if (isset($_GET['t']) && $_GET['t'] == 'posts') {
+                                    ObtenerPostsUsuario($_GET['s']);
+                                } else {
+                                    ConsultarUsuarioComentarios($_GET['s']);
+                                }
+
+
+                                ?>
+
+                                <!-- Post hechos por el usuario 
                                 <div class="col-md-12 px-0">
                                     <div class="card">
                                         <div class="card-header pb-1">
                                             <div class="d-flex">
-                                                <img src="https://cdn-icons-png.freepik.com/512/146/146005.png" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
-                                                <b class="ml-1">Ana Díaz</b>
+                                                <img src="<?php /* echo $_SESSION['icono']; */ ?>" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
+                                                <b class="ml-1"><?php /* echo $_SESSION['nombreUsuario']; */ ?></b>
                                                 <span class="ml-1">10/11/2022</span>
                                             </div>
                                             <div class="card-head-row">
-                                                <p class="card-title" style="font-size: 2vw;">Cambio Climático</p>
+                                                <p class="card-title" style="font-size: 2vw;">Aumento de Inundaciones</p>
                                                 <div class="card-tools">
-                                                    <a href="#" class="btn btn-warning btn-round btn-sm mr-2">
+                                                    <a href="#" class="btn btn-danger btn-round btn-sm mr-2">
                                                         <span class="btn-label">
                                                             <i class="fa-solid fa-circle-exclamation"></i>
                                                         </span>
-                                                        Seguridad
+                                                        Incidente
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card-body">
                                             <p class="mb-0">
-                                                ¡Hola a todos! Hoy quiero hablar sobre el impacto del cambio climático en nuestra región. Las temperaturas han aumentado considerablemente, afectando a la flora y fauna local. Es crucial que tomemos medidas para reducir nuestra huella de carbono. ¿Tienes ideas sobre cómo podemos contribuir? ¡Déjalas en los comentarios!
+                                                ¡Hola a todos! Quería compartir con ustedes una noticia importante sobre el aumento de inundaciones en nuestra comunidad. En los últimos meses, hemos experimentado un incremento significativo en los niveles de agua, lo que ha causado daños en varias áreas. Es crucial que estemos preparados y tomemos medidas para proteger nuestras propiedades y garantizar la seguridad de nuestras familias. Si tienes alguna información adicional o consejos sobre cómo lidiar con las inundaciones, por favor compártelos en los comentarios. ¡Gracias!
                                             </p>
                                         </div>
                                         <div class="card-footer">
-                                            <div class="row">
-                                                <div class="col-md-10">
-                                                    <img src="<?php echo $_SESSION['icono']; ?>" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
-                                                    <b class="ml-1"><?php echo $_SESSION['nombreUsuario']; ?></b>
-                                                    <span class="ml-1">10/11/2022</span>
-                                                    <p class="mb-0">
-                                                        Hola Ana! Se podria hacer una iniciativa para plantar arboles que den sombra y alivar el calor!
-                                                    </p>
-                                                </div>
-
-                                                <div class="col-md-2">
-                                                    <a href="#" class="btn btn-danger">
-                                                        <i class="fa fa-pen"></i> Editar
-                                                    </a>
-                                                </div>
-
-                                            </div>
+                                            <a href="#" class="btn btn-primary mr-2">
+                                                <i class="fa fa-thumbs-up"></i> Me gusta
+                                            </a>
+                                            <a href="#" class="btn btn-secondary mr-2">
+                                                <i class="fa fa-comment"></i> Comentar
+                                            </a>
+                                            <a href="#" class="btn btn-danger">
+                                                <i class="fa fa-pen"></i> Editar
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
 
-
+                                <div class="col-md-12 px-0">
+                                    <div class="card">
+                                        <div class="card-header pb-1">
+                                            <div class="d-flex">
+                                                <img src="<?php /* echo $_SESSION['icono']; */ ?>" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
+                                                <b class="ml-1"><?php /* echo $_SESSION['nombreUsuario']; */ ?></b>
+                                                <span class="ml-1">10/11/2022</span>
+                                            </div>
+                                            <div class="card-head-row">
+                                                <p class="card-title" style="font-size: 2vw;">Lorem Ipsum</p>
+                                                <div class="card-tools">
+                                                    <a href="#" class="btn btn-danger btn-round btn-sm mr-2">
+                                                        <span class="btn-label">
+                                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                                        </span>
+                                                        Incidente
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                            </p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#" class="btn btn-primary mr-2">
+                                                <i class="fa fa-thumbs-up"></i> Me gusta
+                                            </a>
+                                            <a href="#" class="btn btn-secondary mr-2">
+                                                <i class="fa fa-comment"></i> Comentar
+                                            </a>
+                                            <a href="#" class="btn btn-danger">
+                                                <i class="fa fa-pen"></i> Editar
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div> -->
 
 
 
@@ -122,7 +162,7 @@ $datos = ConsultarUsuario($_SESSION["idUsuario"]);
                             <div class="col-md-4">
                                 <div class="card">
                                     <div class="card-header">
-                                        <div class="card-title text-center" style="font-size: 1.5vw;">
+                                        <div class="text-center" style="font-size: 1.5vw;">
                                             <i class="fa-solid fa-user"></i>
                                             Sobre Mi
                                         </div>
@@ -154,13 +194,20 @@ $datos = ConsultarUsuario($_SESSION["idUsuario"]);
                                     <!-- links home, comunidad -->
                                     <div class="card-footer">
                                         <div class="row">
-                                            <div class="col-12">
-                                                <a href="editarPerfil.php" class="text-white">
-                                                    <div class="card bg-primary">
-                                                        <div class="card-body">Editar mi información</div>
-                                                    </div>
-                                                </a>
-                                            </div>
+
+                                            <?php 
+                                            if ($_SESSION['idUsuario'] == $_GET['s']) { 
+                                                    
+                                                echo'<div class="col-12">
+                                                        <a href="editarPerfil.php?s=' . $_GET['s'] . '" class="text-white">
+                                                            <div class="card bg-primary">
+                                                                <div class="card-body">Editar mi información</div>
+                                                            </div>
+                                                        </a>
+                                                    </div>';
+                                            }
+                                            ?>
+                                            
                                             <div class="col-12">
                                                 <a href="../Home/home.php" class="text-white">
                                                     <div class="card bg-primary">

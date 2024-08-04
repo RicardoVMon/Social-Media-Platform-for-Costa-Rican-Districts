@@ -44,3 +44,12 @@ function obtenerCedula($cedula)
     cerrarConexion($conexion);
     return $resultado;
 }
+
+function obtenerIdUsuario($cedula)
+{
+    $conexion = abrirConexion();
+    $query = "CALL obtenerIdUsuario('$cedula')";
+    $resultado = $conexion->query($query);
+    cerrarConexion($conexion);
+    return $resultado;
+}
