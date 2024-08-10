@@ -1,5 +1,6 @@
 <?php include_once __DIR__ . '/../Layout/layoutHome.php';
 include_once __DIR__ . '/../../../Controller/PerfilController/perfilController.php';
+include_once __DIR__ . '/../../../Controller/Comentario/comentarioController.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -69,48 +70,40 @@ $datos = ConsultarUsuario($_GET['s']);
                                 if (isset($_GET['t']) && $_GET['t'] == 'posts') {
                                     ObtenerPostsUsuario($_GET['s']);
                                 } else {
-                                    ConsultarUsuarioComentarios($_GET['s']);
+                                    obtenerComentariosUsuario($_GET['s']);
                                 }
 
 
                                 ?>
 
-                                <!-- Post hechos por el usuario 
                                 <div class="col-md-12 px-0">
                                     <div class="card">
                                         <div class="card-header pb-1">
                                             <div class="d-flex">
-                                                <img src="<?php /* echo $_SESSION['icono']; */ ?>" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
-                                                <b class="ml-1"><?php /* echo $_SESSION['nombreUsuario']; */ ?></b>
-                                                <span class="ml-1">10/11/2022</span>
-                                            </div>
-                                            <div class="card-head-row">
-                                                <p class="card-title" style="font-size: 2vw;">Aumento de Inundaciones</p>
-                                                <div class="card-tools">
-                                                    <a href="#" class="btn btn-danger btn-round btn-sm mr-2">
-                                                        <span class="btn-label">
-                                                            <i class="fa-solid fa-circle-exclamation"></i>
-                                                        </span>
-                                                        Incidente
-                                                    </a>
-                                                </div>
+                                                <span class="ml-1 h3">Icono Comunidad / Nombre Comunidad / Titulo Post</span>
                                             </div>
                                         </div>
                                         <div class="card-body">
                                             <p class="mb-0">
                                                 ¡Hola a todos! Quería compartir con ustedes una noticia importante sobre el aumento de inundaciones en nuestra comunidad. En los últimos meses, hemos experimentado un incremento significativo en los niveles de agua, lo que ha causado daños en varias áreas. Es crucial que estemos preparados y tomemos medidas para proteger nuestras propiedades y garantizar la seguridad de nuestras familias. Si tienes alguna información adicional o consejos sobre cómo lidiar con las inundaciones, por favor compártelos en los comentarios. ¡Gracias!
                                             </p>
+                                            <div class="mt-2">Hace 24 días</div>
                                         </div>
-                                        <div class="card-footer">
-                                            <a href="#" class="btn btn-primary mr-2">
-                                                <i class="fa fa-thumbs-up"></i> Me gusta
-                                            </a>
-                                            <a href="#" class="btn btn-secondary mr-2">
-                                                <i class="fa fa-comment"></i> Comentar
-                                            </a>
-                                            <a href="#" class="btn btn-danger">
-                                                <i class="fa fa-pen"></i> Editar
-                                            </a>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 px-0">
+                                    <div class="card">
+                                        <div class="card-header pb-1">
+                                            <div class="d-flex">
+                                                <span class="ml-1 h3">Icono Comunidad / Nombre Comunidad / Titulo Post</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0">
+                                                ¡Hola a todos! Quería compartir con ustedes una noticia importante sobre el aumento de inundaciones en nuestra comunidad. En los últimos meses, hemos experimentado un incremento significativo en los niveles de agua, lo que ha causado daños en varias áreas. Es crucial que estemos preparados y tomemos medidas para proteger nuestras propiedades y garantizar la seguridad de nuestras familias. Si tienes alguna información adicional o consejos sobre cómo lidiar con las inundaciones, por favor compártelos en los comentarios. ¡Gracias!
+                                            </p>
+                                            <div class="mt-2">Hace 24 días</div>
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +145,7 @@ $datos = ConsultarUsuario($_GET['s']);
                                             </a>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
 
 
 

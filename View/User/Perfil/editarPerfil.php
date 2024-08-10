@@ -37,8 +37,8 @@ $datos = ConsultarUsuario($_GET['s']);
 
                         <div class="col-6">
                             <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">Vista del Perfil Actual</div>
+                                <div class="card-header pb-0">
+                                    <div class="h1">Vista del Perfil Actual</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="mt-2 mb-4">
@@ -114,8 +114,8 @@ $datos = ConsultarUsuario($_GET['s']);
                         <div class="col-6">
                             <!-- Formulario para editar perfil ****************** falta imagen que vemos despues en clase ******************** -->
                             <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">Editar Perfil</div>
+                                <div class="card-header pb-0">
+                                    <div class="h1">Editar Perfil</div>
                                 </div>
                                 <div class="card-body">
 
@@ -168,20 +168,65 @@ $datos = ConsultarUsuario($_GET['s']);
 
                                         <label for="description">Descripción</label>
                                         <div class="form-group">
-                                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Descripción"><?php echo $datos["descripcion"]; ?></textarea>
+                                            <textarea class="form-control mb-1" id="description" name="description" rows="3" placeholder="Descripción"><?php echo $datos["descripcion"]; ?></textarea>
                                         </div>
 
-                                        <label for="selectDistrito">Distrito</label>
-                                        <div class="input-group mb-3">
-                                            <select id="selectDistrito" name="selectDistrito" class="form-control" required>
-                                                <?php ConsultarIdDistrito($datos["id_distrito"]); ?>
-                                            </select>
+                                        <div class="form-group" id="btnModificarDistrito">
+                                            <div class="btn btn-primary btn-sm w-100 form-control" onclick="mensajeModificar();">
+                                                <i class="fas fa-lock mr-2"></i>
+                                                Opciones de Distrito
+                                            </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-9"></div>
-                                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                                <button type="submit" id="btnEditarPerfil" name="btnEditarPerfil" class="btn btn-primary btn-block">Procesar</button>
+                                        <div class="form-group" id="btnRevertirDistrito" hidden>
+                                            <div class="btn btn-primary btn-sm w-100 form-control" onclick="mensajeRevertir();">
+                                                <i class="fa-solid fa-repeat mr-2"></i>
+                                                Revertir Cambios de Distrito
+                                            </div>
+                                        </div>
+
+                                        <div id="opcionesDistrito" hidden>
+                                            <label for="txtDireccion">Tu distrito</label>
+                                            <div class="row mb-3">
+                                                <div class="col-4">
+                                                    <div class="form-group form-floating">
+                                                        <label for="provincia" class="form-label">Provincia</label>
+                                                        <select class="form-control" name="provincia" id="provincia" onchange="obtenerCantones();" required>
+                                                            <option value="" selected disabled>Seleccione la provincia</option>
+                                                        </select>
+                                                        <input type="hidden" name="nombreProvincia" id="nombreProvincia" value="<?php echo $datos["nombre_provincia"]; ?>">
+                                                        <input type="hidden" name="estaticoProvincia" id="estaticoProvincia" value="<?php echo $_SESSION["nombreProvincia"]; ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="form-group form-floating">
+                                                        <label for="canton" class="form-label">Cantón</label>
+                                                        <select class="form-control" name="canton" id="canton" onchange="obtenerDistritos();" required>
+                                                            <option value="" selected disabled>Seleccione el cantón</option>
+                                                        </select>
+                                                        <input type="hidden" name="nombreCanton" id="nombreCanton" value="<?php echo $datos["nombre_canton"]; ?>">
+                                                        <input type="hidden" name="estaticoCanton" id="estaticoCanton" value="<?php echo $_SESSION["nombreCanton"]; ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="form-group form-floating">
+                                                        <label for="distrito" class="form-label">Distrito</label>
+                                                        <select class="form-control" name="distrito" id="distrito" onchange="establecerNombres();" required>
+                                                            <option value="" selected disabled>Seleccione el distrito</option>
+                                                        </select>
+                                                        <input type="hidden" name="nombreDistrito" id="nombreDistrito" value="<?php echo $datos["nombre_distrito"]; ?>">
+                                                        <input type="hidden" name="estaticoDistrito" id="estaticoDistrito" value="<?php echo $_SESSION["nombreDistrito"]; ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group mt-0">
+                                            <div class="row">
+                                                <div class="col-9"></div>
+                                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                                    <button type="submit" id="btnEditarPerfil" name="btnEditarPerfil" class="btn btn-primary btn-block">Procesar</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
@@ -221,9 +266,23 @@ $datos = ConsultarUsuario($_GET['s']);
     </div>
 
     <?php scripts(); ?>
+    <script src="../../assets/js/provincias.js"></script>
+    <script src="../../assets/js/cantones.js"></script>
+    <script src="../../assets/js/distritos.js"></script>
+    <script src="../../assets/js/nombre.js"></script>
+    <script src="../../assets/js/editarPerfil.js"></script>
+    <script>
+        Dropzone.options.myGreatDropzone = {
+            autoProcessQueue: false,
+            paramName: "file",
+            maxFilesize: 2,
+            clickable: "#dropZone" // the ID of our parent wrapper div
+        };
+    </script>
     <script>
         $(document).ready(function() {
             $('#userTable').DataTable();
+            obtenerProvincias();
         });
     </script>
 

@@ -70,7 +70,7 @@ function obtenerPostsComunidadesSeguidas($idUsuario)
     if ($respuesta->num_rows > 0) {
 
         while ($row = mysqli_fetch_array($respuesta)) {
-        
+
             echo '
             <div class="col-md-12 px-0">
                 <div class="card">
@@ -113,7 +113,6 @@ function obtenerPostsComunidadesSeguidas($idUsuario)
                     </div>
                 </div>
             </div>';
-
         }
     }
 }
@@ -166,13 +165,20 @@ function seguirComunidad($idUsuario, $idComunidad)
 {
     $resultado = seguirComunidadBD($idUsuario, $idComunidad);
     return $resultado;
-
 }
 
 function dejarDeSeguirComunidad($idUsuario, $idComunidad)
 {
     $resultado = dejarDeSeguirComunidadBD($idUsuario, $idComunidad);
     return $resultado;
+}
+
+function cambioDeDistrito($idDistrito)
+{
+    $sigueComunidad = obtenerComunidadesSeguidas($_SESSION['idUsuario'], $idDistrito);
+    if (!$sigueComunidad) {
+        seguirComunidad($_SESSION['idUsuario'], $idDistrito);
+    }
 }
 
 function obtenerComunidadesSeguidas($idUsuario, $idComunidad)
