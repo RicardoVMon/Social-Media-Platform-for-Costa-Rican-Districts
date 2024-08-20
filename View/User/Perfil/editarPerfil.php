@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$datos = ConsultarUsuario($_SESSION["idUsuario"]);
+$datos = ConsultarUsuario($_GET['s']);
 
 ?>
 
@@ -57,54 +57,55 @@ $datos = ConsultarUsuario($_SESSION["idUsuario"]);
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row mb-3 mt-3">
+                                            <div class="col-md-12 d-flex justify-content-start">
+                                                <a href="perfil.php" class="btn btn-primary btn-round btn-sm mr-2" style="width: 150px">
+                                                    Posts
+                                                </a>
+                                                <a href="perfilComentarios.php" class="btn btn-primary btn-round btn-sm mr-2" style="width: 150px">
+                                                    Comentarios
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 px-0">
+                                            <div class="card">
+                                                <div class="card-header pb-1">
+                                                    <div class="d-flex">
+                                                        <img src="<?php echo $_SESSION['icono']; ?>" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
+                                                        <div class="ml-1"><b><?php echo $_SESSION['nombreUsuario']; ?></b></div>
+                                                        <span class="ml-1">dd/mm/yyyy</span>
+                                                    </div>
+                                                    <div class="card-head-row">
+                                                        <a class="card-title my-2 pb-0" style="font-size: 1vw;">Lorem, ipsum dolor.</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="mb-0">
+                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur debitis
+                                                        qui deleniti tempora molestiae voluptatum fuga vero id est repellendus.
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <a href="#" class="btn btn-sm btn-primary mr-2">
+                                                        <i class="fa fa-thumbs-up"></i> Me gusta
+                                                    </a>
+                                                    <a href="#" class="btn btn-sm btn-secondary mr-2">
+                                                        <i class="fa fa-comment"></i> Comentar
+                                                    </a>
+                                                    <a href="#" class="btn btn-sm btn-danger">
+                                                        <i class="fa fa-pen"></i> Editar
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Inicio de seccion de contenido -->
-                                <!-- Sección de filtros -->
-                                <div class="row mb-3">
-                                    <div class="col-md-12 d-flex justify-content-start">
-                                        <a href="perfilPosts.php" class="btn btn-primary btn-round btn-sm mr-2" style="width: 150px">
-                                            Posts
-                                        </a>
-                                        <a href="perfilComentarios.php" class="btn btn-primary btn-round btn-sm mr-2" style="width: 150px">
-                                            Comentarios
-                                        </a>
-                                    </div>
-                                </div>
+
 
                                 <!-- Post hechos por el usuario -->
-                                <div class="col-md-12 px-0">
-                                    <div class="card">
-                                        <div class="card-header pb-1">
-                                            <div class="d-flex">
-                                                <img src="../../assets/img/profile.jpg" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
-                                                <div class="ml-1"><b><?php echo $_SESSION['nombreUsuario']; ?></b></div>
-                                                <span class="ml-1">dd/mm/yyyy</span>
-                                            </div>
-                                            <div class="card-head-row">
-                                                <a class="card-title" style="font-size: 1vw;">Lorem, ipsum dolor.</a>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="mb-0">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur debitis
-                                                qui deleniti tempora molestiae voluptatum fuga vero id est repellendus.
-                                            </p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <a href="#" class="btn btn-sm btn-primary mr-2">
-                                                <i class="fa fa-thumbs-up"></i> Me gusta
-                                            </a>
-                                            <a href="#" class="btn btn-sm btn-secondary mr-2">
-                                                <i class="fa fa-comment"></i> Comentar
-                                            </a>
-                                            <a href="#" class="btn btn-sm btn-danger">
-                                                <i class="fa fa-pen"></i> Editar
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+
 
                             </div>
 

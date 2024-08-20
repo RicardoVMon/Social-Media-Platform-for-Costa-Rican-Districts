@@ -4,6 +4,10 @@ if (session_status() === PHP_SESSION_NONE) {
    session_start();
 }
 
+if (!isset($_SESSION['idUsuario'])) {
+   header('Location: /../../Community-Alert/View/Autenticacion/login.php');
+}
+
 function head()
 {
    echo '
@@ -49,7 +53,7 @@ function mostrarNavBar()
    echo '
    <div class="main-header">
       <div class="logo-header" data-background-color="dark2">
-            <a href="home.php" class="logo">
+            <a href="../../../View/User/Home/home.php" class="logo">
                <!-- <img src="../../assets/img/logo.svg" alt="navbar brand" class="navbar-brand"> -->
                <i class="fa fa-bell mx-1 text-white"></i>
                <span class="text-white pb-1" style="font-weight: bold; font-size: 18px;">Community Alert</span>
@@ -106,13 +110,13 @@ function mostrarNavBar()
                                        <div class="avatar-lg"><img src="'. $_SESSION['iconoUsuario'] .'" alt="image profile" class="avatar-img rounded"></div>
                                        <div class="u-text">
                                           <h4>' . $_SESSION['nombreUsuario'] . '</h4>
-                                          <p class="text-muted">' . $_SESSION['email'] . '</p><a href="../Perfil/perfilPosts.php" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                          <p class="text-muted">' . $_SESSION['email'] . '</p>
                                        </div>
                                     </div>
                               </li>
                               <li>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="../Perfil/perfilPosts.php">Mi Perfil</a>
+                                    <a class="dropdown-item" href="../Perfil/perfil.php?s='. $_SESSION['idUsuario'] .'&t=posts">Mi Perfil</a>
                                     <a class="dropdown-item" href="#">Alertas</a>
                                     <div class="dropdown-divider"></div>
 

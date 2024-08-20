@@ -56,3 +56,12 @@ function ConsultarUsuarioComentariosBD($IdUsuario)
     cerrarConexion($conexion);
     return $respuesta;
 }
+
+function ObtenerPostsUsuarioBD($IdUsuario)
+{
+    $conexion = abrirConexion();
+    $sentencia = "CALL obtenerPostsUsuario('$IdUsuario')";
+    $respuesta = $conexion->query($sentencia);
+    cerrarConexion($conexion);
+    return $respuesta;
+}

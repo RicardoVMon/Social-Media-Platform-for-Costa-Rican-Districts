@@ -1,5 +1,4 @@
-<?php
-include_once "../../Model/Conexion/dbconnection.php";
+<?php include_once __DIR__ . '/../Conexion/dbconnection.php';
 
 /* function obtenerProvinciasBD()
 {
@@ -41,6 +40,15 @@ function obtenerCedula($cedula)
 {
     $conexion = abrirConexion();
     $query = "CALL obtenerCedula('$cedula')";
+    $resultado = $conexion->query($query);
+    cerrarConexion($conexion);
+    return $resultado;
+}
+
+function obtenerIdUsuario($cedula)
+{
+    $conexion = abrirConexion();
+    $query = "CALL obtenerIdUsuario('$cedula')";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;

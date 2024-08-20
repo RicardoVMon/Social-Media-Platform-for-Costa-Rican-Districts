@@ -1,6 +1,4 @@
-<?php
-include_once "../../Controller/Autenticacion/registroController.php";
-?>
+<?php include_once __DIR__ . '/../../Controller/Autenticacion/registroController.php'; ?>
 
 <!DOCTYPE html>
 
