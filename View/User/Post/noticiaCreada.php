@@ -1,5 +1,6 @@
 <?php include_once __DIR__ . '/../Layout/layoutHome.php';
 include_once __DIR__ . '/../../../Controller/PostController/postController.php';
+include_once __DIR__ . '/../../../Controller/Comentario/comentarioController.php';
 
 $noticia = VisualizarNoticia($_GET['r']);
 ?>
@@ -29,7 +30,7 @@ $noticia = VisualizarNoticia($_GET['r']);
                                 </div>
                                 <div class="col-3 pl-0">
                                     <div class="d-flex flex-column">
-                                        <a href="../../../View/User/Perfil/perfil.php?s=<?php echo $noticia['id_usuario'].'&t=posts'; ?>">
+                                        <a href="../../../View/User/Perfil/perfil.php?s=<?php echo $noticia['id_usuario'] . '&t=posts'; ?>">
                                             <b><?php echo $noticia['nombre_usuario']; ?></b>
                                         </a>
                                         <div>
@@ -37,18 +38,31 @@ $noticia = VisualizarNoticia($_GET['r']);
                                         </div>
                                     </div>
                                 </div>
-                                <div>
+                                <div class="col-1 ml-auto">
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+
+                                        <div class="dropdown-menu dropdown-menu-right text-left" aria-labelledby="dropdownMenuLink">
+                                            <!-- Dropdown menu items -->
+                                            <a class="dropdown-item" href="#"><i class="fa fa-edit mr-1"></i> Editar</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-trash mr-1"></i> Eliminar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col-10 mb-0 pr-0 mr-0">
+                                    <h1 class="p-0 m-0 display-4"> <b><?php echo $noticia['titulo']; ?></b> </h1>
+                                </div>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col-2">
                                     <a href="#" class="btn btn-danger btn-round btn-sm mr-2">
                                         <span class="btn-label">
                                             <i class="fa-solid fa-circle-exclamation"></i>
                                         </span>
                                         <?php echo $noticia['nombre_categoria_publicacion']; ?>
                                     </a>
-                                </div>
-                            </div>
-                            <div class="row pt-3">
-                                <div class="col-10 mb-0 pr-0 mr-0">
-                                    <h1 class="p-0 m-0 display-4"> <b><?php echo $noticia['titulo']; ?></b> </h1>
                                 </div>
                             </div>
                             <div class="row py-3 pb-4">
@@ -68,9 +82,14 @@ $noticia = VisualizarNoticia($_GET['r']);
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <form action="">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control rounded-corner btn-round" placeholder="Comenta algo!">
+                                    <form action="" method="POST">
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="idPublicacion" id="idPublicacion" value="<?php echo $_GET['r']?>" hidden>
+                                            <input type="text" name="idUsuario" id="idUsuario" value="<?php echo $_SESSION['idUsuario']?>" hidden>
+                                            <input type="text" name="contenido" id="contenido" class="form-control" placeholder="Comenta algo!">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="submit" id="btnPublicarComentario" name="btnPublicarComentario">Comentar</button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -82,22 +101,7 @@ $noticia = VisualizarNoticia($_GET['r']);
                                     <h1 class="p-0 m-0 h2"> <b>Comentarios</b> </h1>
                                 </div>
                                 <!-- Seccion de Comentarios -->
-                                <div class="row">
-                                    <div class="col-1">
-                                        <img src="https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg" class="rounded-circle ml-2" style="height: 70px; width: 70px; object-fit: cover;" id="img_usuario">
-                                    </div>
-                                    <div class="col-10">
-                                        <!-- Comentario -->
-                                        <div class="d-flex flex-column mb-3">
-                                            <div>
-                                                <b>Nombre Usuario</b>
-                                            </div>
-                                            <div>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et nihil dolore fuga expedita aliquid laborum, rem, quas sapiente voluptates consectetur atque dolor sed, eaque sunt quod quibusdam quis quidem odio eveniet praesentium ducimus? Nostrum excepturi optio in blanditiis possimus dolorem quos, et, alias aspernatur cumque nisi mollitia fugiat commodi labore!
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php obtenerComentarios($_GET['r']); ?>
                             </div>
                         </div>
 
@@ -106,7 +110,7 @@ $noticia = VisualizarNoticia($_GET['r']);
                                 <div class="card-header">
                                     <div class="text-center" style="font-size: 1.5vw;">
                                         <i class="fa-solid fa-home"></i>
-                                        <?php echo $_SESSION['nombreDistrito']; ?>
+                                        <?php echo $noticia['nombre_distrito']; ?>
                                     </div>
                                 </div>
 
@@ -125,9 +129,9 @@ $noticia = VisualizarNoticia($_GET['r']);
                                             </a>
                                         </div>
                                         <div class="col-12">
-                                            <a href="../Comunidad/comunidad.php" class="text-white">
+                                            <a href="../Comunidad/comunidad.php?q=<?php echo $_GET['q']; ?>" class="text-white">
                                                 <div class="card bg-primary">
-                                                    <div class="card-body">Mi Comunidad</div>
+                                                    <div class="card-body">Ir a Comunidad</div>
                                                 </div>
                                             </a>
                                         </div>

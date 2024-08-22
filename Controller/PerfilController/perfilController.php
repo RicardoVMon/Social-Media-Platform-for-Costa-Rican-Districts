@@ -1,5 +1,7 @@
 <?php include_once __DIR__ . '/../../Model/Perfil/perfilModel.php';
 include_once __DIR__ . '/../../View/User/Layout/layoutHome.php';
+include_once __DIR__ . "/../../Model/Autenticacion/registroModel.php";
+include_once __DIR__ . "/../../Controller/Comunidad/comunidadController.php";
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -33,6 +35,7 @@ function ConsultarIdGenero($id_genero)
     $respuesta = ConsultarIdGeneroBD();
 
     if ($respuesta->num_rows > 0) {
+        echo '<option value="" selected disabled>Seleccione una opción</option>';
         while ($row = mysqli_fetch_array($respuesta)) {
             if ($id_genero == $row["id_genero"]) {
                 echo "<option selected value=" . $row["id_genero"] . ">" . $row["nombre_genero"] . "</option>";
@@ -44,6 +47,7 @@ function ConsultarIdGenero($id_genero)
 }
 
 if (isset($_POST["btnEditarPerfil"])) {
+
     $IdUsuario = $_POST["txtIdUsuario"];
     $Cedula = $_POST["txtCedula"];
     $NombreUsuario = $_POST["txtNombreUsuario"];
@@ -51,13 +55,28 @@ if (isset($_POST["btnEditarPerfil"])) {
     $Genero = $_POST["selectGenero"];
     $Descripcion = $_POST["description"];
     $Icono = "000"; //$_POST["txtIcono"];
-    $IdDistrito = $_POST["selectDistrito"];
 
+    $provincia = $_POST['nombreProvincia'];
+    $canton = $_POST['nombreCanton'];
+    $distrito = $_POST['nombreDistrito'];
+
+    $resultadoDistrito = obtenerIdDistrito($provincia, $canton, $distrito);
+    $datos = mysqli_fetch_array($resultadoDistrito);
+    $IdDistrito = $datos['id_distrito'];
+
+    if ($_SESSION['idDistrito'] != $IdDistrito) {
+        cambioDeDistrito($IdDistrito);
+    }
 
     $respuesta = EditarPerfilBD($IdUsuario, $Cedula, $NombreUsuario, $Email, $Genero, $Descripcion, $Icono, $IdDistrito);
 
     if ($respuesta == true) {
         $_SESSION["nombreUsuario"] = $_POST["txtNombreUsuario"];
+        $_SESSION["idDistrito"] = $IdDistrito;
+        $_SESSION["nombreDistrito"] = $distrito;
+        $_SESSION["nombreCanton"] = $canton;
+        $_SESSION["nombreProvincia"] = $provincia;
+
         header("location: ../../../View/User/Perfil/perfil.php" . "?s=" . $IdUsuario . "&t=posts");
     } else {
         $_POST["msj"] = "No se ha podido actualizar la información de su perfil.";
@@ -81,7 +100,7 @@ function ObtenerPostsUsuario($IdUsuario)
     if ($respuesta->num_rows > 0) {
 
         while ($row = mysqli_fetch_array($respuesta)) {
-        
+
             echo '
             <div class="col-md-12 px-0">
                 <div class="card">
@@ -124,7 +143,6 @@ function ObtenerPostsUsuario($IdUsuario)
                     </div>
                 </div>
             </div>';
-
         }
     }
 }

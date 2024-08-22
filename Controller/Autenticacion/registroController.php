@@ -1,6 +1,9 @@
 <?php include_once __DIR__ . "/../../Model/Autenticacion/registroModel.php";
 include_once __DIR__ . "/../../Controller/Comunidad/comunidadController.php";
 
+if (isset($_POST['obtenerProvincias']))
+    $resultado = obtenerProvincias(); 
+
 
 if (isset($_POST['btnRegistrar'])) {
 

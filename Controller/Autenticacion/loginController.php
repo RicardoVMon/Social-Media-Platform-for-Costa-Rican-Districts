@@ -1,4 +1,5 @@
 <?php include_once __DIR__ . '/../../Model/Autenticacion/loginModel.php';
+include_once __DIR__ . '/../../Model/PostModel/postModel.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -24,6 +25,7 @@ if (isset($_POST['btnLogin'])) {
         $_SESSION['fechaIngreso'] = $datos['fecha_ingreso'];
         $_SESSION['idDistrito'] = $datos['id_distrito'];
         $_SESSION['nombreDistrito'] = $datos['nombre_distrito'];
+        obtenerProvinciaCanton();
         $_SESSION['rolUsuario'] = $datos['id_role'];
         $_SESSION['iconoUsuario'] = $datos['icono'];
 
@@ -54,4 +56,12 @@ function obtenerPrimerNombre($nombreCompleto)
     $nombre = explode(" ", $nombreCompleto);
     $primerNombre = capitalizarNombre($nombre[0]);
     return $primerNombre;
+}
+
+function obtenerProvinciaCanton()
+{
+    $provinciaCanton = obtenerNombreProvinciaCanton($_SESSION['idDistrito']);
+    $datos = mysqli_fetch_array($provinciaCanton);
+    $_SESSION['nombreProvincia'] = $datos['nombre_provincia'];
+    $_SESSION['nombreCanton'] = $datos['nombre_canton'];
 }
