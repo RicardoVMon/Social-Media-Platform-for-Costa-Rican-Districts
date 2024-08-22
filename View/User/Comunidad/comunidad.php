@@ -23,12 +23,12 @@ $datosComunidad = obtenerInformacionComunidad($_GET['q']);
                 <div class="page-inner">
                     <div class="page-inner-top">
                         <div class="mt-2 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fort%C3%ADn.JPG" width="100%" height="150px" style="object-fit: cover;">
+                            <img src="<?php echo $datosComunidad['banner']; ?>" width="100%" height="150px" style="object-fit: cover;">
 
                             <div class="d-flex justify-content-between px-4 mt-3">
                                 <div class="d-flex justify-content-start">
                                     <div class="d-flex flex-column justify-content-center">
-                                        <img src="https://www.heredia.go.cr/sites/default/files/bandera-heredia_0.png" style="height: 10vw; width: 10vw; object-fit: cover; margin-top: -6vw;" class="rounded-circle img-fluid">
+                                        <img src="<?php echo $datosComunidad['icono']; ?>" style="height: 10vw; width: 10vw; object-fit: cover; margin-top: -6vw;" class="rounded-circle img-fluid">
                                     </div>
                                     <div class="mx-3 d-flex flex-column justify-content-start">
                                         <h1 class="font-weight-bold display-4 mb-0">
