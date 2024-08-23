@@ -45,13 +45,10 @@ if (isset($_POST["cambiarEstadoLike"])) {
     $idUsuario = $_POST["idUsuario"];
     $idPost = $_POST["idPublicacion"];
 
-    // Llamar a la función cambiarEstadoLike
     $existeLike = cambiarEstadoLike($idUsuario, $idPost);
 
-    // Llamar a la función obtenerLikesPost
     $cantidad_likes = obtenerLikesPost($idPost);
 
-    // Devolver el JSON con ambos valores
     echo json_encode([
         "existe_like" => $existeLike,
         "cantidad_likes" => $cantidad_likes

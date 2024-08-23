@@ -1,8 +1,11 @@
 <?php include_once __DIR__ . '/../Layout/layoutHome.php';
 include_once __DIR__ . '/../../../Controller/PostController/postController.php';
 include_once __DIR__ . '/../../../Controller/Comentario/comentarioController.php';
+include_once __DIR__ . "/../../../Controller/Likes/likesController.php";
 
 $noticia = VisualizarNoticia($_GET['r']);
+$existencia_like = estadoLikeUsuario($_SESSION['idUsuario'], $_GET['r']);
+
 ?>
 
 <!DOCTYPE html>
@@ -72,8 +75,9 @@ $noticia = VisualizarNoticia($_GET['r']);
                             </div>
                             <div class="row pb-4">
                                 <div class="col-6 mb-0 pr-0 mr-0">
-                                    <a href="#" class="btn btn-success mr-2">
-                                    <i class="fa-regular fa-heart"></i> 123
+                                    <a href="#" id="btn-like" name="btn-like" class="btn btn-primary mr-2" onclick="cambiarValorLike(event, <?php echo $_GET['r'] ?>, <?php echo $_SESSION['idUsuario'] ?>);">
+                                        <i id="icono-like-<?php echo $_GET['r']; ?>" name="icono-like-<?php echo $_GET['r']; ?>" class="<?php echo ($existencia_like == 1 ? 'fa-solid' : 'fa-regular'); ?> fa-heart"></i>
+                                        <span id="cantidad-likes-<?php echo $_GET['r']; ?>" id="cantidad-likes-<?php echo $_GET['r']; ?>"><?php echo obtenerLikesPost($_GET['r']); ?></span>
                                     </a>
                                     <a href="#comentarios" class="btn btn-primary">
                                         <i class="fa fa-comment"></i> Comentar
@@ -84,8 +88,8 @@ $noticia = VisualizarNoticia($_GET['r']);
                                 <div class="col-12">
                                     <form action="" method="POST">
                                         <div class="input-group mb-3">
-                                            <input type="text" name="idPublicacion" id="idPublicacion" value="<?php echo $_GET['r']?>" hidden>
-                                            <input type="text" name="idUsuario" id="idUsuario" value="<?php echo $_SESSION['idUsuario']?>" hidden>
+                                            <input type="text" name="idPublicacion" id="idPublicacion" value="<?php echo $_GET['r'] ?>" hidden>
+                                            <input type="text" name="idUsuario" id="idUsuario" value="<?php echo $_SESSION['idUsuario'] ?>" hidden>
                                             <input type="text" name="contenido" id="contenido" class="form-control" placeholder="Comenta algo!">
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-secondary" type="submit" id="btnPublicarComentario" name="btnPublicarComentario">Comentar</button>
@@ -173,6 +177,7 @@ $noticia = VisualizarNoticia($_GET['r']);
         </div>
 
         <?php scripts(); ?>
+       <!--  <script src="../../../assets/js/likes.js"></script> -->
 
 </body>
 
