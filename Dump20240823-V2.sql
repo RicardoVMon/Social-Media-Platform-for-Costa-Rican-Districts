@@ -178,6 +178,7 @@ CREATE TABLE `likes` (
 
 LOCK TABLES `likes` WRITE;
 /*!40000 ALTER TABLE `likes` DISABLE KEYS */;
+INSERT INTO `likes` VALUES ('2024-08-23 12:55:19',9,55),('2024-08-23 12:53:52',9,56),('2024-08-23 12:55:21',9,59),('2024-08-23 12:53:50',9,63),('2024-08-23 10:50:11',10,59),('2024-08-23 12:41:23',18,54),('2024-08-23 12:37:37',18,55),('2024-08-23 12:37:38',18,56),('2024-08-23 12:41:56',18,59);
 /*!40000 ALTER TABLE `likes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -354,6 +355,41 @@ UPDATE communityalert.distritos
 	banner = IF(pBanner != '', pBanner, banner),
 	icono = IF(pIcono != '', pIcono, icono)
 	WHERE id_distrito = pId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `cambiarEstadoLike` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarEstadoLike`(IN pidUsuario INT(11), IN pidPublicacion INT(11))
+BEGIN
+    DECLARE existe_like INT DEFAULT 0;
+
+    SELECT COUNT(*) INTO existe_like
+    FROM likes
+    WHERE id_publicacion = pidPublicacion
+    AND id_usuario = pidUsuario;
+
+    IF existe_like > 0 THEN
+        DELETE FROM likes
+        WHERE id_publicacion = pidPublicacion
+        AND id_usuario = pidUsuario;
+        SELECT 0 AS existe_like;
+    ELSE
+        INSERT INTO likes (fecha, id_usuario, id_publicacion)
+        VALUES (NOW(),pidUsuario, pidPublicacion);
+        SELECT 1 AS existe_like;
+    END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -634,6 +670,36 @@ BEGIN
     
 	DELETE FROM communityalert.publicaciones 
     WHERE id_publicacion = pId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `estadoLikeUsuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `estadoLikeUsuario`(IN pIdUsuario int(11), IN pIdPublicacion int(11))
+BEGIN
+	DECLARE existe_like INT DEFAULT 0;
+
+    SELECT COUNT(*) INTO existe_like
+    FROM likes
+    WHERE id_publicacion = pIdPublicacion
+    AND id_usuario = pIdUsuario;
+
+    IF existe_like > 0 THEN
+        SELECT 1 AS existe_like;
+    ELSE
+        SELECT 0 AS existe_like;
+    END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -947,6 +1013,27 @@ BEGIN
 		SELECT nombre_distrito, descripcion, banner, icono
         FROM communityalert.distritos
         WHERE id_distrito = `pIdComunidad`;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `obtenerLikesPost` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `obtenerLikesPost`(IN pIdPost int(11))
+BEGIN
+	SELECT COUNT(id_publicacion) as cantidad_likes
+    FROM likes
+    WHERE id_publicacion = pIdPost;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1393,4 +1480,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-22 21:52:52
+-- Dump completed on 2024-08-23 13:01:33
