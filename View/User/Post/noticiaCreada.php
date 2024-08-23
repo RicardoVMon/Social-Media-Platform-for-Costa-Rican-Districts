@@ -73,14 +73,14 @@ $noticia = VisualizarNoticia($_GET['r']);
                             <div class="row pb-4">
                                 <div class="col-6 mb-0 pr-0 mr-0">
                                     <a href="#" class="btn btn-success mr-2">
-                                        <i class="fa fa-thumbs-up"></i> Me gusta
+                                    <i class="fa-regular fa-heart"></i> 123
                                     </a>
-                                    <a href="#" class="btn btn-primary">
+                                    <a href="#comentarios" class="btn btn-primary">
                                         <i class="fa fa-comment"></i> Comentar
                                     </a>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="comentarios">
                                 <div class="col-12">
                                     <form action="" method="POST">
                                         <div class="input-group mb-3">

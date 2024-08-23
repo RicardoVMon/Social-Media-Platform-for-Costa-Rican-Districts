@@ -100,6 +100,7 @@ function mostrarNavBar()
                   <li class="nav-item">
                         <a class="nav-link" href="../Post/crearNoticia.php?q=' . $_SESSION['idDistrito'] . '">
                            <i class="fa fa-plus"></i>
+                           <div class="d-md-none d-lg-block">Crear Noticia</div>
                         </a>
                   </li>
                   <li class="nav-item toggle-nav-search hidden-caret">
@@ -175,16 +176,21 @@ function mostrarSideBar()
                   </a>
                </li>
                <li class="nav-item active">
-                  <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                  <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="true">
                      <i class="fa-solid fa-users ml-3"></i>
                      <p>Comunidades</p>
                      <span class="caret"></span>
                   </a>
-                  <div class="collapse" id="dashboard">
+                  <div class="collapse show" id="dashboard">
                      <ul class="nav nav-collapse">
                         <li>
                            <a href="../Comunidad/explorarProvincias.php">
                            <span class="sub-item">Explorar Comunidades</span>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="../Comunidad/comunidadesSeguidas.php">
+                           <span class="sub-item">Comunidades Seguidas</span>
                            </a>
                         </li>
                         <li>
@@ -199,56 +205,41 @@ function mostrarSideBar()
                   <span class="sidebar-mini-icon">
                   <i class="fa fa-ellipsis-h"></i>
                   </span>
-                  <h4 class="text-section">Noticias</h4>
+                  <h4 class="text-section">Acceso Rápido</h4>
                </li>
                <li class="nav-item">
                   <a data-toggle="collapse" href="#submenu">
                      <i class="fas fa-bars"></i>
-                     <p>Filtrar busqueda</p>
+                     <p>Mi Perfil</p>
                      <span class="caret"></span>
                   </a>
-                  <div class="collapse" id="submenu">
+                  <div class="collapse show" id="submenu">
                      <ul class="nav nav-collapse">
-                        <li>
-                           <a data-toggle="collapse" href="#subnav1">
-                           <span class="sub-item">Choques</span>
-                           <span class="caret"></span>
+                     <li>
+                     <a data-toggle="collapse" href="#subnav1">
+                     <span class="sub-item">Contenido</span>
+                     <span class="caret"></span>
+                     </a>
+                     <div class="collapse show" id="subnav1">
+                        <ul class="nav nav-collapse subnav">
+                           <li>
+                           <a href="../Perfil/perfil.php?s=' . $_SESSION['idUsuario'] . '&t=posts">
+                           <span class="sub-item">Publicaciones</span>
                            </a>
-                           <div class="collapse" id="subnav1">
-                              <ul class="nav nav-collapse subnav">
-                                 <li>
-                                    <a href="#">
-                                    <span class="sub-item">Motocicletas</span>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="#">
-                                    <span class="sub-item">Colapso de carretera</span>
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </li>
-                        <li>
-                           <a data-toggle="collapse" href="#subnav2">
-                           <span class="sub-item">Desastres Naturales</span>
-                           <span class="caret"></span>
+                           </li>
+                           <li>
+                           <a href="../Perfil/perfil.php?s=' . $_SESSION['idUsuario'] . '&t=comentarios">
+                           <span class="sub-item">Comentarios</span>
                            </a>
-                           <div class="collapse" id="subnav2">
-                              <ul class="nav nav-collapse subnav">
-                                 <li>
-                                    <a href="#">
-                                    <span class="sub-item">Inundación</span>
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </li>
-                        <li>
-                           <a href="#">
-                           <span class="sub-item">Desabastecimiento</span>
-                           </a>
-                        </li>
+                           </li>
+                        </ul>
+                     </div>
+                     </li>
+                     <li>
+                     <a href="../Perfil/editarPerfil.php?s=' . $_SESSION['idUsuario'] . '">
+                     <span class="sub-item">Editar</span>
+                     </a>
+                     </li>
                      </ul>
                   </div>
                </li>

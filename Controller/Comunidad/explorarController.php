@@ -7,7 +7,6 @@ function obtenerProvincias()
     if ($provincias->num_rows > 0) {
         
         while ($provincia = mysqli_fetch_array($provincias)) {
-
             echo '<div class="col-4">
                             <div class="card">
                                 <div class="card-header p-1">
@@ -21,20 +20,6 @@ function obtenerProvincias()
                                             <div class="container w-75 pl-0 pr-0 ml-0 mr-0">
                                                 <h1 class="h1 mb-0">' . $provincia['nombre_provincia'] . '</h1>
                                                 <div class="display-5">Bienvenido a la ciudad de las flores, descubre las noticias más importantes de esta comunidad</div>
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-between mr-3">
-                                                <div>
-                                                    <i class="fa fa-users"></i>
-                                                    <span> 2000</span>
-                                                </div>
-                                                <div>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span> 300</span>
-                                                </div>
-                                                <div>
-                                                    <i class="fa fa-comments"></i>
-                                                    <span> 500</span>
-                                                </div>
                                             </div>
                                         </div>
                                     </a>
@@ -67,20 +52,6 @@ function obtenerCantones($idProvincia) {
                                                 <h1 class="h1 mb-0">'. $canton['nombre_canton'] . '</h1>
                                                 <div class="display-5">Descubre las noticias más recientes de San Pablo, un distrito con una rica historia y cultura</div>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-between mr-3">
-                                                <div>
-                                                    <i class="fa fa-users"></i>
-                                                    <span> 1700</span>
-                                                </div>
-                                                <div>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span> 280</span>
-                                                </div>
-                                                <div>
-                                                    <i class="fa fa-comments"></i>
-                                                    <span> 320</span>
-                                                </div>
-                                            </div>
                                         </div>
                                     </a>
                                 </div>
@@ -112,20 +83,6 @@ function obtenerDistritos($idCanton) {
                                             <div class="container w-75 pl-0 pr-0 ml-0 mr-0">
                                                 <h1 class="h1 mb-0">'. $distrito['nombre_distrito'] . '</h1>
                                                 <div class="display-5">Descubre las noticias más recientes de San Pablo, un distrito con una rica historia y cultura</div>
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-between mr-3">
-                                                <div>
-                                                    <i class="fa fa-users"></i>
-                                                    <span> 1700</span>
-                                                </div>
-                                                <div>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span> 280</span>
-                                                </div>
-                                                <div>
-                                                    <i class="fa fa-comments"></i>
-                                                    <span> 320</span>
-                                                </div>
                                             </div>
                                         </div>
                                     </a>

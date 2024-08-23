@@ -23,12 +23,12 @@ $datosComunidad = obtenerInformacionComunidad($_GET['q']);
                 <div class="page-inner">
                     <div class="page-inner-top">
                         <div class="mt-2 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fort%C3%ADn.JPG" width="100%" height="150px" style="object-fit: cover;">
+                            <img src="<?php echo $datosComunidad['banner']; ?>" width="100%" height="150px" style="object-fit: cover;">
 
                             <div class="d-flex justify-content-between px-4 mt-3">
                                 <div class="d-flex justify-content-start">
                                     <div class="d-flex flex-column justify-content-center">
-                                        <img src="https://www.heredia.go.cr/sites/default/files/bandera-heredia_0.png" style="height: 10vw; width: 10vw; object-fit: cover; margin-top: -6vw;" class="rounded-circle img-fluid">
+                                        <img src="<?php echo $datosComunidad['icono']; ?>" style="height: 10vw; width: 10vw; object-fit: cover; margin-top: -6vw;" class="rounded-circle img-fluid">
                                     </div>
                                     <div class="mx-3 d-flex flex-column justify-content-start">
                                         <h1 class="font-weight-bold display-4 mb-0">
@@ -53,22 +53,7 @@ $datosComunidad = obtenerInformacionComunidad($_GET['q']);
                         <!-- Columna de Posts -->
                         <div class="col-md-8">
 
-                            <!-- Sección de filtros -->
-                            <div class="row mb-3">
-                                <div class="col-3">
-
-                                    <select class="custom-select">
-                                        <option selected>
-                                            Más Interactuados
-                                            <i class="fa-solid fa-filter"></i>
-                                        </option>
-                                        <option value="1">Reciente</option>
-                                        <option value="2">Mejor Votado</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Sección de Posts -->       
+                            <!-- Sección de Posts -->
                             <?php obtenerPosts($_GET['q']); ?>
 
                         </div>

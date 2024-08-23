@@ -1,61 +1,80 @@
 <?php include_once __DIR__ . "/../Conexion/dbconnection.php";
 
-function obtenerInformacionComunidadBD($idComunidad) {
-    
+function obtenerInformacionComunidadBD($idComunidad)
+{
+
     $conexion = abrirConexion();
     $query = "CALL obtenerInformacionComunidad('$idComunidad')";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;
-
 }
 
-function obtenerPostsBD($idComunidad) {
-    
+function obtenerPostsBD($idComunidad)
+{
+
     $conexion = abrirConexion();
     $query = "CALL obtenerPostsComunidad('$idComunidad')";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;
-    
 }
 
-function obtenerPostsComunidadesSeguidasBD($idUsuario) {
-    
+function obtenerPostsComunidadesSeguidasBD($idUsuario)
+{
+
     $conexion = abrirConexion();
     $query = "CALL obtenerPostsComunidadesSeguidas('$idUsuario')";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;
-    
 }
 
-function seguirComunidadBD($idUsuario, $idComunidad) {
-    
+function seguirComunidadBD($idUsuario, $idComunidad)
+{
+
     $conexion = abrirConexion();
     $query = "CALL seguirComunidad('$idUsuario', '$idComunidad')";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;
-    
 }
 
-function dejarDeSeguirComunidadBD($idUsuario, $idComunidad) {
-    
+function dejarDeSeguirComunidadBD($idUsuario, $idComunidad)
+{
+
     $conexion = abrirConexion();
     $query = "CALL dejarDeSeguirComunidad('$idUsuario', '$idComunidad')";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;
-    
 }
 
-function obtenerComunidadesSeguidasBD($idUsuario, $idComunidad) {
-    
+function obtenerComunidadesSeguidasBD($idUsuario, $idComunidad)
+{
+
     $conexion = abrirConexion();
     $query = "CALL obtenerComunidadesSeguidas('$idUsuario', '$idComunidad')";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;
-    
+}
+
+function procesoCambioDeDistritoBD($idUsuario)
+{
+
+    $conexion = abrirConexion();
+    $query = "CALL procesoCambioDistrito('$idUsuario')";
+    $resultado = $conexion->query($query);
+    cerrarConexion($conexion);
+    return $resultado;
+}
+
+function obtenerListaComunidadesSeguidasBD($idUsuario)
+{
+    $conexion = abrirConexion();
+    $query = "CALL obtenerListaComunidadesSeguidas('$idUsuario')";
+    $resultado = $conexion->query($query);
+    cerrarConexion($conexion);
+    return $resultado;
 }
