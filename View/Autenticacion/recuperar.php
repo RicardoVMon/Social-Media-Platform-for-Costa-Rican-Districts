@@ -29,7 +29,7 @@
             <div class="container-fluid d-flex flex-column">
                 <form class="pb-5 border-bottom px-5" action="" method="POST">
                     <div class="text-center fw-bold" style="font-size: 10vh; color: #1F283E;">Community Alert</div>
-                    <h2 class="mb-5 text-center" style="color: #1F283E;">Login de Usuario</h2>
+                    <h2 class="mb-5 text-center" style="color: #1F283E;">Recuperar cuenta</h2>
 
                     <?php
                     if (isset($_POST['mensaje'])) {
@@ -41,15 +41,10 @@
                         <input type="text" class="form-control" placeholder="Cédula" name="cedula" id="cedula" required />
                         <label class="form-label">Cédula</label>
                     </div>
-                    <div class="form-group form-floating mb-4">
-                        <input type="password" class="form-control" placeholder="Contraseña" name="contrasennia" id="contrasennia" required />
-                        <label class="form-label">Contraseña</label>
-                    </div>
                     <div class="form-group text-center">
-                        <button type="submit" class="btn btn-primary btn-lg" id="btnLogin" name="btnLogin" style="background-color:#1F283E; border-color: #1F283E;">
-                            Iniciar Sesión
+                        <button type="submit" class="btn btn-primary btn-lg" id="btnRecuperarAcceso" name="btnRecuperarAcceso" style="background-color:#1F283E; border-color: #1F283E;">
+                            Correo verificación
                         </button>
-                        <a href="recuperar.php" class="mt-4 text-center under"><br>¿Olvidó su contraseña? <br></a>
                     </div>
                 </form>
                 <a href="registro.php" class="mt-4 text-center under">¿No tenés Cuenta? <br> ¡Crea una ya! </a>
