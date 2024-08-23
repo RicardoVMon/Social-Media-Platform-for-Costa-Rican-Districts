@@ -178,7 +178,7 @@ CREATE TABLE `likes` (
 
 LOCK TABLES `likes` WRITE;
 /*!40000 ALTER TABLE `likes` DISABLE KEYS */;
-INSERT INTO `likes` VALUES ('2024-08-23 12:55:19',9,55),('2024-08-23 12:53:52',9,56),('2024-08-23 12:55:21',9,59),('2024-08-23 12:53:50',9,63),('2024-08-23 10:50:11',10,59),('2024-08-23 12:41:23',18,54),('2024-08-23 12:37:37',18,55),('2024-08-23 12:37:38',18,56),('2024-08-23 12:41:56',18,59);
+INSERT INTO `likes` VALUES ('2024-08-23 13:29:04',9,55),('2024-08-23 12:53:52',9,56),('2024-08-23 13:29:02',9,59),('2024-08-23 12:53:50',9,63),('2024-08-23 10:50:11',10,59),('2024-08-23 12:41:23',18,54),('2024-08-23 12:37:37',18,55),('2024-08-23 12:37:38',18,56),('2024-08-23 12:41:56',18,59);
 /*!40000 ALTER TABLE `likes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -312,6 +312,7 @@ CREATE TABLE `usuarios` (
   `id_role` int(11) NOT NULL,
   `id_distrito` int(11) NOT NULL,
   `estado` bit(1) NOT NULL DEFAULT b'1',
+  `passwordTemporal` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id_usuario`),
   KEY `fk_usuarios_roles` (`id_role`),
   KEY `fk_usuarios_distritos` (`id_distrito`),
@@ -326,7 +327,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (9,'402620226','RICARDO AARON VARGAS MONTERO','ricardovm2803@gmail.com',1,'123','Me encanta usar Community Alert! PRUEBA CAMBIO 4','https://i.pinimg.com/474x/d8/6d/b6/d86db6399824681b0fab9092c617de48.jpg','2024-07-25 11:44:38',2,300,_binary ''),(10,'401230123','HILDA MARIA VILLALOBOS VILLALOBOS','hilda@gmail.com',1,'123','Estoy usando Community Alert!','','2024-07-25 11:44:38',2,5,_binary ''),(11,'401670123','ERICK RICARDO QUIROS GUTIERREZ','Erick@gmail.com',2,'123','Estoy usando Community Alert! PRUEBA CAMBIO','000','2024-07-25 11:44:38',2,296,_binary ''),(12,'402620227','JOSE DAVID PEREZ SOLIS','david@gmail.com',1,'123','Estoy usando Community Alert!','000','2024-07-25 11:45:13',2,324,_binary ''),(13,'402620228','VALERIA ALFARO VARGAS','valeria@gmail.com',1,'123','Estoy usando Community Alert!','000','2024-07-25 14:55:24',2,298,_binary ''),(14,'401540677','RONY GERARDO AGUILAR GOMEZ','rony@gmail.com',1,'123','Estoy usando Community Alert!','000','2024-07-25 19:19:51',2,296,_binary ''),(15,'401670876','RANDY ALBERTO MORA FONSECA','randy@gmail.com',1,'123','Estoy usando Community Alert!','','2024-07-26 16:16:44',2,216,_binary ''),(16,'401760123','MARIANNELA MATARRITA SOTO','mari@gmail.com',1,'123','Estoy usando Community Alert!','','2024-07-28 22:53:56',2,301,_binary ''),(17,'401230242','YAMILETH DEL CARMEN GONZALEZ SOTO','yami',1,'123','Estoy usando Community Alert!','','2024-07-28 22:55:24',2,299,_binary ''),(18,'402300855','FIORELLA HERNANDEZ MIRANDA','test@example.us',2,'123','Estoy usando Community Alert! Y SOY DE SJM','000','2024-07-29 12:46:26',2,300,_binary ''),(19,'117310079','JESUS DANIEL VEGA MARVEZ','jvega10079@ufide.ac.cr',1,'123','Estoy usando Community Alert!','https://static.vecteezy.com/system/resources/previews/007/409/979/non_2x/people-icon-design-avatar-icon-person-icons-people-icons-are-set-in-trendy-flat-style-user-icon-set-vector.jpg','2024-07-25 11:55:14',1,122,_binary ''),(20,'401200123','ALBERTO GERARDO ANTONIO CORDERO ARAYA','alberto',1,'123','Estoy usando Community Alert!','','2024-08-03 15:27:01',2,300,_binary ''),(21,'401820123','YENSY BEATRIZ MORA ABARCA','yensi@gmail.com',2,'123','Estoy usando Community Alert!','','2024-08-03 18:32:52',2,306,_binary ''),(22,'401780123','LILLIANA CORDOBA GUERRERO','lili@gmail.com',2,'123','Estoy usando Community Alert!','','2024-08-08 18:59:15',2,258,_binary ''),(23,'401010123','DANILO VICENTE ARCE ALFARO','danilo',1,'123',NULL,'','2024-08-22 19:10:10',2,306,_binary ''),(24,'501430123','CARLOS GILBERTO CRUZ CRUZ','carlos@gmail.com',1,'123',NULL,'','2024-08-22 19:28:50',2,478,_binary '');
+INSERT INTO `usuarios` VALUES (9,'402620226','RICARDO AARON VARGAS MONTERO','ricardovm2803@gmail.com',1,'AGOVZ4','Me encanta usar Community Alert! PRUEBA CAMBIO 4','https://i.pinimg.com/474x/d8/6d/b6/d86db6399824681b0fab9092c617de48.jpg','2024-07-25 11:44:38',2,300,_binary '',_binary ''),(10,'401230123','HILDA MARIA VILLALOBOS VILLALOBOS','hilda@gmail.com',1,'123','Estoy usando Community Alert!','','2024-07-25 11:44:38',2,5,_binary '',_binary '\0'),(11,'401670123','ERICK RICARDO QUIROS GUTIERREZ','Erick@gmail.com',2,'123','Estoy usando Community Alert! PRUEBA CAMBIO','000','2024-07-25 11:44:38',2,296,_binary '',_binary '\0'),(12,'402620227','JOSE DAVID PEREZ SOLIS','david@gmail.com',1,'123','Estoy usando Community Alert!','000','2024-07-25 11:45:13',2,324,_binary '',_binary '\0'),(13,'402620228','VALERIA ALFARO VARGAS','valeria@gmail.com',1,'123','Estoy usando Community Alert!','000','2024-07-25 14:55:24',2,298,_binary '',_binary '\0'),(14,'401540677','RONY GERARDO AGUILAR GOMEZ','rony@gmail.com',1,'123','Estoy usando Community Alert!','000','2024-07-25 19:19:51',2,296,_binary '',_binary '\0'),(15,'401670876','RANDY ALBERTO MORA FONSECA','randy@gmail.com',1,'123','Estoy usando Community Alert!','','2024-07-26 16:16:44',2,216,_binary '',_binary '\0'),(16,'401760123','MARIANNELA MATARRITA SOTO','mari@gmail.com',1,'123','Estoy usando Community Alert!','','2024-07-28 22:53:56',2,301,_binary '',_binary '\0'),(17,'401230242','YAMILETH DEL CARMEN GONZALEZ SOTO','yami',1,'123','Estoy usando Community Alert!','','2024-07-28 22:55:24',2,299,_binary '',_binary '\0'),(18,'402300855','FIORELLA HERNANDEZ MIRANDA','test@example.us',2,'123','Estoy usando Community Alert! Y SOY DE SJM','000','2024-07-29 12:46:26',2,300,_binary '',_binary '\0'),(19,'117310079','JESUS DANIEL VEGA MARVEZ','jvega10079@ufide.ac.cr',1,'123','Estoy usando Community Alert!','https://static.vecteezy.com/system/resources/previews/007/409/979/non_2x/people-icon-design-avatar-icon-person-icons-people-icons-are-set-in-trendy-flat-style-user-icon-set-vector.jpg','2024-07-25 11:55:14',1,122,_binary '',_binary '\0'),(20,'401200123','ALBERTO GERARDO ANTONIO CORDERO ARAYA','alberto',1,'123','Estoy usando Community Alert!','','2024-08-03 15:27:01',2,300,_binary '',_binary '\0'),(21,'401820123','YENSY BEATRIZ MORA ABARCA','yensi@gmail.com',2,'123','Estoy usando Community Alert!','','2024-08-03 18:32:52',2,306,_binary '',_binary '\0'),(22,'401780123','LILLIANA CORDOBA GUERRERO','lili@gmail.com',2,'123','Estoy usando Community Alert!','','2024-08-08 18:59:15',2,258,_binary '',_binary '\0'),(23,'401010123','DANILO VICENTE ARCE ALFARO','danilo',1,'123',NULL,'','2024-08-22 19:10:10',2,306,_binary '',_binary '\0'),(24,'501430123','CARLOS GILBERTO CRUZ CRUZ','carlos@gmail.com',1,'123',NULL,'','2024-08-22 19:28:50',2,478,_binary '',_binary '\0');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -355,6 +356,31 @@ UPDATE communityalert.distritos
 	banner = IF(pBanner != '', pBanner, banner),
 	icono = IF(pIcono != '', pIcono, icono)
 	WHERE id_distrito = pId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ActualizarPasswordTemporal` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarPasswordTemporal`(
+				`pid_usuario` int, 
+                `pPassword` varchar(50))
+BEGIN
+UPDATE 	usuarios
+    SET 	Password = `pPassword`,
+			PasswordTemporal = 1
+	WHERE 	id_usuario = `pid_usuario`;
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -496,6 +522,32 @@ BEGIN
 		communityalert.provincias p ON c.id_provincia = p.id_provincia
 	WHERE 
 		u.id_usuario = pId_usuario;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ConsultarUsuarioCedula` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarUsuarioCedula`(`pcedula` varchar(9))
+BEGIN
+
+	SELECT 	`id_usuario`,
+			`Nombre_usuario`,
+			`email`
+	FROM 	`communityalert`.`usuarios`
+	WHERE 	cedula = `pcedula`
+        AND Estado = 1;
 
 END ;;
 DELIMITER ;
@@ -1480,4 +1532,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-23 13:01:33
+-- Dump completed on 2024-08-23 13:33:32
