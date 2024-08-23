@@ -88,9 +88,9 @@ if (isset($_POST["btnRecuperarAcceso"])) {
             EnviarCorreo('Acceso al Sistema', $contenido, $datos["email"]);
             header("../../View/Autenticacion/login.php");
         } else {
-            $_POST["msj"] = "No se ha podido enviar su código de seguridad correctamente.";
+            $_POST["mensaje"] = "No se ha podido enviar su código de seguridad correctamente.";
         }
     } else {
-        $_POST["msj"] = "Su información no se ha validado correctamente, verifique la cédula digitada.";
+        $_POST["mensaje"] = "Su información no se ha validado correctamente, verifique la cédula digitada.";
     }
 }
