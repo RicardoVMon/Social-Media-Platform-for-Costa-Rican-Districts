@@ -1,4 +1,5 @@
 <?php include_once __DIR__ . "/../../Model/Comunidad/comunidadModel.php";
+include_once __DIR__ . "/../../Controller/Likes/likesController.php";
 
 function obtenerInformacionComunidad($idComunidad)
 {
@@ -15,6 +16,9 @@ function obtenerPosts($idComunidad)
 
     if ($respuesta->num_rows > 0) {
         while ($row = mysqli_fetch_array($respuesta)) {
+
+            $cantidad_likes = obtenerLikesPost($row['id_publicacion']);
+            $existencia_like = estadoLikeUsuario($_SESSION['idUsuario'], $row['id_publicacion']);
 
             echo '
             <div class="col-md-12 px-0">
@@ -49,8 +53,9 @@ function obtenerPosts($idComunidad)
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary mr-2">
-                            <i class="fa-regular fa-heart"></i> 128
+                        <a href="#" id="btn-like" name="btn-like" class="btn btn-primary mr-2" onclick="cambiarValorLike(event,' . $row['id_publicacion'] . ', ' . $_SESSION['idUsuario'] . ');">
+                            <i id="icono-like-' . $row['id_publicacion'] . '" name="icono-like-' . $row['id_publicacion'] . '" class="' . ($existencia_like == 1 ? 'fa-solid' : 'fa-regular') . ' fa-heart"></i> 
+                            <span id="cantidad-likes-' . $row['id_publicacion'] . '" id="cantidad-likes-' . $row['id_publicacion'] . '">' . $cantidad_likes . '</span>
                         </a>
                         <a href="../../../View/User/Post/noticiaCreada.php?q=' .  $idComunidad . '&r=' . $row['id_publicacion'] . '" class="btn btn-secondary">
                             <i class="fa fa-comment"></i> Comentar
@@ -96,6 +101,8 @@ function obtenerPostsComunidadesSeguidas($idUsuario)
 
         while ($row = mysqli_fetch_array($respuesta)) {
 
+            $cantidad_likes = obtenerLikesPost($row['id_publicacion']);
+
             echo '
             <div class="col-md-12 px-0">
                 <div class="card">
@@ -129,8 +136,8 @@ function obtenerPostsComunidadesSeguidas($idUsuario)
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary mr-2">
-                            <i class="fa-regular fa-heart"></i> 131
+                        <a href="#" id="btnlike" name="btnlike" class="btn btn-primary mr-2" onclick="cambiarValorLike(' . $row['id_publicacion'] . ', ' . $_SESSION['idUsuario'] . ');">
+                            <i id="icono-like" name="icono-like" class="fa-regular fa-heart"></i> ' . $cantidad_likes . '
                         </a>
                         <a href="../../../View/User/Post/noticiaCreada.php?q=' . $row['id_distrito'] . '&r=' .  $row['id_publicacion'] . '" class="btn btn-secondary">
                             <i class="fa fa-comment"></i> Comentar
