@@ -27,48 +27,9 @@ if (session_status() === PHP_SESSION_NONE) {
                             <h2 class="pb-1">Bienvenido, <?php echo $_SESSION['primerNombre']; ?>!</h2>
                             <h5 class="op-7 mb-4">Estas son algunas de las noticias que te perdiste mientras no estabas!</h5>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card card-dark bg-primary-gradient">
-                                    <div class="card-body pb-0">
-                                        <div class="h1 fw-bold float-right">2%</div>
-                                        <h2 class="mb-2">PIB</h2>
-                                        <p>Costo de vida</p>
-                                        <div class="pull-in sparkline-fix chart-as-background">
-                                            <div id="lineChart">
-                                                <canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-dark bg-secondary-gradient">
-                                    <div class="card-body pb-0">
-                                        <div class="h1 fw-bold float-right">5%</div>
-                                        <h2 class="mb-2">Hoy</h2>
-                                        <p>Lluvias</p>
-                                        <div class="pull-in sparkline-fix chart-as-background">
-                                            <div id="lineChart2">
-                                                <canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-dark bg-success2">
-                                    <div class="card-body pb-0">
-                                        <div class="h1 fw-bold float-right">+7%</div>
-                                        <h2 class="mb-2">Economía</h2>
-                                        <p>Gasolina</p>
-                                        <div class="pull-in sparkline-fix chart-as-background">
-                                            <div id="lineChart3">
-                                                <canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <img class="rounded-top" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fort%C3%ADn.JPG" width="100%" height="100px" style="object-fit: cover;">
                             </div>
                         </div>
                     </div>
@@ -76,18 +37,6 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="row">
                         <!-- Columna de Posts -->
                         <div class="col-md-8">
-                            <!-- Sección de filtros -->
-                            <div class="row mb-3">
-                                <div class="col-3">
-                                    <select class="custom-select">
-                                        <option selected>Más Interactuados
-                                            <i class="fa-solid fa-filter"></i>
-                                        </option>
-                                        <option value="1">Reciente</option>
-                                        <option value="2">Mejor Votado</option>
-                                    </select>
-                                </div>
-                            </div>
                             <!-- Post 1 -->
                             <?php obtenerPostsComunidadesSeguidas($_SESSION['idUsuario']); ?>
                         </div>

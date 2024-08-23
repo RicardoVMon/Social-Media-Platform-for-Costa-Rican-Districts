@@ -66,6 +66,7 @@ if (isset($_POST["btnEditarPerfil"])) {
 
     if ($_SESSION['idDistrito'] != $IdDistrito) {
         cambioDeDistrito($IdDistrito);
+        procesoCambioDeDistritoBD($IdUsuario);
     }
 
     $respuesta = EditarPerfilBD($IdUsuario, $Cedula, $NombreUsuario, $Email, $Genero, $Descripcion, $Icono, $IdDistrito);
@@ -144,5 +145,16 @@ function ObtenerPostsUsuario($IdUsuario)
                 </div>
             </div>';
         }
+    } else {
+        echo '<div class="col-md-12 px-0">
+            <div class="card">
+                <div class="card-body">
+                <h1 class="text-center">Oh no! Este perfil aún no tiene publicaciones</h1>
+                <div style="display: flex; justify-content: center;">
+                        <iframe src="https://giphy.com/embed/ui4VjMUBGXhwgdwUnK" width="240" height="147" style="pointer-events: none;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                </div>
+                </div>
+            </div>
+            </div>';
     }
 }

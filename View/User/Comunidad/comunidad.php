@@ -53,22 +53,7 @@ $datosComunidad = obtenerInformacionComunidad($_GET['q']);
                         <!-- Columna de Posts -->
                         <div class="col-md-8">
 
-                            <!-- Sección de filtros -->
-                            <div class="row mb-3">
-                                <div class="col-3">
-
-                                    <select class="custom-select">
-                                        <option selected>
-                                            Más Interactuados
-                                            <i class="fa-solid fa-filter"></i>
-                                        </option>
-                                        <option value="1">Reciente</option>
-                                        <option value="2">Mejor Votado</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Sección de Posts -->       
+                            <!-- Sección de Posts -->
                             <?php obtenerPosts($_GET['q']); ?>
 
                         </div>

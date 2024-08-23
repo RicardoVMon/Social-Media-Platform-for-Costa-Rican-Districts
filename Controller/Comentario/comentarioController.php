@@ -28,7 +28,7 @@ function obtenerComentarios($idPublicacion)
                         <div class="col-10">
                             <div class="d-flex flex-column mb-3">
                                 <div class="d-flex">
-                                    <b>' . $row["nombre_usuario"] . '</b>
+                                    <a href="../../../View/User/Perfil/perfil.php?s=' . $row['id_usuario'] . '&t=posts">' . $row["nombre_usuario"] . '</a>
                                     <div class="ml-2"> ' . $row["fecha"] . ' </div>
                                     <span class="btn-label ml-2">
                                         <i class="fa-solid fa-house"></i>
@@ -43,6 +43,17 @@ function obtenerComentarios($idPublicacion)
                     </div>
                     <hr>';
         }
+    } else {
+        echo '<div class="col-md-12 px-0">
+            <div>
+                <div>
+                <h1 class="text-center">Vaya! Parece que aún no se han hecho comentarios <br> Agrega tú uno para empezar!</h1>
+                <div style="display: flex; justify-content: center;">
+                        <iframe src="https://giphy.com/embed/j6aoUHK5YiJEc" width="240" height="147" style="pointer-events: none;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                </div>
+                </div>
+            </div>
+            </div>';
     }
 }
 
@@ -52,15 +63,15 @@ function obtenerComentariosUsuario($idUsuario)
 
     if ($respuesta->num_rows > 0) {
         while ($row = mysqli_fetch_array($respuesta)) {
-            echo '<a href="../../../View/User/Post/noticiaCreada.php?q=' . $row["id_distrito"] . '&r=' . $row["id_publicacion"] . '">
+            echo '<a style="text-decoration: none; color: inherit;" href="../../../View/User/Post/noticiaCreada.php?q=' . $row["id_distrito"] . '&r=' . $row["id_publicacion"] . '">
                 <div class="col-md-12 px-0">
                     <div class="card">
                     <div class="card-header pb-1">
                         <div class="d-flex">
                         <img src="' . $row["icono_comunidad"] . '" class=" rounded-circle" style="height: 20px; width: 20px;">
-                        <div class="ml-2">' . $row["nombre_usuario"] . ' | </div>
-                        <div class="ml-2">' . $row["nombre_distrito"] . ' | </div>
-                        <div class="ml-2">' . $row["titulo"] . '</div>
+                        <div class="ml-2 h3 fw-bold">' . $row["nombre_usuario"] . ' | </div>
+                        <div class="ml-2 h3 fw-bold">' . $row["nombre_distrito"] . ' | </div>
+                        <div class="ml-2 h3 fw-bold">' . $row["titulo"] . '</div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -73,5 +84,16 @@ function obtenerComentariosUsuario($idUsuario)
                 </div>
                 </a>';
         }
+    } else {
+        echo '<div class="col-md-12 px-0">
+            <div class="card">
+                <div class="card-body">
+                <h1 class="text-center">Vaya! Qué vacío! <br> Este perfil aún no tiene comentarios</h1>
+                <div style="display: flex; justify-content: center;">
+                        <iframe src="https://giphy.com/embed/d2lcHJTG5Tscg" width="240" height="147" style="pointer-events: none;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                </div>
+                </div>
+            </div>
+            </div>';
     }
 }

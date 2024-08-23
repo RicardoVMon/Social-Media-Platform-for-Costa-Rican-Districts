@@ -113,7 +113,7 @@
                     </div>
                     <div class="form-group text-center">
                         <button type="submit" id="btnRegistrar" name="btnRegistrar" class="btn btn-primary btn-lg" style="background-color:#1F283E; border-color: #1F283E;">
-                            Iniciar Sesión
+                            Registrarse
                         </button>
                     </div>
                 </form>
