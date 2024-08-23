@@ -10,47 +10,21 @@ function loginUsuario($cedula, $contrasennia)
     return $resultado;
 }
 //recuperar contraseña
-function ActualizarContrasenna($Consecutivo, $Contrasenna, $EsTemporal)
-    {
-        $conexion = abrirConexion();
-        $sentencia = "CALL ActualizarContrasenna('$Consecutivo', '$Contrasenna', '$EsTemporal')";
-        $respuesta = $conexion -> query($sentencia);
-        cerrarConexion($conexion);
-        return $respuesta;
-    }
 
-    function ConsultarUsuariosBD($ConsecutivoLogueado)
-    {
-        $conexion = abrirConexion();
-        $sentencia = "CALL ConsultarUsuarios('$ConsecutivoLogueado')";
-        $respuesta = $conexion -> query($sentencia);
-        cerrarConexion($conexion);
-        return $respuesta;
-    }
+function ConsultarUsuarioCedula($cedula)
+{
+    $conexion = abrirConexion();
+    $query = "CALL ConsultarUsuarioCedula('$cedula')";
+    $respuesta = $conexion -> query($query);
+    cerrarConexion($conexion);
+    return $respuesta;
+}
 
-    function CambiarEstadoUsuario($Consecutivo)
+function ActualizarPasswordTemporal($idUsuario, $contrasennia)
     {
         $conexion = abrirConexion();
-        $sentencia = "CALL CambiarEstadoUsuario('$Consecutivo')";
-        $respuesta = $conexion -> query($sentencia);
-        cerrarConexion($conexion);
-        return $respuesta;
-    }
-
-    function ConsultarUsuarioBD($Consecutivo)
-    {
-        $conexion = abrirConexion();
-        $sentencia = "CALL ConsultarUsuario('$Consecutivo')";
-        $respuesta = $conexion -> query($sentencia);
-        cerrarConexion($conexion);
-        return $respuesta;
-    }
-
-    function ActualizarUsuario($Consecutivo,$Identificacion,$pNombre,$Correo,$IdRol)
-    {
-        $conexion = abrirConexion();
-        $sentencia = "CALL ActualizarUsuario('$Consecutivo','$Identificacion','$pNombre','$Correo','$IdRol')";
-        $respuesta = $conexion -> query($sentencia);
+        $query = "CALL ActualizarPasswordTemporal('$idUsuario', '$contrasennia')";
+        $respuesta = $conexion -> query($query);
         cerrarConexion($conexion);
         return $respuesta;
     }

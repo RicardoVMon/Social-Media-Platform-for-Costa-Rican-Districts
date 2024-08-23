@@ -1,5 +1,6 @@
 <?php include_once __DIR__ . '/../../Model/Autenticacion/loginModel.php';
 include_once __DIR__ . '/../../Model/PostModel/postModel.php';
+include_once __DIR__ . '../recuperacionEmail.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -67,36 +68,29 @@ function obtenerProvinciaCanton()
 }
 //recuperar contraseña
 
-if(isset($_POST["btnRecuperarAcceso"]))
-    {
-        $Identificacion = $_POST["cedula"];
-        $respuesta = /*ConsultarUsuarioXIdentificacion*/($cedula);
+if (isset($_POST["btnRecuperarAcceso"])) {
+    $cedula = $_POST["cedula"];
+    $respuesta = ConsultarUsuarioCedula($cedula);
 
-        if($respuesta -> num_rows > 0)
-        {
-            $datos = mysqli_fetch_array($resultadoLogin);
-            $codigo = //GenerarCodigo();
-            $resp = ActualizarContrasenna($datos["id_usuario"],$codigo,true);
+    if ($respuesta->num_rows > 0) {
+        $datos = mysqli_fetch_array($respuesta);
+        $codigo = GenerarCodigo();
+        $resp = ActualizarPasswordTemporal($datos["id_usuario"], $codigo, true);
 
-            if($resp == true)
-            {
-                $contenido = "<html><body>
-                Estimado(a) " . $datos["nombre_usuario"] . "<br/><br/>
+        if ($resp == true) {
+            $contenido = "<html><body>
+                Estimado(a) <br/><br/>
                 Se ha generado el siguiente código de seguridad: <b>" . $codigo . "</b><br/>
-                Recuerde realizar el cambio de contraseña una vez que ingrese a Community Alert<br/><br/>
+                Le recomendamos realizar el cambio de contraseña una vez que ingrese a Community Alert, como medida de seguridad. <br/><br/>
                 Muchas gracias.
                 </body></html>";
 
-                //EnviarCorreo('Acceso al Sistema', $contenido, $datos["Correo"]);
-                header("../../View/Autenticacion/login.php");
-            }
-            else
-            {
-                $_POST["msj"] = "No se ha podido enviar su código de seguridad correctamente.";
-            }
+            EnviarCorreo('Acceso al Sistema', $contenido, $datos["email"]);
+            header("../../View/Autenticacion/login.php");
+        } else {
+            $_POST["msj"] = "No se ha podido enviar su código de seguridad correctamente.";
         }
-        else
-        {
-            $_POST["msj"] = "Su información no se ha validado correctamente, verifique la cédula digitada.";
-        }
+    } else {
+        $_POST["msj"] = "Su información no se ha validado correctamente, verifique la cédula digitada.";
     }
+}
