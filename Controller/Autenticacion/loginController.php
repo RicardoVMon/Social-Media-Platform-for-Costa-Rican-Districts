@@ -65,3 +65,38 @@ function obtenerProvinciaCanton()
     $_SESSION['nombreProvincia'] = $datos['nombre_provincia'];
     $_SESSION['nombreCanton'] = $datos['nombre_canton'];
 }
+//recuperar contraseña
+
+if(isset($_POST["btnRecuperarAcceso"]))
+    {
+        $Identificacion = $_POST["cedula"];
+        $respuesta = /*ConsultarUsuarioXIdentificacion*/($cedula);
+
+        if($respuesta -> num_rows > 0)
+        {
+            $datos = mysqli_fetch_array($resultadoLogin);
+            $codigo = //GenerarCodigo();
+            $resp = ActualizarContrasenna($datos["id_usuario"],$codigo,true);
+
+            if($resp == true)
+            {
+                $contenido = "<html><body>
+                Estimado(a) " . $datos["nombre_usuario"] . "<br/><br/>
+                Se ha generado el siguiente código de seguridad: <b>" . $codigo . "</b><br/>
+                Recuerde realizar el cambio de contraseña una vez que ingrese a Community Alert<br/><br/>
+                Muchas gracias.
+                </body></html>";
+
+                //EnviarCorreo('Acceso al Sistema', $contenido, $datos["Correo"]);
+                header("../../View/Autenticacion/login.php");
+            }
+            else
+            {
+                $_POST["msj"] = "No se ha podido enviar su código de seguridad correctamente.";
+            }
+        }
+        else
+        {
+            $_POST["msj"] = "Su información no se ha validado correctamente, verifique la cédula digitada.";
+        }
+    }
