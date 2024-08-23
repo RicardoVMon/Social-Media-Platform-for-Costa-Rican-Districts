@@ -1,13 +1,13 @@
 <?php include_once __DIR__ . '/../Conexion/dbconnection.php';
 
-/* function obtenerProvinciasBD()
+function obtenerProvinciasBD()
 {
     $conexion = abrirConexion();
     $query = "CALL obtenerProvincias()";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;
-} */
+}
 
 function obtenerIdDistrito($nombreProvincia, $nombreCanton, $nombreDistrito)
 {

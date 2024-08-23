@@ -28,15 +28,6 @@ function ConsultarIdDistritoBD()
     return $respuesta;
 }
 
-function ConsultarIdGeneroBD()
-{
-    $conexion = abrirConexion();
-    $sentencia = "CALL ConsultarIdGenero()";
-    $respuesta = $conexion->query($sentencia);
-    cerrarConexion($conexion);
-    return $respuesta;
-}
-
 function ConsultarUsuarioPostsBD($IdUsuario)
 {
     $conexion = abrirConexion();

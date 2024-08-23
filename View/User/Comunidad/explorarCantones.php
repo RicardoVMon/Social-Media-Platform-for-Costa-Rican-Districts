@@ -28,20 +28,6 @@ include_once __DIR__ . '/../../../Controller/Comunidad/explorarController.php'; 
                         </div>
                     </div>
 
-                    <div class="row mb-3">
-                        <div class="col-3">
-
-                            <select class="custom-select">
-                                <option selected>
-                                    Más Interactuados
-                                    <i class="fa-solid fa-filter"></i>
-                                </option>
-                                <option value="1">Reciente</option>
-                                <option value="2">Mejor Votado</option>
-                            </select>
-                        </div>
-                    </div>
-
                     <!-- Inicio de seccion de contenido -->
                     <div class="row">
 
