@@ -28,7 +28,7 @@
         </div>
         <div class="col d-flex align-items-center">
             <div class="container-fluid d-flex flex-column">
-                <form class="pb-5 border-bottom px-5" action="" method="POST">
+                <form class="pb-4 border-bottom px-5" action="" method="POST">
                     <div class="text-center fw-bold" style="font-size: 10vh; color: #1F283E;">Community Alert</div>
                     <h2 class="mb-5 text-center" style="color: #1F283E;">Registro de Usuario</h2>
                     <?php
@@ -115,6 +115,9 @@
                         <button type="submit" id="btnRegistrar" name="btnRegistrar" class="btn btn-primary btn-lg" style="background-color:#1F283E; border-color: #1F283E;">
                             Registrarse
                         </button>
+                        <div class="mt-3">
+                            <a href="recuperar.php" class="mt-5 text-center under">¿Olvidó su contraseña?</a>
+                        </div>
                     </div>
                 </form>
                 <a href="login.php" class="mt-4 text-center under">¿Ya tenés una cuenta? <br> ¡Inicia sesión! </a>

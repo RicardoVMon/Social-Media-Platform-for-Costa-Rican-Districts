@@ -1,6 +1,7 @@
 <?php include_once __DIR__ . '/../Layout/layoutHome.php';
 include_once __DIR__ . '/../../../Controller/Comunidad/comunidadController.php';
 
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 } ?>
@@ -29,7 +30,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         </div>
                         <div class="row mb-4">
                             <div class="col-md-12">
-                                <img class="rounded-top" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fort%C3%ADn.JPG" width="100%" height="100px" style="object-fit: cover;">
+                                <img class="rounded-top" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Costa_Rica_WV_banner.jpg" width="100%" height="100px" style="object-fit: cover;">
                             </div>
                         </div>
                     </div>
@@ -44,41 +45,15 @@ if (session_status() === PHP_SESSION_NONE) {
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title text-center" style="font-size: 1.5vw;">
+                                    <div class="text-center" style="font-size: 1.5vw;">
                                         <i class="fa-solid fa-newspaper"></i>
-                                        Noticias
+                                        Sucesos
                                     </div>
                                 </div>
                                 <div class="card-body pb-0">
                                     <!-- Noticia 1 -->
                                     <a href="#" class="col-md-12 px-0 d-flex mb-4">
-                                        <div class="avatar">
-                                            <img src="../../assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-                                        <div class="flex-1 pt-1 ml-2">
-                                            <h4 class="fw-bold mb-0">Noticia 1</h4>
-                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quas.</small>
-                                        </div>
-                                    </a>
-                                    <!-- Noticia 2 -->
-                                    <a href="#" class="col-md-12 px-0 d-flex mb-4">
-                                        <div class="avatar">
-                                            <img src="../../assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-                                        <div class="flex-1 pt-1 ml-2">
-                                            <h4 class="fw-bold mb-0">Noticia 2</h4>
-                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quas.</small>
-                                        </div>
-                                    </a>
-                                    <!-- Noticia 3 -->
-                                    <a href="#" class="col-md-12 px-0 d-flex mb-4">
-                                        <div class="avatar">
-                                            <img src="../../assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-                                        <div class="flex-1 pt-1 ml-2">
-                                            <h4 class="fw-bold mb-0">Noticia 3</h4>
-                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quas.</small>
-                                        </div>
+                                        <iframe src="https://www.nacion.com/ultimas-noticias/" width="100%" height="400px" frameborder="0"></iframe>
                                     </a>
                                 </div>
                             </div>

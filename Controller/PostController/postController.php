@@ -73,7 +73,7 @@ function VisualizarInformacionComunidad($id_distrito)
         echo '<div class="row">
                 <div class="col-md-6">
                     <h4 class="fw-bold mb-0">' . $rowSeguidoresFecha['fecha'] . '</h4>
-                    <p>Fecha de ingreso</p>
+                    <p>Fecha de hoy</p>
                 </div>
                 <div class="col-md-6">
                     <h4 class="fw-bold mb-0">' . $rowSeguidoresFecha['seguidores'] . '</h4>

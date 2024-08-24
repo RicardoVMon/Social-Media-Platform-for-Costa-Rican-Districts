@@ -102,6 +102,9 @@ function ObtenerPostsUsuario($IdUsuario)
 
         while ($row = mysqli_fetch_array($respuesta)) {
 
+            $cantidad_likes = obtenerLikesPost($row['id_publicacion']);
+            $existencia_like = estadoLikeUsuario($_SESSION['idUsuario'], $row['id_publicacion']);
+            
             echo '
             <div class="col-md-12 px-0">
                 <div class="card">
@@ -135,8 +138,9 @@ function ObtenerPostsUsuario($IdUsuario)
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary mr-2">
-                            <i class="fa fa-thumbs-up"></i> Me gusta
+                        <a href="#" id="btn-like" name="btn-like" class="btn btn-primary mr-2" onclick="cambiarValorLike(event,' . $row['id_publicacion'] . ', ' . $_SESSION['idUsuario'] . ');">
+                            <i id="icono-like-' . $row['id_publicacion'] . '" name="icono-like-' . $row['id_publicacion'] . '" class="' . ($existencia_like == 1 ? 'fa-solid' : 'fa-regular') . ' fa-heart"></i> 
+                            <span id="cantidad-likes-' . $row['id_publicacion'] . '" id="cantidad-likes-' . $row['id_publicacion'] . '">' . $cantidad_likes . '</span>
                         </a>
                         <a href="#" class="btn btn-secondary">
                             <i class="fa fa-comment"></i> Comentar

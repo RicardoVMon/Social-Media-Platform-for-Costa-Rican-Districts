@@ -29,14 +29,14 @@ function ObtenerNoticia($IdNoticia)
 }
 
 
-function ObtenerInformacionComunidad()
+/* function ObtenerInformacionComunidad()
 {
     $conexion = abrirConexion();
     $sentencia = "CALL ObtenerInformacionComunidad()";
     $respuesta = $conexion->query($sentencia);
     cerrarConexion($conexion);
     return $respuesta;
-}
+} */
 
 function obtenerNoticiaIdSegunContenidoBD($titulo, $contenido, $usuario, $categoria)
 {
