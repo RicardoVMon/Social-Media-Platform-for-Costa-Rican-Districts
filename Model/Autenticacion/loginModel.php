@@ -20,10 +20,10 @@ function ConsultarUsuarioCedula($cedula)
     return $respuesta;
 }
 
-function ActualizarPasswordTemporal($idUsuario, $contrasennia)
+function ActualizarPasswordTemporal($idUsuario, $contrasennia, $esTemporal)
     {
         $conexion = abrirConexion();
-        $query = "CALL ActualizarPasswordTemporal('$idUsuario', '$contrasennia')";
+        $query = "CALL ActualizarPasswordTemporal('$idUsuario', '$contrasennia', '$esTemporal')";
         $respuesta = $conexion -> query($query);
         cerrarConexion($conexion);
         return $respuesta;

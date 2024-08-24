@@ -70,34 +70,7 @@ $datosComunidad = obtenerInformacionComunidad($_GET['q']);
                                 <div class="card-body pb-0">
                                     <!-- Noticia -->
                                     <a href="#" class="col-md-12 px-0 d-flex mb-4">
-                                        <div class="avatar">
-                                            <img src="assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-                                        <div class="flex-1 pt-1 ml-2">
-                                            <h4 class="fw-bold mb-0">Noticia 1</h4>
-                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing
-                                                elit. Pariatur, quas.</small>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="col-md-12 px-0 d-flex mb-4">
-                                        <div class="avatar">
-                                            <img src="assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-                                        <div class="flex-1 pt-1 ml-2">
-                                            <h4 class="fw-bold mb-0">Noticia 2</h4>
-                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing
-                                                elit. Pariatur, quas.</small>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="col-md-12 px-0 d-flex mb-4">
-                                        <div class="avatar">
-                                            <img src="assets/img/logoproduct.svg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
-                                        <div class="flex-1 pt-1 ml-2">
-                                            <h4 class="fw-bold mb-0">Noticia 3</h4>
-                                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing
-                                                elit. Pariatur, quas.</small>
-                                        </div>
+                                        <iframe src="https://www.nacion.com/ultimas-noticias/" width="100%" height="400px" frameborder="0"></iframe>
                                     </a>
                                 </div>
                             </div>

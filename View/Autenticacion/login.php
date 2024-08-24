@@ -27,13 +27,16 @@
         </div>
         <div class="col d-flex align-items-center">
             <div class="container-fluid d-flex flex-column">
-                <form class="pb-5 border-bottom px-5" action="" method="POST">
+                <form class="pb-4 border-bottom px-5" action="" method="POST">
                     <div class="text-center fw-bold" style="font-size: 10vh; color: #1F283E;">Community Alert</div>
                     <h2 class="mb-5 text-center" style="color: #1F283E;">Login de Usuario</h2>
 
                     <?php
                     if (isset($_POST['mensaje'])) {
                         echo "<div class='alert alert-danger text-center'>" . $_POST['mensaje'] . "</div>";
+                    } else if (isset($_SESSION['cambioContraseña'])) {
+                            echo "<div class='alert alert-success text-center'>Se ha enviado un código de recuperación a tu correo electrónico.</div>";
+                            unset($_SESSION['cambioContraseña']);
                     }
                     ?>
 
@@ -49,7 +52,9 @@
                         <button type="submit" class="btn btn-primary btn-lg" id="btnLogin" name="btnLogin" style="background-color:#1F283E; border-color: #1F283E;">
                             Iniciar Sesión
                         </button>
-                        <a href="recuperar.php" class="mt-4 text-center under"><br>¿Olvidó su contraseña? <br></a>
+                        <div class="mt-3">
+                            <a href="recuperar.php" class="mt-5 text-center under">¿Olvidó su contraseña?</a>
+                        </div>
                     </div>
                 </form>
                 <a href="registro.php" class="mt-4 text-center under">¿No tenés Cuenta? <br> ¡Crea una ya! </a>

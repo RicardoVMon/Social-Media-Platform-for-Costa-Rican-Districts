@@ -1,5 +1,7 @@
 <?php
 
+include_once __DIR__ . '/../../../Controller/Busqueda/busquedaController.php';
+
 if (session_status() === PHP_SESSION_NONE) {
    session_start();
 }
@@ -85,14 +87,14 @@ function mostrarNavBar()
       <nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
             <div class="container-fluid">
                <div class="collapse" id="search-nav">
-                  <form class="navbar-left navbar-form nav-search mr-md-3">
+                  <form class="navbar-left navbar-form nav-search mr-md-3" method="post" action="">
                         <div class="input-group">
                            <div class="input-group-prepend">
-                              <button type="submit" class="btn btn-search pr-1">
+                              <button type="submit" name="btnBuscar" id="btnBuscar" class="btn btn-search pr-1">
                                     <i class="fa fa-search search-icon"></i>
                               </button>
                            </div>
-                           <input type="text" placeholder="Buscar ..." class="form-control">
+                           <input type="text" name="busqueda" id="busqueda" placeholder="Buscar comunidad o post ..." class="form-control">
                         </div>
                   </form>
                </div>
@@ -128,7 +130,6 @@ function mostrarNavBar()
                               <li>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="../Perfil/perfil.php?s=' . $_SESSION['idUsuario'] . '&t=posts">Mi Perfil</a>
-                                    <a class="dropdown-item" href="#">Alertas</a>
                                     <div class="dropdown-divider"></div>
 
                                     <form method="POST" action="../../../Controller/Autenticacion/loginController.php">

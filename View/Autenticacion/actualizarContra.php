@@ -29,8 +29,8 @@
             <div class="container-fluid d-flex flex-column">
                 <form class="pb-5 border-bottom px-5" action="" method="POST">
                     <div class="text-center fw-bold" style="font-size: 10vh; color: #1F283E;">Community Alert</div>
-                    <h2 class="mb-3 text-center" style="color: #1F283E;">Recuperar cuenta</h2>
-                    <div class="mb-4 text-center">Ingresá tu cédula para que recibir un código de recuperación al correo relacionado a tu cuenta.</div>
+                    <h2 class="mb-3 text-center" style="color: #1F283E;">Actualizar tu contraseña</h2>
+                    <div class="mb-4 text-center">Recientemente has solicitado recuperar tu contraseña, sigue los pasos mostrados para continuar.</div>
 
                     <?php
                     if (isset($_POST['mensaje'])) {
@@ -40,12 +40,16 @@
                     
                     
                     <div class="form-group form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Cédula" name="cedula" id="cedula" required />
-                        <label class="form-label">Cédula</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Cédula" required />
+                        <label class="form-label">Nueva Contraseña</label>
+                    </div>
+                    <div class="form-group form-floating mb-4">
+                        <input type="password" name="newPassword" id="newPassword" class="form-control" placeholder="Cédula" required />
+                        <label class="form-label">Confirmar Contraseña</label>
                     </div>
                     <div class="form-group text-center">
-                        <button type="submit" class="btn btn-primary btn-lg" id="btnRecuperarAcceso" name="btnRecuperarAcceso" style="background-color:#1F283E; border-color: #1F283E;">
-                            Solicitar código
+                        <button type="submit" class="btn btn-primary btn-lg" id="btnActualizarContrasennia" name="btnActualizarContrasennia" style="background-color:#1F283E; border-color: #1F283E;">
+                            Actualizar contraseña
                         </button>
                     </div>
                 </form>

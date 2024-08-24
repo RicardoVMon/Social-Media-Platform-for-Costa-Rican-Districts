@@ -30,11 +30,22 @@ if (isset($_POST['btnLogin'])) {
         $_SESSION['rolUsuario'] = $datos['id_role'];
         $_SESSION['iconoUsuario'] = $datos['icono'];
 
+
+
         if ($_SESSION['rolUsuario'] == 1) {
-            header("Location: ../../View/Admin/Dashboard/dashboard.php");
+            if ($datos['passwordTemporal'] == 1) {
+                header("Location: ../../View/Autenticacion/actualizarContra.php");
+            } else {
+                header("Location: ../../View/Admin/Dashboard/dashboard.php");
+            }
         } else {
-            header("Location: ../../View/User/Home/home.php");
+            if ($datos['passwordTemporal'] == 1) {
+                header("Location: ../../View/Autenticacion/actualizarContra.php");
+            } else {
+                header("Location: ../../View/User/Home/home.php");
+            }
         }
+
     } else {
 
         $_POST['mensaje'] = "Usuario o contraseña incorrectos";
@@ -85,12 +96,32 @@ if (isset($_POST["btnRecuperarAcceso"])) {
                 Muchas gracias.
                 </body></html>";
 
+            $_SESSION["cambioContraseña"] = 1;
             EnviarCorreo('Acceso al Sistema', $contenido, $datos["email"]);
-            header("../../View/Autenticacion/login.php");
+            header("Location: ../../View/Autenticacion/login.php");
         } else {
             $_POST["mensaje"] = "No se ha podido enviar su código de seguridad correctamente.";
         }
     } else {
         $_POST["mensaje"] = "Su información no se ha validado correctamente, verifique la cédula digitada.";
+    }
+}
+
+if (isset($_POST["btnActualizarContrasennia"])) {
+    
+    $contrasennia = $_POST["password"];
+    $confirmarContrasennia = $_POST["newPassword"];
+
+    if ($contrasennia == $confirmarContrasennia) {
+        $respuesta = ActualizarPasswordTemporal($_SESSION["idUsuario"], $contrasennia, false);
+
+        if ($respuesta == true) {
+            $_SESSION["cambioContraseña"] = 0;
+            header("Location: ../../View/User/Home/home.php");
+        } else {
+            $_POST["mensaje"] = "No se ha podido actualizar su contraseña correctamente.";
+        }
+    } else {
+        $_POST["mensaje"] = "Las contraseñas no coinciden, por favor verifique.";
     }
 }
