@@ -54,7 +54,16 @@ if (isset($_POST["btnEditarPerfil"])) {
     $Email = $_POST["txtEmail"];
     $Genero = $_POST["selectGenero"];
     $Descripcion = $_POST["description"];
-    $Icono = "000"; //$_POST["txtIcono"];
+
+    //$Icono = "";
+    $Icono = $_SESSION['iconoUsuario'];
+    if($_FILES["txtIcono"]["name"] != "")
+    {
+        $Icono = '/Community-Alert/View/User/Perfil/Images/' . $_FILES["txtIcono"]["name"];
+        $origen = $_FILES["txtIcono"]["tmp_name"];
+        $destino = $_SERVER['DOCUMENT_ROOT'] . '/Community-Alert/View/User/Perfil/Images/' . $_FILES["txtIcono"]["name"];
+        copy($origen, $destino);
+    }
 
     $provincia = $_POST['nombreProvincia'];
     $canton = $_POST['nombreCanton'];
@@ -77,6 +86,8 @@ if (isset($_POST["btnEditarPerfil"])) {
         $_SESSION["nombreDistrito"] = $distrito;
         $_SESSION["nombreCanton"] = $canton;
         $_SESSION["nombreProvincia"] = $provincia;
+        $_SESSION['iconoUsuario'] = $Icono;
+        $_SESSION['email'] = $_POST["txtEmail"];
 
         header("location: ../../../View/User/Perfil/perfil.php" . "?s=" . $IdUsuario . "&t=posts");
     } else {

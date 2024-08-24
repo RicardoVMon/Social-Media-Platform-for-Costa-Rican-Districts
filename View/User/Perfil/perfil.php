@@ -38,7 +38,7 @@ $datos = ConsultarUsuario($_GET['s']);
                                     <div class="d-flex justify-content-between px-4 mt-3">
                                         <div class="d-flex justify-content-start">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <img src="<?php echo $datos['icono'] ?>" style="height: 10vw; width: 10vw; object-fit: cover;" class="rounded-circle img-fluid">
+                                                <img src="<?php echo $datos['icono'] ?>" style="height: 10vw; width: 15vw; object-fit: cover;" class="rounded-circle img-fluid">
                                             </div>
                                             <div class="mx-3 d-flex flex-column justify-content-center">
                                                 <h1 class="font-weight-bold display-4 mb-0">
@@ -135,7 +135,8 @@ $datos = ConsultarUsuario($_GET['s']);
                                                 </a>
                                             </div>
                                             <div class="col-12">
-                                                <a href="../Comunidad/comunidad.php" class="text-white">
+                                                <a href="../Comunidad/comunidad.php?q=<?php echo $_SESSION['idDistrito']; ?>" class="text-white">
+
                                                     <div class="card bg-primary">
                                                         <div class="card-body">Mi Comunidad</div>
                                                     </div>

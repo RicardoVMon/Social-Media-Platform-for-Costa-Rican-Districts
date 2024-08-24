@@ -17,6 +17,8 @@ if (isset($_POST['btnRegistrar'])) {
     $distrito = $_POST['nombreDistrito'];
     $contrasennia = $_POST['contrasennia'];
 
+    $icono = '/Community-Alert/View/User/Perfil/Images/default.jpg'; 
+
     $resultadoCedula = obtenerCedula($cedula);
     $resultadoRegistro;
     $distrito;
@@ -33,7 +35,7 @@ if (isset($_POST['btnRegistrar'])) {
 
             $datos = mysqli_fetch_array($resultadoDistrito);
             $distrito = $datos['id_distrito'];
-            $resultadoRegistro = registrarUsuario($cedula, $nombre, $apellidos, $correo, $genero, $contrasennia, $distrito);
+            $resultadoRegistro = registrarUsuario($cedula, $nombre, $apellidos, $correo, $genero, $contrasennia, $distrito, $icono);
 
         }
     }
