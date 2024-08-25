@@ -1,6 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `communityalert` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `communityalert`;
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: communityalert
 -- ------------------------------------------------------
@@ -87,7 +87,7 @@ CREATE TABLE `comentarios` (
   KEY `fk_comentarios_usuarios` (`id_usuario`),
   CONSTRAINT `fk_comentarios_publicaciones` FOREIGN KEY (`id_publicacion`) REFERENCES `publicaciones` (`id_publicacion`),
   CONSTRAINT `fk_comentarios_usuarios` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `comentarios` (
 
 LOCK TABLES `comentarios` WRITE;
 /*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
-INSERT INTO `comentarios` VALUES (1,'TEST COMENTARIO INUNDACION','2024-08-09',1,9),(2,'No puedo creer que puedo comentar en las publicaciones!!!!!!!!','2024-08-07',1,9),(3,'TEST COMENTARIO EXTERNO','2024-08-07',1,10),(5,'hola','2024-08-22',55,9),(17,'Comentario ','2024-08-22',64,24),(18,'Hola Danilo, la app sirve para comunicarse entre todas las comunidades de costa rica','2024-08-22',63,9),(19,'Comentando','2024-08-23',65,9),(20,'comento','2024-08-23',65,9),(21,'123123','2024-08-23',65,9),(22,'Agradezco la ayuda','2024-08-23',66,9),(23,'Por qué nadie contesta?','2024-08-23',66,9),(24,'1','2024-08-23',28,9),(29,'123123','2024-08-23',70,9),(30,'213123123','2024-08-23',70,9),(31,'123123123','2024-08-23',70,9),(32,'YA LE DI LKE','2024-08-23',70,18);
+INSERT INTO `comentarios` VALUES (1,'TEST COMENTARIO INUNDACION','2024-08-09',1,9),(2,'No puedo creer que puedo comentar en las publicaciones!!!!!!!!','2024-08-07',1,9),(3,'TEST COMENTARIO EXTERNO','2024-08-07',1,10),(5,'hola','2024-08-22',55,9),(17,'Comentario ','2024-08-22',64,24),(18,'Hola Danilo, la app sirve para comunicarse entre todas las comunidades de costa rica','2024-08-22',63,9),(19,'Comentando','2024-08-23',65,9),(20,'comento','2024-08-23',65,9),(21,'123123','2024-08-23',65,9),(22,'Agradezco la ayuda','2024-08-23',66,9),(23,'Por qué nadie contesta?','2024-08-23',66,9),(24,'1','2024-08-23',28,9),(29,'123123','2024-08-23',70,9),(30,'213123123','2024-08-23',70,9),(31,'123123123','2024-08-23',70,9),(32,'YA LE DI LKE','2024-08-23',70,18),(33,'holisssss','2024-08-23',71,26),(34,'aaaaaa','2024-08-24',65,26);
 /*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +178,7 @@ CREATE TABLE `likes` (
 
 LOCK TABLES `likes` WRITE;
 /*!40000 ALTER TABLE `likes` DISABLE KEYS */;
-INSERT INTO `likes` VALUES ('2024-08-23 18:21:36',9,26),('2024-08-23 18:21:48',9,36),('2024-08-23 18:21:47',9,37),('2024-08-23 15:05:27',9,55),('2024-08-23 12:53:52',9,56),('2024-08-23 13:35:45',9,57),('2024-08-23 16:06:00',9,59),('2024-08-23 13:35:41',9,63),('2024-08-23 18:13:40',9,65),('2024-08-23 18:19:20',9,66),('2024-08-23 18:19:48',9,67),('2024-08-23 18:35:46',9,70),('2024-08-23 10:50:11',10,59),('2024-08-23 18:25:36',18,51),('2024-08-23 18:25:36',18,53),('2024-08-23 12:41:23',18,54),('2024-08-23 12:37:37',18,55),('2024-08-23 12:37:38',18,56),('2024-08-23 12:41:56',18,59),('2024-08-23 18:35:16',18,65),('2024-08-23 18:35:13',18,66),('2024-08-23 18:25:33',18,67),('2024-08-23 18:36:09',18,70);
+INSERT INTO `likes` VALUES ('2024-08-23 18:21:36',9,26),('2024-08-23 18:21:48',9,36),('2024-08-23 18:21:47',9,37),('2024-08-23 15:05:27',9,55),('2024-08-23 12:53:52',9,56),('2024-08-23 13:35:45',9,57),('2024-08-23 16:06:00',9,59),('2024-08-23 13:35:41',9,63),('2024-08-23 18:13:40',9,65),('2024-08-23 18:19:20',9,66),('2024-08-23 18:19:48',9,67),('2024-08-23 18:35:46',9,70),('2024-08-23 10:50:11',10,59),('2024-08-23 18:25:36',18,51),('2024-08-23 18:25:36',18,53),('2024-08-23 12:41:23',18,54),('2024-08-23 12:37:37',18,55),('2024-08-23 12:37:38',18,56),('2024-08-23 12:41:56',18,59),('2024-08-23 18:35:16',18,65),('2024-08-23 18:35:13',18,66),('2024-08-23 18:25:33',18,67),('2024-08-23 18:36:09',18,70),('2024-08-23 19:52:53',26,65),('2024-08-23 19:50:47',26,71);
 /*!40000 ALTER TABLE `likes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +226,7 @@ CREATE TABLE `publicaciones` (
   KEY `fk_publicaciones_categoria` (`id_categoria_publicacion`),
   CONSTRAINT `fk_publicaciones_categoria` FOREIGN KEY (`id_categoria_publicacion`) REFERENCES `categoriapublicacion` (`id_categoria_publicacion`),
   CONSTRAINT `fk_publicaciones_usuarios` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +235,7 @@ CREATE TABLE `publicaciones` (
 
 LOCK TABLES `publicaciones` WRITE;
 /*!40000 ALTER TABLE `publicaciones` DISABLE KEYS */;
-INSERT INTO `publicaciones` VALUES (1,'Inundación en el centro de SJM','Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae similique architecto harum ea veniam voluptatem suscipit necessitatibus velit dolorem, tenetur, illo dolorum repellendus. Aliquid, nihil odio. Nam, reprehenderit tempore illo quis mollitia libero qui rem ullam facilis sint tenetur, exercitationem ducimus? Aut facilis quo molestias iure alias voluptate unde eaque!','2023-11-03',9,1),(2,'Prueba','Prueba','2024-07-25',9,1),(3,'ACCIDENTE SOCORRO','Nos acabamos de accidentar en la plaza central, por favor llamen al 911','2024-07-25',9,1),(4,'Prueba','Prueba','2024-07-25',14,1),(5,'PRUEBA2','PRUEBA2','2024-07-25',14,1),(6,'PRUEBA3','PRUEBA3','2024-07-25',14,1),(7,'PRUEBA4','PRUEBA4','2024-07-25',14,1),(9,'PRUEBA5','PRUEBA5','2024-07-25',14,1),(10,'PRUEBA POCORA','PRUEBA POCORA','2024-07-25',11,1),(11,'SOY RICARDO Y CREE UNA NOTICIA EN BARVA','Prueba','2024-07-26',9,1),(12,'PRUEBA6','6','2024-07-26',9,1),(21,'PRUEBA','PRUEBA','2024-07-26',9,1),(22,'prueba','comunidad','2024-07-26',9,1),(23,'prueba','prueba','2024-07-26',9,1),(24,'1','2','2024-07-26',9,1),(25,'Q','R','2024-07-26',9,1),(26,'1','2222222222222222222','2024-07-26',9,1),(27,'qqqqqqqqqq','rrrrrrrrrrr','2024-07-26',9,1),(28,'4','4','2024-07-26',9,1),(29,'12312312','123123123','2024-07-26',9,1),(30,'DEFINITIVO','DEFINITIVO','2024-07-26',9,1),(31,'123','123','2024-07-26',15,1),(32,'PRUEBA RAPIDA','RAPIDA','2024-07-26',9,1),(33,'pruebacomn','pruebacomn','2024-07-26',9,1),(34,'123123','12312321','2024-07-26',9,1),(35,'4513312','413123','2024-07-26',9,1),(36,'titulo','terremoto','2024-07-26',9,2),(37,'412312312313','5123123123','2024-07-26',9,2),(38,'faffafaf','fafafaf','2024-07-26',9,1),(39,'PRUEBA NUEVA','ESTOY PROBANDO','2024-07-26',9,2),(40,'PRUEBA RAPIDA','RAPIDIN','2024-07-26',9,1),(41,'ESTA PASANDO UN TERREMOTO','AYUDA','2024-07-26',9,2),(42,'RAPIDA','POST RAPIDO','2024-07-26',9,1),(43,'PRUEBA NUEVA','PRUEBA NUEVA','2024-07-28',9,1),(44,'TERREMOTO','COMO LA CANCION','2024-07-28',9,2),(45,'PRUEBA RAPIDA','SE CAE LA CASA','2024-07-28',9,2),(46,'PRUEBA SANTA LUCIA','SANTA LUCIAAAAA','2024-07-28',17,2),(47,'PRUEBA NUEVA 10','..........','2024-07-29',9,1),(48,'PRUEBA DESPUES MERGE','MERGEEEE','2024-07-29',9,2),(51,'Prueba Merge','teeest','2024-07-30',9,2),(53,'Test despues de cambiar rutas','aaa','2024-07-30',9,1),(54,'PRUEBA ALBERTO SJM','PROBANDO','2024-08-03',20,2),(55,'PRUEBA NUEVA VISTA','PRUEBA','2024-08-03',9,1),(56,'PRUEBA CAMBIOS NUEVOS','Prueba detalles','2024-08-03',9,1),(57,'CATASTROFE EN SANTA ROSA','TODO SE INCENDIÓ','2024-08-03',21,1),(59,'PRUEBA IMAGENES','QWEWQEQWEQWE','2024-08-22',9,1),(63,'¿Cómo se utiliza esta aplicación?','Buenas, soy nuevo escuchando de community alert y quería saber cómo es que se usaba, veo que tiene mucho potencial y me realmente me interesa escuchar las principales ventajas o características de la app, gracias!','2024-08-22',23,1),(64,'Que se hace aca?','Ayuda, no tengo idea de como usar la aplicacion','2024-08-22',24,2),(65,'HOLAAAAAA','PRUEBA BUSQUEDA','2024-08-23',9,2),(66,'Hola como están soy nuevo','Me ayudan a conocer la app?','2024-08-23',9,1),(67,'Hola, por qué no contestan?','???????????????????','2024-08-23',9,2),(70,'PRUEBA LIKES CAMBIO','AAAAAAAA','2024-08-23',9,1);
+INSERT INTO `publicaciones` VALUES (1,'Inundación en el centro de SJM','Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae similique architecto harum ea veniam voluptatem suscipit necessitatibus velit dolorem, tenetur, illo dolorum repellendus. Aliquid, nihil odio. Nam, reprehenderit tempore illo quis mollitia libero qui rem ullam facilis sint tenetur, exercitationem ducimus? Aut facilis quo molestias iure alias voluptate unde eaque!','2023-11-03',9,1),(2,'Prueba','Prueba','2024-07-25',9,1),(3,'ACCIDENTE SOCORRO','Nos acabamos de accidentar en la plaza central, por favor llamen al 911','2024-07-25',9,1),(4,'Prueba','Prueba','2024-07-25',14,1),(5,'PRUEBA2','PRUEBA2','2024-07-25',14,1),(6,'PRUEBA3','PRUEBA3','2024-07-25',14,1),(7,'PRUEBA4','PRUEBA4','2024-07-25',14,1),(9,'PRUEBA5','PRUEBA5','2024-07-25',14,1),(10,'PRUEBA POCORA','PRUEBA POCORA','2024-07-25',11,1),(11,'SOY RICARDO Y CREE UNA NOTICIA EN BARVA','Prueba','2024-07-26',9,1),(12,'PRUEBA6','6','2024-07-26',9,1),(21,'PRUEBA','PRUEBA','2024-07-26',9,1),(22,'prueba','comunidad','2024-07-26',9,1),(23,'prueba','prueba','2024-07-26',9,1),(24,'1','2','2024-07-26',9,1),(25,'Q','R','2024-07-26',9,1),(26,'1','2222222222222222222','2024-07-26',9,1),(27,'qqqqqqqqqq','rrrrrrrrrrr','2024-07-26',9,1),(28,'4','4','2024-07-26',9,1),(29,'12312312','123123123','2024-07-26',9,1),(30,'DEFINITIVO','DEFINITIVO','2024-07-26',9,1),(31,'123','123','2024-07-26',15,1),(32,'PRUEBA RAPIDA','RAPIDA','2024-07-26',9,1),(33,'pruebacomn','pruebacomn','2024-07-26',9,1),(34,'123123','12312321','2024-07-26',9,1),(35,'4513312','413123','2024-07-26',9,1),(36,'titulo','terremoto','2024-07-26',9,2),(37,'412312312313','5123123123','2024-07-26',9,2),(38,'faffafaf','fafafaf','2024-07-26',9,1),(39,'PRUEBA NUEVA','ESTOY PROBANDO','2024-07-26',9,2),(40,'PRUEBA RAPIDA','RAPIDIN','2024-07-26',9,1),(41,'ESTA PASANDO UN TERREMOTO','AYUDA','2024-07-26',9,2),(42,'RAPIDA','POST RAPIDO','2024-07-26',9,1),(43,'PRUEBA NUEVA','PRUEBA NUEVA','2024-07-28',9,1),(44,'TERREMOTO','COMO LA CANCION','2024-07-28',9,2),(45,'PRUEBA RAPIDA','SE CAE LA CASA','2024-07-28',9,2),(46,'PRUEBA SANTA LUCIA','SANTA LUCIAAAAA','2024-07-28',17,2),(47,'PRUEBA NUEVA 10','..........','2024-07-29',9,1),(48,'PRUEBA DESPUES MERGE','MERGEEEE','2024-07-29',9,2),(51,'Prueba Merge','teeest','2024-07-30',9,2),(53,'Test despues de cambiar rutas','aaa','2024-07-30',9,1),(54,'PRUEBA ALBERTO SJM','PROBANDO','2024-08-03',20,2),(55,'PRUEBA NUEVA VISTA','PRUEBA','2024-08-03',9,1),(56,'PRUEBA CAMBIOS NUEVOS','Prueba detalles','2024-08-03',9,1),(57,'CATASTROFE EN SANTA ROSA','TODO SE INCENDIÓ','2024-08-03',21,1),(59,'PRUEBA IMAGENES','QWEWQEQWEQWE','2024-08-22',9,1),(63,'¿Cómo se utiliza esta aplicación?','Buenas, soy nuevo escuchando de community alert y quería saber cómo es que se usaba, veo que tiene mucho potencial y me realmente me interesa escuchar las principales ventajas o características de la app, gracias!','2024-08-22',23,1),(64,'Que se hace aca?','Ayuda, no tengo idea de como usar la aplicacion','2024-08-22',24,2),(65,'HOLAAAAAA','PRUEBA BUSQUEDA','2024-08-23',9,2),(66,'Hola como están soy nuevo','Me ayudan a conocer la app?','2024-08-23',9,1),(67,'Hola, por qué no contestan?','???????????????????','2024-08-23',9,2),(70,'PRUEBA LIKES CAMBIO','AAAAAAAA','2024-08-23',9,1),(71,'prueba ari','holis','2024-08-23',26,1);
 /*!40000 ALTER TABLE `publicaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -288,7 +288,7 @@ CREATE TABLE `usuario_distrito` (
 
 LOCK TABLES `usuario_distrito` WRITE;
 /*!40000 ALTER TABLE `usuario_distrito` DISABLE KEYS */;
-INSERT INTO `usuario_distrito` VALUES (9,12,'2024-08-22'),(9,31,'2024-08-23'),(9,295,'2024-08-22'),(9,299,'2024-07-26'),(9,300,'2024-07-28'),(9,306,'2024-08-22'),(11,296,'2024-08-09'),(11,297,'2024-08-09'),(11,298,'2024-08-09'),(11,300,'2024-08-09'),(15,216,'2024-07-26'),(15,300,'2024-07-26'),(16,301,'2024-07-28'),(17,299,'2024-07-28'),(17,300,'2024-07-28'),(18,295,'2024-07-29'),(18,300,'2024-07-29'),(20,300,'2024-08-03'),(21,295,'2024-08-03'),(21,300,'2024-08-03'),(21,306,'2024-08-03'),(22,258,'2024-08-08'),(23,306,'2024-08-22'),(24,300,'2024-08-22'),(24,478,'2024-08-22'),(25,295,'2024-08-23'),(25,300,'2024-08-23');
+INSERT INTO `usuario_distrito` VALUES (9,12,'2024-08-22'),(9,31,'2024-08-23'),(9,295,'2024-08-22'),(9,299,'2024-07-26'),(9,300,'2024-07-28'),(9,306,'2024-08-22'),(11,296,'2024-08-09'),(11,297,'2024-08-09'),(11,298,'2024-08-09'),(11,300,'2024-08-09'),(15,216,'2024-07-26'),(15,300,'2024-07-26'),(16,301,'2024-07-28'),(17,299,'2024-07-28'),(17,300,'2024-07-28'),(18,295,'2024-07-29'),(18,300,'2024-07-29'),(20,300,'2024-08-03'),(21,295,'2024-08-03'),(21,300,'2024-08-03'),(21,306,'2024-08-03'),(22,258,'2024-08-08'),(23,306,'2024-08-22'),(24,300,'2024-08-22'),(24,478,'2024-08-22'),(25,295,'2024-08-23'),(25,300,'2024-08-23'),(26,20,'2024-08-23'),(27,20,'2024-08-23');
 /*!40000 ALTER TABLE `usuario_distrito` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -308,7 +308,7 @@ CREATE TABLE `usuarios` (
   `password` varchar(50) NOT NULL,
   `descripcion` text DEFAULT NULL,
   `icono` varchar(255) NOT NULL,
-  `fecha_ingreso` datetime NOT NULL DEFAULT current_timestamp(),
+  `fecha_ingreso` date NOT NULL,
   `id_role` int(11) NOT NULL,
   `id_distrito` int(11) NOT NULL,
   `estado` bit(1) NOT NULL DEFAULT b'1',
@@ -318,7 +318,7 @@ CREATE TABLE `usuarios` (
   KEY `fk_usuarios_distritos` (`id_distrito`),
   KEY `fk_usuarios_genero` (`id_genero`),
   CONSTRAINT `fk_usuarios_genero` FOREIGN KEY (`id_genero`) REFERENCES `generos` (`id_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -327,7 +327,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (9,'402620226','RICARDO AARON VARGAS MONTERO','123hijo36@gmail.com',1,'123','Qué buena app, increíble.','000','2024-07-25 11:44:38',2,300,_binary '',_binary '\0'),(10,'401230123','HILDA MARIA VILLALOBOS VILLALOBOS','hilda@gmail.com',1,'123','Estoy usando Community Alert!','','2024-07-25 11:44:38',2,5,_binary '',_binary '\0'),(11,'401670123','ERICK RICARDO QUIROS GUTIERREZ','Erick@gmail.com',2,'123','Estoy usando Community Alert! PRUEBA CAMBIO','000','2024-07-25 11:44:38',2,296,_binary '',_binary '\0'),(12,'402620227','JOSE DAVID PEREZ SOLIS','david@gmail.com',1,'123','Estoy usando Community Alert!','000','2024-07-25 11:45:13',2,324,_binary '',_binary '\0'),(13,'402620228','VALERIA ALFARO VARGAS','valeria@gmail.com',1,'123','Estoy usando Community Alert!','000','2024-07-25 14:55:24',2,298,_binary '',_binary '\0'),(14,'401540677','RONY GERARDO AGUILAR GOMEZ','rony@gmail.com',1,'123','Estoy usando Community Alert!','000','2024-07-25 19:19:51',2,296,_binary '',_binary '\0'),(15,'401670876','RANDY ALBERTO MORA FONSECA','randy@gmail.com',1,'123','Estoy usando Community Alert!','','2024-07-26 16:16:44',2,216,_binary '',_binary '\0'),(16,'401760123','MARIANNELA MATARRITA SOTO','mari@gmail.com',1,'123','Estoy usando Community Alert!','','2024-07-28 22:53:56',2,301,_binary '',_binary '\0'),(17,'401230242','YAMILETH DEL CARMEN GONZALEZ SOTO','yami',1,'123','Estoy usando Community Alert!','','2024-07-28 22:55:24',2,299,_binary '',_binary '\0'),(18,'402300855','FIORELLA HERNANDEZ MIRANDA','test@example.us',2,'123','Estoy usando Community Alert! Y SOY DE BARVA OTRA ','000','2024-07-29 12:46:26',2,295,_binary '',_binary '\0'),(19,'117310079','JESUS DANIEL VEGA MARVEZ','jvega10079@ufide.ac.cr',1,'123','Estoy usando Community Alert!','https://static.vecteezy.com/system/resources/previews/007/409/979/non_2x/people-icon-design-avatar-icon-person-icons-people-icons-are-set-in-trendy-flat-style-user-icon-set-vector.jpg','2024-07-25 11:55:14',1,122,_binary '',_binary '\0'),(20,'401200123','ALBERTO GERARDO ANTONIO CORDERO ARAYA','alberto',1,'123','Estoy usando Community Alert!','','2024-08-03 15:27:01',2,300,_binary '',_binary '\0'),(21,'401820123','YENSY BEATRIZ MORA ABARCA','yensi@gmail.com',2,'123','Estoy usando Community Alert!','','2024-08-03 18:32:52',2,306,_binary '',_binary '\0'),(22,'401780123','LILLIANA CORDOBA GUERRERO','lili@gmail.com',2,'123','Estoy usando Community Alert!','','2024-08-08 18:59:15',2,258,_binary '',_binary '\0'),(23,'401010123','DANILO VICENTE ARCE ALFARO','danilo',1,'123',NULL,'','2024-08-22 19:10:10',2,306,_binary '',_binary '\0'),(24,'501430123','CARLOS GILBERTO CRUZ CRUZ','carlos@gmail.com',1,'123',NULL,'','2024-08-22 19:28:50',2,478,_binary '',_binary '\0'),(25,'201230123','ANTONIO RODRIGUEZ BALLESTERO','antonio@gmail.com',1,'123','','000','2024-08-23 17:40:54',2,300,_binary '',_binary '\0');
+INSERT INTO `usuarios` VALUES (9,'402620226','RICARDO AARON VARGAS MONTERO','123hijo36@gmail.com',1,'123','Qué buena app, increíble.','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-25',2,300,_binary '',_binary '\0'),(10,'401230123','HILDA MARIA VILLALOBOS VILLALOBOS','hilda@gmail.com',1,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-25',2,5,_binary '',_binary '\0'),(11,'401670123','ERICK RICARDO QUIROS GUTIERREZ','Erick@gmail.com',2,'123','Estoy usando Community Alert! PRUEBA CAMBIO','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-25',2,296,_binary '',_binary '\0'),(12,'402620227','JOSE DAVID PEREZ SOLIS','david@gmail.com',1,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-25',2,324,_binary '',_binary '\0'),(13,'402620228','VALERIA ALFARO VARGAS','valeria@gmail.com',1,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-25',2,298,_binary '',_binary '\0'),(14,'401540677','RONY GERARDO AGUILAR GOMEZ','rony@gmail.com',1,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-25',2,296,_binary '',_binary '\0'),(15,'401670876','RANDY ALBERTO MORA FONSECA','randy@gmail.com',1,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-26',2,216,_binary '',_binary '\0'),(16,'401760123','MARIANNELA MATARRITA SOTO','mari@gmail.com',1,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-28',2,301,_binary '',_binary '\0'),(17,'401230242','YAMILETH DEL CARMEN GONZALEZ SOTO','yami',1,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-28',2,299,_binary '',_binary '\0'),(18,'402300855','FIORELLA HERNANDEZ MIRANDA','test@example.us',2,'123','Estoy usando Community Alert! Y SOY DE BARVA OTRA ','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-29',2,295,_binary '',_binary '\0'),(19,'117310079','JESUS DANIEL VEGA MARVEZ','jvega10079@ufide.ac.cr',1,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-07-25',1,122,_binary '',_binary '\0'),(20,'401200123','ALBERTO GERARDO ANTONIO CORDERO ARAYA','alberto',1,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-08-03',2,300,_binary '',_binary '\0'),(21,'401820123','YENSY BEATRIZ MORA ABARCA','yensi@gmail.com',2,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-08-03',2,306,_binary '',_binary '\0'),(22,'401780123','LILLIANA CORDOBA GUERRERO','lili@gmail.com',2,'123','Estoy usando Community Alert!','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-08-08',2,258,_binary '',_binary '\0'),(23,'401010123','DANILO VICENTE ARCE ALFARO','danilo',1,'123',NULL,'/Community-Alert/View/User/Perfil/Images/default.jpg','2024-08-22',2,306,_binary '',_binary '\0'),(24,'501430123','CARLOS GILBERTO CRUZ CRUZ','carlos@gmail.com',1,'123',NULL,'/Community-Alert/View/User/Perfil/Images/default.jpg','2024-08-22',2,478,_binary '',_binary '\0'),(25,'201230123','ANTONIO RODRIGUEZ BALLESTERO','antonio@gmail.com',1,'123','','/Community-Alert/View/User/Perfil/Images/default.jpg','2024-08-23',2,300,_binary '',_binary '\0'),(26,'117890989','ARIANNA DE JESUS MATA RETANA','amata90989@ufide.ac.cr',2,'123','holi','/Community-Alert/View/User/Perfil/Images/ᴰʳ_ᴍᴏʀíᴄᴋʏ on Twitter.jpg','2024-08-23',2,20,_binary '',_binary '\0'),(27,'117890988','NICOLE MICHELLE HERNANDEZ ESQUIVEL','nicole@gmail.com',2,'123','','/Community-Alert/View/User/Perfil/Images/woman.jpg','2024-08-23',2,20,_binary '',_binary '\0');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -677,7 +677,7 @@ BEGIN
             email = `pEmail`,
             id_genero = `pGenero`,
 			descripcion = `pDescripcion`,
-			icono = `pIcono`,
+            icono = CASE WHEN `pIcono` = '' THEN icono ELSE `pIcono` END,
 			id_distrito = `pId_distrito`
 	WHERE 	id_usuario = `pId_usuario`;
 
@@ -1492,18 +1492,17 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `registrarUsuario`(
-				`pCedula` varchar(9), 
-				`pNombre` varchar(50), 
-                `pApellidos` varchar(50), 
-                `pCorreo` varchar(50), 
-                `pGenero` INT, 
-                `pContrasennia` varchar(50), 
-                `pDistrito` varchar(50))
+    `pCedula` varchar(9), 
+    `pNombre` varchar(50), 
+    `pApellidos` varchar(50), 
+    `pCorreo` varchar(50), 
+    `pGenero` INT, 
+    `pContrasennia` varchar(50), 
+    `pDistrito` varchar(50),
+    `pIcono` varchar(255))
 BEGIN
-			
-	INSERT INTO communityalert.usuarios (`cedula`, `nombre_usuario`, `email`, `id_genero`, `password` ,`id_role`, `id_distrito`, `passwordTemporal`)
-	VALUES (`pCedula`, CONCAT(`pNombre`, ' ', `pApellidos`), `pCorreo`, `pGenero`, `pContrasennia`, 2, `pDistrito`, 0);
-    
+    INSERT INTO communityalert.usuarios (`cedula`, `nombre_usuario`, `email`, `id_genero`, `password`, `id_role`, `id_distrito`, `passwordTemporal`, `icono`)
+    VALUES (`pCedula`, CONCAT(`pNombre`, ' ', `pApellidos`), `pCorreo`, `pGenero`, `pContrasennia`, 2, `pDistrito`, 0, `pIcono`);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1588,4 +1587,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-23 18:38:09
+-- Dump completed on 2024-08-24 10:34:23

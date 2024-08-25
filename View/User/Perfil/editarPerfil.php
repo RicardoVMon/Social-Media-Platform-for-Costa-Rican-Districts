@@ -45,7 +45,7 @@ $datos = ConsultarUsuario($_GET['s']);
                                         <div class="d-flex justify-content-between px-4 mt-3">
                                             <div class="d-flex justify-content-start">
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <img src="<?php echo $_SESSION['icono']; ?>" style="height: 7vw; width: 7vw; object-fit: cover;" class="rounded-circle img-fluid">
+                                                    <img src="<?php echo $datos['icono']; ?>" style="height: 7vw; width: 7vw; object-fit: cover;" class="rounded-circle img-fluid">
                                                 </div>
                                                 <div class="mx-3 d-flex flex-column justify-content-center">
                                                     <h1 class="font-weight-bold mb-0">
@@ -67,52 +67,13 @@ $datos = ConsultarUsuario($_GET['s']);
                                                 </a>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-12 px-0">
-                                            <div class="card">
-                                                <div class="card-header pb-1">
-                                                    <div class="d-flex">
-                                                        <img src="<?php echo $_SESSION['icono']; ?>" class="rounded-circle" style="height: 1vw; width: 1vw; object-fit: cover;">
-                                                        <div class="ml-1"><b><?php echo $_SESSION['nombreUsuario']; ?></b></div>
-                                                        <span class="ml-1">dd/mm/yyyy</span>
-                                                    </div>
-                                                    <div class="card-head-row">
-                                                        <a class="card-title my-2 pb-0" style="font-size: 1vw;">Lorem, ipsum dolor.</a>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="mb-0">
-                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur debitis
-                                                        qui deleniti tempora molestiae voluptatum fuga vero id est repellendus.
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <a href="#" class="btn btn-sm btn-primary mr-2">
-                                                        <i class="fa fa-thumbs-up"></i> Me gusta
-                                                    </a>
-                                                    <a href="#" class="btn btn-sm btn-secondary mr-2">
-                                                        <i class="fa fa-comment"></i> Comentar
-                                                    </a>
-                                                    <a href="#" class="btn btn-sm btn-danger">
-                                                        <i class="fa fa-pen"></i> Editar
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
-
-
-
-                                <!-- Post hechos por el usuario -->
-
-
                             </div>
-
                         </div>
 
                         <div class="col-6">
-                            <!-- Formulario para editar perfil ****************** falta imagen que vemos despues en clase ******************** -->
+                            <!-- Formulario para editar perfil -->
                             <div class="card">
                                 <div class="card-header pb-0">
                                     <div class="h1">Editar Perfil</div>
@@ -125,7 +86,7 @@ $datos = ConsultarUsuario($_GET['s']);
                                     }
                                     ?>
 
-                                    <form action="" method="post">
+                                    <form action="" method="post" enctype="multipart/form-data">
                                         <input id="txtIdUsuario" name="txtIdUsuario" type="hidden" value="<?php echo $datos["id_usuario"]; ?>">
 
                                         <label for="txtCedula">Identificación</label>
@@ -158,7 +119,6 @@ $datos = ConsultarUsuario($_GET['s']);
                                             </div>
                                         </div>
 
-                                        <!-- ****************** modificar en bd para que no sea codigo quemado ******************** -->
                                         <label for="selectGenero">Género</label>
                                         <div class="input-group mb-3">
                                             <select id="selectGenero" name="selectGenero" class="form-control" required>
@@ -169,6 +129,22 @@ $datos = ConsultarUsuario($_GET['s']);
                                         <label for="description">Descripción</label>
                                         <div class="form-group">
                                             <textarea class="form-control mb-1" id="description" name="description" rows="3" placeholder="Descripción"><?php echo $datos["descripcion"]; ?></textarea>
+                                        </div>
+
+                                        <Label>Imagen Actual</Label>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <img width='200' height='150' src="<?php echo $datos['icono'] ?>"></img>
+                                        </div>
+
+                                        <Label>Imagen</Label>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input id="txtIcono" name="txtIcono" type="file" class="form-control"
+                                                placeholder="Icono" value="" accept="image/png, image/jpg, image/jpeg">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-camera"></span>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="form-group" id="btnModificarDistrito">

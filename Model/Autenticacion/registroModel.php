@@ -26,10 +26,10 @@ function ConsultarIdGeneroBD()
     cerrarConexion($conexion);
     return $respuesta;
 }
-function registrarUsuario($cedula, $nombre, $apellidos, $correo, $genero, $contrasennia, $distrito)
+function registrarUsuario($cedula, $nombre, $apellidos, $correo, $genero, $contrasennia, $distrito, $icono)
 {
     $conexion = abrirConexion();
-    $query = "CALL registrarUsuario('$cedula', '$nombre', '$apellidos', '$correo', '$genero', '$contrasennia', '$distrito')";
+    $query = "CALL registrarUsuario('$cedula', '$nombre', '$apellidos', '$correo', '$genero', '$contrasennia', '$distrito', '$icono')";
     $resultado = $conexion->query($query);
     cerrarConexion($conexion);
     return $resultado;
