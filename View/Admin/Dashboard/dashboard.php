@@ -91,30 +91,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">Porcentaje de Usuarios por Provincia</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-container">
-                                        <canvas id="pieChart" style="width: 50%; height: 50%"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">Comunidades con más actividad</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-container">
-                                        <canvas id="barChart" style="width: 50%; height: 50%"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="col-6">
                             <div class="card">
                                 <div class="card-header">
