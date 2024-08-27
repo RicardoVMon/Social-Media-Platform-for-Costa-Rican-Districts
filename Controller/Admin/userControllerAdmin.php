@@ -17,13 +17,23 @@ function ObtenerUsuarios()
             echo '<td>
                 <form method="post" action="" style="display:inline;">
                     <input type="hidden" name="idUsuario" value="' . $row["id_usuario"] . '">
-                    <button type="submit" name="btnCambiarEstado" class="btn btn-primary mr-2">Cambiar Estado</button>
+                    <button type="submit" name="btnCambiarEstado" class="btn btn-danger mr-2">Cambiar Estado</button>
                 </form>
-                <button class="btn btn-secondary">Ver Perfil</button>
+                <form method="get" action="usuario.php" style="display:inline;">
+                    <input type="hidden" name="idUsuario" value="' . $row["id_usuario"] . '">
+                    <button type="submit" class="btn btn-primary mr-2">Ver Perfil</button>
+                </form>
               </td>';
             echo '</tr>';
         }
     }
+}
+
+function ObtenerDatosUsuario($id)
+{
+    $resultado = ObtenerDatosUsuarioBD($id);
+    
+    return mysqli_fetch_array($resultado);
 }
 
 // Para cambiar el estado
@@ -32,3 +42,9 @@ if (isset($_POST['btnCambiarEstado'])) {
 
     CambiarEstadoUsuarioBD($id);
 }
+
+// Para ver el perfil de algún usuario
+if (isset($_POST['btnCambiarEstado'])) {
+
+}
+

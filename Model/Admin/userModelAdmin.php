@@ -9,6 +9,16 @@ function ObtenerUsuariosBD()
     return $respuesta;
 }
 
+function ObtenerDatosUsuarioBD($id)
+{
+    $conexion = abrirConexion();
+    $procedimiento = "CALL ObtenerDatosUsuarioAdmin('$id')";
+    $respuesta = $conexion->query($procedimiento);
+    cerrarConexion($conexion);
+    return $respuesta;
+}
+
+
 function CambiarEstadoUsuarioBD($id)
 {
     $conexion = abrirConexion();

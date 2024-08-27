@@ -1,4 +1,5 @@
 <?php include_once __DIR__ . '/../../Model/Admin/postModelAdmin.php';
+      include_once __DIR__ . '/../../Model/PostModel/postModel.php';
 
 // Para recibir la lista de publicaciones
 function ObtenerPublicaciones()
@@ -23,6 +24,51 @@ function ObtenerPublicaciones()
             </td>';
             echo '</tr>';
         }
+    }
+}
+
+// Para recibir la cantidad de likes de un post
+function ObtenerLikesPostAdmin($id)
+{
+    $respuesta = ObtenerLikesPostAdminBD($id);
+    
+    if ($respuesta->num_rows > 0) {
+        $row = mysqli_fetch_array($respuesta);
+        return $row['likes'];
+    }
+}
+
+// Para recibir la información de la comunidad relacionada a un post
+function ObtenerComunidadPostAdmin($id)
+{
+    $respuesta1 = ObtenerComunidadPostAdminBD($id);
+    $respuesta2 = ObtenerUsuariosComunidadAdminBD($id);
+
+    if ($respuesta1->num_rows > 0 && $respuesta2->num_rows > 0) {
+
+        $datosComunidad = mysqli_fetch_array($respuesta1);
+        $countUsuariosComunidad = mysqli_fetch_array($respuesta2);
+
+        echo '<div class="row">
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-0">' . $datosComunidad['fecha'] . '</h4>
+                    <p>Fecha de publicación</p>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-0">' . $countUsuariosComunidad['seguidores'] . '</h4>
+                    <p>Número de Usuarios</p>
+                </div>
+              </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-0">' . $datosComunidad['nombre_provincia'] . '</h4>
+                    <p>Provincia</p>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-0">' . $datosComunidad['nombre_canton'] . '</h4>
+                    <p>Canton</p>
+                </div>
+            </div>';
     }
 }
 

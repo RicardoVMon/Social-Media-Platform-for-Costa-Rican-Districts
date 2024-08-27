@@ -75,24 +75,7 @@ function mostrarNavBar()
       <!-- Navbar Header -->
       <nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
             <div class="container-fluid">
-               <div class="collapse" id="search-nav">
-                  <form class="navbar-left navbar-form nav-search mr-md-3">
-                        <div class="input-group">
-                           <div class="input-group-prepend">
-                              <button type="submit" class="btn btn-search pr-1">
-                                    <i class="fa fa-search search-icon"></i>
-                              </button>
-                           </div>
-                           <input type="text" placeholder="Buscar ..." class="form-control">
-                        </div>
-                  </form>
-               </div>
                <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-                  <li class="nav-item">
-                        <a class="nav-link" href="#">
-                           <i class="fa fa-plus"></i>
-                        </a>
-                  </li>
                   <li class="nav-item toggle-nav-search hidden-caret">
                         <a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
                            <i class="fa fa-search"></i>
@@ -101,24 +84,20 @@ function mostrarNavBar()
                   <li class="nav-item dropdown hidden-caret">
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                            <div class="avatar-sm">
-                              <img src="../../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                              <img src="' . $_SESSION['iconoUsuario'] . '" alt="..." class="avatar-img rounded-circle">
                            </div>
                         </a>
                         <ul class="dropdown-menu dropdown-user animated fadeIn">
                            <div class="dropdown-user-scroll scrollbar-outer">
                               <li>
                                     <div class="user-box">
-                                       <div class="avatar-lg"><img src="../../assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+                                       <div class="avatar-lg"><img src="' . $_SESSION['iconoUsuario'] . '" alt="..." class="avatar-img rounded-circle"></div>
                                        <div class="u-text">
                                           <h4>' . $_SESSION['nombreUsuario'] . '</h4>
-                                          <p class="text-muted">' . $_SESSION['email'] . '</p><a href="#" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                        </div>
                                     </div>
                               </li>
                               <li>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Mi Perfil</a>
-                                    <a class="dropdown-item" href="#">Alertas</a>
                                     <div class="dropdown-divider"></div>
                                     <form method="POST" action="../../../Controller/Autenticacion/loginController.php">
                                        <button type="submit" class="dropdown-item" name="btnCerrarSesion" id="btnCerrarSesion">Logout</button>
@@ -145,7 +124,7 @@ function mostrarSideBar()
          <div class="sidebar-content">
             <div class="user">
                <div class="avatar-sm float-left mr-2">
-                  <img src="../../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                  <img src="' . $_SESSION['iconoUsuario'] . '" alt="..." class="avatar-img rounded-circle">
                </div>
                <div class="info">
                   <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -185,63 +164,6 @@ function mostrarSideBar()
                         <li>
                            <a href="../Posts/posts.php">
                            <span class="sub-item">Posts</span>
-                           </a>
-                        </li>
-                     </ul>
-                  </div>
-               </li>
-               <li class="nav-section">
-                  <span class="sidebar-mini-icon">
-                  <i class="fa fa-ellipsis-h"></i>
-                  </span>
-                  <h4 class="text-section">Noticias</h4>
-               </li>
-               <li class="nav-item">
-                  <a data-toggle="collapse" href="#submenu">
-                     <i class="fas fa-bars"></i>
-                     <p>Filtrar busqueda</p>
-                     <span class="caret"></span>
-                  </a>
-                  <div class="collapse" id="submenu">
-                     <ul class="nav nav-collapse">
-                        <li>
-                           <a data-toggle="collapse" href="#subnav1">
-                           <span class="sub-item">Choques</span>
-                           <span class="caret"></span>
-                           </a>
-                           <div class="collapse" id="subnav1">
-                              <ul class="nav nav-collapse subnav">
-                                 <li>
-                                    <a href="#">
-                                    <span class="sub-item">Motocicletas</span>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="#">
-                                    <span class="sub-item">Colapso de carretera</span>
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </li>
-                        <li>
-                           <a data-toggle="collapse" href="#subnav2">
-                           <span class="sub-item">Desastres Naturales</span>
-                           <span class="caret"></span>
-                           </a>
-                           <div class="collapse" id="subnav2">
-                              <ul class="nav nav-collapse subnav">
-                                 <li>
-                                    <a href="#">
-                                    <span class="sub-item">Inundación</span>
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </li>
-                        <li>
-                           <a href="#">
-                           <span class="sub-item">Desabastecimiento</span>
                            </a>
                         </li>
                      </ul>
