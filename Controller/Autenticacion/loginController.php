@@ -29,10 +29,9 @@ if (isset($_POST['btnLogin'])) {
         obtenerProvinciaCanton();
         $_SESSION['rolUsuario'] = $datos['id_role'];
         $_SESSION['iconoUsuario'] = $datos['icono'];
+        $_SESSION['estado'] = $datos['estado'];
 
-
-
-        if ($_SESSION['rolUsuario'] == 1) {
+        if ($_SESSION['rolUsuario'] == 1 && $_SESSION['estado'] == 1) {
             if ($datos['passwordTemporal'] == 1) {
                 header("Location: ../../View/Autenticacion/actualizarContra.php");
             } else {
@@ -41,11 +40,12 @@ if (isset($_POST['btnLogin'])) {
         } else {
             if ($datos['passwordTemporal'] == 1) {
                 header("Location: ../../View/Autenticacion/actualizarContra.php");
+            } elseif ($_SESSION['estado'] == 0) {
+                $_POST['mensaje'] = "Usuario o contraseña incorrectos";
             } else {
                 header("Location: ../../View/User/Home/home.php");
             }
         }
-
     } else {
 
         $_POST['mensaje'] = "Usuario o contraseña incorrectos";
@@ -108,7 +108,7 @@ if (isset($_POST["btnRecuperarAcceso"])) {
 }
 
 if (isset($_POST["btnActualizarContrasennia"])) {
-    
+
     $contrasennia = $_POST["password"];
     $confirmarContrasennia = $_POST["newPassword"];
 

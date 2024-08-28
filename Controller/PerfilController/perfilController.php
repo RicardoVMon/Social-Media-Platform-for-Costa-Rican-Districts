@@ -65,27 +65,10 @@ if (isset($_POST["btnEditarPerfil"])) {
         copy($origen, $destino);
     }
 
-    $provincia = $_POST['nombreProvincia'];
-    $canton = $_POST['nombreCanton'];
-    $distrito = $_POST['nombreDistrito'];
-
-    $resultadoDistrito = obtenerIdDistrito($provincia, $canton, $distrito);
-    $datos = mysqli_fetch_array($resultadoDistrito);
-    $IdDistrito = $datos['id_distrito'];
-
-    if ($_SESSION['idDistrito'] != $IdDistrito) {
-        cambioDeDistrito($IdDistrito);
-        procesoCambioDeDistritoBD($IdUsuario);
-    }
-
-    $respuesta = EditarPerfilBD($IdUsuario, $Cedula, $NombreUsuario, $Email, $Genero, $Descripcion, $Icono, $IdDistrito);
+    $respuesta = EditarPerfilBD($IdUsuario, $Cedula, $NombreUsuario, $Email, $Genero, $Descripcion, $Icono);
 
     if ($respuesta == true) {
         $_SESSION["nombreUsuario"] = $_POST["txtNombreUsuario"];
-        $_SESSION["idDistrito"] = $IdDistrito;
-        $_SESSION["nombreDistrito"] = $distrito;
-        $_SESSION["nombreCanton"] = $canton;
-        $_SESSION["nombreProvincia"] = $provincia;
         $_SESSION['iconoUsuario'] = $Icono;
         $_SESSION['email'] = $_POST["txtEmail"];
 

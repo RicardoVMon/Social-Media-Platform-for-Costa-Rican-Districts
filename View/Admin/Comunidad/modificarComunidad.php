@@ -141,15 +141,28 @@ $datosComunidad = ObtenerComunidad($id); ?>
                                     <div class="card-title">Modificar Comunidad</div>
                                 </div>
                                 <div class="card-body">
-                                    <form id="communityForm" action="../../../Controller/Admin/comunidadControllerAdmin.php" method="post">
+                                    <form id="communityForm" action="../../../Controller/Admin/comunidadControllerAdmin.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" id="id" name="id" value="<?php echo $datosComunidad['id_distrito']; ?>">
-                                        <div class="form-group">
-                                            <label for="banner">Imagen de Banner</label>
-                                            <input type="file" class="form-control-file" id="banner" name="banner">
+                                        <!-- SECCION DE IMAGENES -->
+                                        <label>Imagen de Banner</label>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input id="imgBanner" name="imgBanner" type="file" class="form-control"
+                                                placeholder="Banner" value="" accept="image/png, image/jpg, image/jpeg">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-camera"></span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="profile">Imagen de Perfil de Comunidad</label>
-                                            <input type="file" class="form-control-file" id="icono" name="icono">
+                                        <label>Imagen de Perfil de Comunidad</label>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input id="imgIcono" name="imgIcono" type="file" class="form-control"
+                                                placeholder="icono" value="" accept="image/png, image/jpg, image/jpeg">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fas fa-camera"></span>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="description">Descripción de la Comunidad</label>

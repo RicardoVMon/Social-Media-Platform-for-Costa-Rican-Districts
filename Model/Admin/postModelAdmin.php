@@ -28,6 +28,33 @@ function ObtenerComentariosPublicacionBD($id)
     return $respuesta;
 }
 
+function ObtenerComunidadPostAdminBD($id)
+{
+    $conexion = abrirConexion();
+    $procedimiento = "CALL ObtenerComunidadPostAdmin('$id')";
+    $respuesta = $conexion->query($procedimiento);
+    cerrarConexion($conexion);
+    return $respuesta;
+}
+
+function ObtenerUsuariosComunidadAdminBD($id)
+{
+    $conexion = abrirConexion();
+    $procedimiento = "CALL ObtenerUsuariosComunidadAdmin('$id')";
+    $respuesta = $conexion->query($procedimiento);
+    cerrarConexion($conexion);
+    return $respuesta;
+}
+
+function ObtenerLikesPostAdminBD($id)
+{
+    $conexion = abrirConexion();
+    $procedimiento = "CALL ObtenerLikesPostAdmin('$id')";
+    $respuesta = $conexion->query($procedimiento);
+    cerrarConexion($conexion);
+    return $respuesta;
+}
+
 function EliminarPublicacionBD($id)
 {
     $conexion = abrirConexion();

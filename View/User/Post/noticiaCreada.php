@@ -41,17 +41,6 @@ $existencia_like = estadoLikeUsuario($_SESSION['idUsuario'], $_GET['r']);
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-1 ml-auto">
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-
-                                        <div class="dropdown-menu dropdown-menu-right text-left" aria-labelledby="dropdownMenuLink">
-                                            <!-- Dropdown menu items -->
-                                            <a class="dropdown-item" href="#"><i class="fa fa-edit mr-1"></i> Editar</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-trash mr-1"></i> Eliminar</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="row pt-3">
                                 <div class="col-10 mb-0 pr-0 mr-0">

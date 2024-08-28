@@ -4,8 +4,23 @@ if (isset($_POST['btnModificarComunidad'])) {
 
     $id = $_POST['id'];
     $descripcion = $_POST['descripcion'];
-    $banner = $_POST['banner'];
-    $icono = $_POST['icono'];
+
+    $banner = $_POST['imgBanner'];
+    if ($_FILES["imgBanner"]["name"] != "") {
+            $banner = '/Community-Alert/View/Admin/Comunidad/Images/' . $_FILES["imgBanner"]["name"];
+            $origen = $_FILES["imgBanner"]["tmp_name"];
+            $destino = $_SERVER['DOCUMENT_ROOT'] . '/Community-Alert/View/Admin/Comunidad/Images/' . $_FILES["imgBanner"]["name"];
+            copy($origen, $destino);
+    }
+
+    $icono = $_POST['imgIcono'];
+    if($_FILES["imgIcono"]["name"] != "")
+    {
+        $icono = '/Community-Alert/View/Admin/Comunidad/Images/' . $_FILES["imgIcono"]["name"];
+        $origen = $_FILES["imgIcono"]["tmp_name"];
+        $destino = $_SERVER['DOCUMENT_ROOT'] . '/Community-Alert/View/Admin/Comunidad/Images/' . $_FILES["imgIcono"]["name"];
+        copy($origen, $destino);
+    }
 
     $resultadoActualizar = ActualizarComunidadBD($id, $descripcion, $banner, $icono);
 

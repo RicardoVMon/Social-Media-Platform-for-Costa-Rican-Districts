@@ -2,9 +2,9 @@
 include_once __DIR__ . '/../../../Controller/Admin/postControllerAdmin.php';
 
 if (isset($_GET['idPublicacion'])) {
-    $id = $_GET['idPublicacion'];
+    $idPublicacion = $_GET['idPublicacion'];
 }
-$datosPost = ObtenerPublicacion($id);
+$datosPost = ObtenerPublicacion($idPublicacion);
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ $datosPost = ObtenerPublicacion($id);
                                 <!-- Inicio noticia -->
 
                                 <!-- Post -->
-                                <div class="col-md-12 px-0" style="margin-top:100px">
+                                <div class="col-md-12 px-0">
                                     <div class="card">
                                         <div class="card-header pb-1">
                                             <div class="d-flex">
@@ -56,7 +56,7 @@ $datosPost = ObtenerPublicacion($id);
                                         </div>
                                         <div class="card-footer">
                                             <a href="#" class="btn btn-primary mr-2">
-                                                <i class="fa fa-thumbs-up"></i> Cantidad de Likes
+                                                <i class="fa fa-thumbs-up"></i> <?php echo ObtenerLikesPostAdmin($datosPost['id_publicacion']); ?>
                                             </a>
                                             <form method="post" action="../../../Controller/Admin/postControllerAdmin.php" style="display:inline; float: right;">
                                                 <input type="hidden" name="idPublicacion" value="<?php echo $datosPost['id_publicacion']; ?>">
@@ -67,80 +67,67 @@ $datosPost = ObtenerPublicacion($id);
                                 </div>
                                 <!-- Fin noticia -->
 
+
                                 <!-- Comentarios -->
 
-                                <?php ObtenerComentariosPublicacion($id) ?>
+                                <?php ObtenerComentariosPublicacion($idPublicacion) ?>
 
                                 <!-- Fin de los comentarios -->
-                            </div>
-                        </div>
 
+                            </div>
+
+                        </div>
                         <!-- Columna de información de la comunidad -->
-                        <div class="col-md-3" style="margin-left:25px">
-                            <div class="card" style="margin-top:40px">
+                        <div class="col-md-4">
+                            <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title text-center" style="font-size: 1.5vw;">
-                                        <i class="fa-solid fa fa-home"></i>
-                                        Comunidad
+                                    <div class="text-center" style="font-size: 1.5vw;">
+                                        <i class="fa-solid fa-home"></i>
+                                        <!-- Nombre distrito -->
                                     </div>
                                 </div>
                                 <div class="card-body pb-0">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p>dd/mm/yyyy</p>
-                                            <p>Fecha</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>#####</p>
-                                            <p>Número de seguidores</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p>#####</p>
-                                            <p>Distrito</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>####</p>
-                                            <p>Canton</p>
-                                        </div>
-                                    </div>
+                                    <?php ObtenerComunidadPostAdmin($idPublicacion); ?>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
+                    <!-- Columna de información de la comunidad -->
                 </div>
+
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <nav class="pull-left">
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        Sobre Nosotros
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        Soporte
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        Licencias
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="copyright ml-auto">
+                            2024, Umbrella
+                        </div>
+                    </div>
+                </footer>
+
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="pull-left">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    Sobre Nosotros
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    Soporte
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    Licencias
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright ml-auto">
-                        2024, Umbrella
-                    </div>
-                </div>
-            </footer>
 
-        </div>
-
-        <?php scripts(); ?>
+            <?php scripts(); ?>
 
 </body>
 
