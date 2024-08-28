@@ -1,4 +1,7 @@
-<?php include_once __DIR__ . '/../Layout/layoutAdmin.php'; ?>
+<?php include_once __DIR__ . '/../Layout/layoutAdmin.php'; 
+include_once __DIR__ . '/../../../Controller/Admin/dashboardControllerAdmin.php'; 
+
+$datosDashboard = ObtenerDatosDashboard(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -101,15 +104,15 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <h4>Total de Usuarios</h4>
-                                            <h1>100</h1>
+                                            <h1><?php echo $datosDashboard['total_usuarios']; ?></h1>
                                         </div>
                                         <div class="col-4">
                                             <h4>Total de Posts</h4>
-                                            <h1>50</h1>
+                                            <h1><?php echo $datosDashboard['total_publicaciones']; ?></h1>
                                         </div>
                                         <div class="col-4">
                                             <h4>Total de Comentarios</h4>
-                                            <h1>200</h1>
+                                            <h1><?php echo $datosDashboard['total_comentarios']; ?></h1>
                                         </div>
                                     </div>
                                 </div>
@@ -122,11 +125,11 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <h4>Usuarios Activos</h4>
-                                            <h1>100</h1>
+                                            <h1><?php echo $datosDashboard['usuarios_activos']; ?></h1>
                                         </div>
                                         <div class="col-6">
                                             <h4>Usuarios Inactivos</h4>
-                                            <h1>50</h1>
+                                            <h1><?php echo $datosDashboard['usuarios_inactivos']; ?></h1>
                                         </div>
                                     </div>
                                 </div>
@@ -147,16 +150,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>123456789</td>
-                                                <td>John Doe</td>
-                                                <td>Community A</td>
-                                            </tr>
-                                            <tr>
-                                                <td>987654321</td>
-                                                <td>Jane Smith</td>
-                                                <td>Community B</td>
-                                            </tr>
+                                            <?php ObtenerUsuariosDashboard(); ?>
                                             <!-- Add more rows for each user -->
                                         </tbody>
                                     </table>
