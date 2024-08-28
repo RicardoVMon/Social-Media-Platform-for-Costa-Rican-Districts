@@ -74,7 +74,7 @@ include_once __DIR__ . '/../../../Controller/PostController/postController.php';
                                             </a>
                                         </div>
                                         <div class="col-12">
-                                            <a href="../Comunidad/comunidad.php" class="text-white">
+                                            <a href="../Comunidad/comunidad.php?q=<?php echo $_GET['q']; ?>" class="text-white">
                                                 <div class="card bg-primary">
                                                     <div class="card-body">Mi Comunidad</div>
                                                 </div>

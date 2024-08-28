@@ -37,7 +37,7 @@ $datosPost = ObtenerPublicacion($idPublicacion);
                                 <!-- Inicio noticia -->
 
                                 <!-- Post -->
-                                <div class="col-md-12 px-0" style="margin-top:100px">
+                                <div class="col-md-12 px-0">
                                     <div class="card">
                                         <div class="card-header pb-1">
                                             <div class="d-flex">
