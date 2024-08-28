@@ -10,10 +10,10 @@ function ConsultarUsuarioBD($IdUsuario)
     return $respuesta;
 }
 
-function EditarPerfilBD($IdUsuario, $Cedula, $NombreUsuario, $Email, $Genero, $Descripcion, $Icono, $IdDistrito)
+function EditarPerfilBD($IdUsuario, $Cedula, $NombreUsuario, $Email, $Genero, $Descripcion, $Icono)
 {
     $conexion = abrirConexion();
-    $sentencia = "CALL EditarPerfil('$IdUsuario','$Cedula','$NombreUsuario','$Email','$Genero','$Descripcion','$Icono','$IdDistrito')";
+    $sentencia = "CALL EditarPerfil('$IdUsuario','$Cedula','$NombreUsuario','$Email','$Genero','$Descripcion','$Icono')";
     $respuesta = $conexion->query($sentencia);
     cerrarConexion($conexion);
     return $respuesta;

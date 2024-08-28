@@ -146,57 +146,6 @@ $datos = ConsultarUsuario($_GET['s']);
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="form-group" id="btnModificarDistrito">
-                                            <div class="btn btn-primary btn-sm w-100 form-control" onclick="mensajeModificar();">
-                                                <i class="fas fa-lock mr-2"></i>
-                                                Opciones de Distrito
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group" id="btnRevertirDistrito" hidden>
-                                            <div class="btn btn-primary btn-sm w-100 form-control" onclick="mensajeRevertir();">
-                                                <i class="fa-solid fa-repeat mr-2"></i>
-                                                Revertir Cambios de Distrito
-                                            </div>
-                                        </div>
-
-                                        <div id="opcionesDistrito" hidden>
-                                            <label for="txtDireccion">Tu distrito</label>
-                                            <div class="row mb-3">
-                                                <div class="col-4">
-                                                    <div class="form-group form-floating">
-                                                        <label for="provincia" class="form-label">Provincia</label>
-                                                        <select class="form-control" name="provincia" id="provincia" onchange="obtenerCantones();" required>
-                                                            <option value="" selected disabled>Seleccione la provincia</option>
-                                                        </select>
-                                                        <input type="hidden" name="nombreProvincia" id="nombreProvincia" value="<?php echo $datos["nombre_provincia"]; ?>">
-                                                        <input type="hidden" name="estaticoProvincia" id="estaticoProvincia" value="<?php echo $_SESSION["nombreProvincia"]; ?>">
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="form-group form-floating">
-                                                        <label for="canton" class="form-label">Cantón</label>
-                                                        <select class="form-control" name="canton" id="canton" onchange="obtenerDistritos();" required>
-                                                            <option value="" selected disabled>Seleccione el cantón</option>
-                                                        </select>
-                                                        <input type="hidden" name="nombreCanton" id="nombreCanton" value="<?php echo $datos["nombre_canton"]; ?>">
-                                                        <input type="hidden" name="estaticoCanton" id="estaticoCanton" value="<?php echo $_SESSION["nombreCanton"]; ?>">
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="form-group form-floating">
-                                                        <label for="distrito" class="form-label">Distrito</label>
-                                                        <select class="form-control" name="distrito" id="distrito" onchange="establecerNombres();" required>
-                                                            <option value="" selected disabled>Seleccione el distrito</option>
-                                                        </select>
-                                                        <input type="hidden" name="nombreDistrito" id="nombreDistrito" value="<?php echo $datos["nombre_distrito"]; ?>">
-                                                        <input type="hidden" name="estaticoDistrito" id="estaticoDistrito" value="<?php echo $_SESSION["nombreDistrito"]; ?>">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
                                         <div class="form-group mt-0">
                                             <div class="row">
                                                 <div class="col-9"></div>
